@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web para Hoteles, Hostales y Casas Rurales — CostaDigital | Reservas · Desde 700€</title>
+<meta name="description" content="Diseño web para hoteles, pensiones, hostales, apartamentos turísticos y casas rurales. Reservas directas, SEO local y menos comisiones. Desde 700€.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://costadigital.es/web-para-hoteles.html">
+<link rel="sitemap" type="application/xml" href="sitemap.xml">
+<meta property="og:title" content="Web para Hoteles, Hostales y Casas Rurales — CostaDigital | Reservas · Desde 700€">
+<meta property="og:description" content="Diseño web para hoteles, pensiones, hostales, apartamentos turísticos y casas rurales. Reservas directas, SEO local y menos comisiones. Desde 700€.">
+<meta property="og:url" content="https://costadigital.es/web-para-hoteles.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://costadigital.es/og-image.jpg">
+<meta name="theme-color" content="#f5a623">
+<script type="application/ld+json">{
+  "@context":"https://schema.org",
+  "@type":"Service",
+  "name":"Web para Hoteles, Hostales y Casas Rurales — CostaDigital | Reservas · Desde 700€",
+  "description":"Diseño web para hoteles, pensiones, hostales, apartamentos turísticos y casas rurales. Reservas directas, SEO local y menos comisiones. Desde 700€.",
+  "serviceType":"Diseño web para hoteles y alojamientos",
+  "provider":{"@type":"ProfessionalService","name":"CostaDigital","url":"https://costadigital.es","telephone":"+34654256764"},
+  "url":"https://costadigital.es/web-para-hoteles.html",
+  "areaServed":{"@type":"Country","name":"España"},
+  "offers":{"@type":"Offer","price":"700","priceCurrency":"EUR"}
+}</script>
+font
+font
+font
+<style>
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --bg:#03050a;--bg2:#060a12;--bg3:#0a1018;
+  --s1:#f5a623;--s2:#ff6b35;
+  --c1:#00d4ff;--c2:#0066ff;--g1:#00e676;
+  --m1:rgba(255,255,255,.6);--m2:rgba(255,255,255,.38);
+  --m3:rgba(255,255,255,.2);--m4:rgba(255,255,255,.09);
+  --b1:rgba(255,255,255,.07);--b2:rgba(255,255,255,.12);
+  --gs:linear-gradient(135deg,#f5a623,#ff6b35);
+  --f1:'Syne',sans-serif;--f2:'DM Sans',sans-serif;
+  --ez:cubic-bezier(.25,.46,.45,.94);--sp:cubic-bezier(.34,1.56,.64,1)
+}
+body{font-family:var(--f2);background:var(--bg);color:#fff;overflow-x:hidden;line-height:1.7}
+@media(hover:none),(max-width:767px){body{cursor:auto}}
+img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-style:none}
+::-webkit-scrollbar{width:2px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--s1)}
+#c-dot{
+  position:fixed;top:0;left:0;
+  width:9px;height:9px;border-radius:50%;
+  background:var(--s1);
+  pointer-events:none;z-index:99999;
+  will-change:transform;
+  /* translate(-50%,-50%) se añade en JS junto con la posición */
+  transition:width .18s,height .18s,background .2s
+}
+#c-ring{
+  position:fixed;top:0;left:0;
+  width:38px;height:38px;border-radius:50%;
+  border:1.5px solid rgba(245,166,35,.35);
+  pointer-events:none;z-index:99998;
+  will-change:transform;
+  transition:width .4s var(--ez),height .4s var(--ez),border-color .25s
+}
+/* Trail — mismo sistema */
+.ctr{position:fixed;top:0;left:0;border-radius:50%;pointer-events:none;will-change:transform}
+/* Hover states usando clases en body */
+body.chov #c-dot{width:4px;height:4px;background:var(--c1)}
+body.chov #c-ring{width:56px;height:56px;border-color:rgba(0,212,255,.28)}
+
+/* ─── PROGRESS BAR ─── */
+#pbar{
+  position:fixed;top:0;left:0;right:0;height:2px;z-index:9999;
+  background:var(--gf);background-size:200% 100%;
+  animation:gflow 5s linear infinite;
+  transform-origin:left;transform:scaleX(0);
+  /* will-change:transform permite que el browser la maneje en la GPU */
+  will-change:transform;
+  transition:transform .06s linear
+}
+@keyframes gflow{0%{background-position:0%}100%{background-position:200%}}
+
+/* ─── NAV — selector #main-nav (no el tag nav) ─── */
+#main-nav{
+  position:fixed;top:2px;left:0;right:0;z-index:9000;
+  padding:20px clamp(1.5rem,5vw,3.5rem);
+  transition:padding .4s var(--ez),background .45s,box-shadow .45s
+}
+#main-nav.on{
+  padding:13px clamp(1.5rem,5vw,3.5rem);
+  background:rgba(3,5,10,.95);
+  backdrop-filter:blur(24px) saturate(1.5);
+  box-shadow:0 1px 0 var(--b1),0 8px 48px rgba(0,0,0,.55)
+}
+.nav-w{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:2rem}
+.nav-logo{display:flex;align-items:center;transition:opacity .3s}.nav-logo:hover{opacity:.75}
+.nav-logo svg{width:clamp(160px,30vw,308px);height:auto}
+.nav-ul{display:flex;align-items:center;gap:.35rem}
+.ntab{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:7px 14px;border-radius:100px;
+  font-size:.78rem;font-weight:500;color:var(--m2);
+  background:transparent;border:1px solid transparent;
+  transition:all .3s var(--ez);letter-spacing:.02em;
+  position:relative;overflow:hidden;
+}
+.ntab::before{
+  content:'';position:absolute;inset:0;border-radius:100px;
+  background:linear-gradient(135deg,rgba(245,166,35,.08),rgba(0,212,255,.05));
+  opacity:0;transition:opacity .3s;
+}
+.ntab:hover{color:#fff;border-color:rgba(255,255,255,.1);background:rgba(255,255,255,.05)}
+.ntab:hover::before{opacity:1}
+.ntab.active{color:#fff;background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.12)}
+.ntab-ic{font-size:.85rem;line-height:1;transition:transform .3s var(--sp)}
+.ntab:hover .ntab-ic{transform:scale(1.2) rotate(-5deg)}
+.ntab-txt{font-size:.77rem}
+.nav-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--gs);color:var(--bg);
+  font-family:var(--f1);font-weight:700;font-size:.79rem;
+  padding:11px 24px;border-radius:100px;border:none;cursor:pointer;
+  transition:all .3s var(--ez);letter-spacing:.03em;
+  position:relative;overflow:hidden;
+  box-shadow:0 4px 22px rgba(245,166,35,.28)
+}
+.nav-cta::after{content:'';position:absolute;top:0;left:-100%;width:55%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.22),transparent);transition:left .55s var(--ez)}
+.nav-cta:hover::after{left:160%}
+.nav-cta:hover{transform:translateY(-2px) scale(1.04);box-shadow:0 10px 32px rgba(245,166,35,.48)}
+.ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.ham span{display:block;width:22px;height:1.5px;background:#fff;border-radius:1px;transition:all .35s var(--ez)}
+.ham.on span:nth-child(1){transform:rotate(45deg) translate(4.5px,4.5px)}
+.ham.on span:nth-child(2){opacity:0}
+.ham.on span:nth-child(3){transform:rotate(-45deg) translate(4.5px,-4.5px)}
+/* ── MOBILE MENU OVERLAY ── */
+#mob{
+  display:none;position:fixed;inset:0;
+  z-index:9500; /* FIX: mayor que #main-nav (9000) para que la X sea clicable */
+  background:rgba(3,5,10,.97);
+  backdrop-filter:blur(28px) saturate(1.6);
+  flex-direction:column;
+  padding:0 clamp(1.5rem,7vw,3rem);
+  overflow-y:auto;
+}
+#mob.on{display:flex;animation:mIn .38s var(--ez)}
+@keyframes mIn{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:none}}
+
+/* Fondo decorativo del menú */
+#mob::before{
+  content:'';position:fixed;top:-120px;right:-80px;
+  width:360px;height:360px;border-radius:50%;
+  background:radial-gradient(circle,rgba(245,166,35,.07) 0%,transparent 70%);
+  pointer-events:none;
+}
+#mob::after{
+  content:'';position:fixed;bottom:-100px;left:-60px;
+  width:280px;height:280px;border-radius:50%;
+  background:radial-gradient(circle,rgba(0,212,255,.05) 0%,transparent 70%);
+  pointer-events:none;
+}
+
+/* Cabecera del menú */
+.mob-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:24px 0 28px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  flex-shrink:0;
+}
+.mob-head-brand{
+  font-family:var(--f1);font-size:.72rem;font-weight:700;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--m2);
+}
+
+/* Botón cerrar — área de toque grande */
+.mob-x{
+  display:flex;align-items:center;justify-content:center;
+  width:44px;height:44px;border-radius:12px;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.1);
+  color:rgba(255,255,255,.8);font-size:1.1rem;
+  cursor:pointer;
+  transition:background .2s,color .2s,transform .2s var(--sp);
+  touch-action:manipulation; /* evita delay de 300ms en móvil */
+  position:relative;z-index:10; /* asegura que está por encima dentro del overlay */
+  flex-shrink:0;
+}
+.mob-x:hover,.mob-x:active{
+  background:rgba(245,166,35,.18);
+  border-color:rgba(245,166,35,.35);
+  color:#fff;transform:rotate(90deg) scale(1.05);
+}
+
+/* Nav links */
+.mob-nav{
+  display:flex;flex-direction:column;
+  padding:2.5rem 0 2rem;
+  gap:0;flex:1;
+  justify-content:center;
+}
+.mob-item{
+  display:flex;align-items:center;gap:1rem;
+  padding:1.1rem 0;
+  border-bottom:1px solid rgba(255,255,255,.04);
+  cursor:pointer;
+  text-decoration:none;
+  position:relative;overflow:hidden;
+  animation:mobItemIn .45s var(--ez) both;
+}
+.mob-item:last-child{border-bottom:none}
+
+/* Staggered entrance */
+#mob.on .mob-item:nth-child(1){animation-delay:.06s}
+#mob.on .mob-item:nth-child(2){animation-delay:.11s}
+#mob.on .mob-item:nth-child(3){animation-delay:.16s}
+#mob.on .mob-item:nth-child(4){animation-delay:.21s}
+#mob.on .mob-item:nth-child(5){animation-delay:.26s}
+@keyframes mobItemIn{from{opacity:0;transform:translateX(-22px)}to{opacity:1;transform:none}}
+
+.mob-num{
+  font-family:var(--f1);font-size:.68rem;font-weight:700;
+  color:var(--s1);opacity:.5;min-width:26px;letter-spacing:.04em;
+  transition:opacity .25s;
+}
+.mob-lbl{
+  font-family:var(--f1);font-size:clamp(1.9rem,8vw,2.6rem);
+  font-weight:800;color:rgba(255,255,255,.22);
+  transition:color .28s,transform .28s var(--sp);
+  line-height:1.1;
+}
+.mob-arrow{
+  margin-left:auto;font-size:1.2rem;color:transparent;
+  transition:color .25s,transform .28s var(--sp);
+}
+.mob-item:hover .mob-num{opacity:1}
+.mob-item:hover .mob-lbl{color:#fff;transform:translateX(6px)}
+.mob-item:hover .mob-arrow{color:var(--s1);transform:translateX(4px)}
+
+/* Línea de acento al hover */
+.mob-item::before{
+  content:'';position:absolute;left:0;bottom:0;
+  width:0;height:2px;
+  background:var(--gs);border-radius:2px;
+  transition:width .35s var(--ez);
+}
+.mob-item:hover::before{width:100%}
+
+/* CTA WhatsApp dentro del menú */
+.mob-cta-btn{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  margin-top:.5rem;margin-bottom:2.5rem;
+  padding:18px 28px;border-radius:16px;
+  background:linear-gradient(135deg,#25D366,#128C7E);
+  font-family:var(--f1);font-weight:700;font-size:1.05rem;
+  color:#fff;letter-spacing:.02em;
+  box-shadow:0 8px 32px rgba(37,211,102,.28);
+  transition:transform .25s var(--sp),box-shadow .25s;
+  animation:mobItemIn .45s var(--ez) .31s both;
+  text-decoration:none;
+  touch-action:manipulation;
+  flex-shrink:0;
+}
+.mob-cta-btn:hover,.mob-cta-btn:active{
+  transform:translateY(-3px) scale(1.02);
+  box-shadow:0 14px 40px rgba(37,211,102,.4);
+}
+
+
+
+.sec{padding:clamp(5rem,9vw,8rem) clamp(1.5rem,5vw,3.5rem);position:relative}
+.wrap{max-width:1280px;margin:0 auto}
+.slbl{display:inline-flex;align-items:center;gap:10px;margin-bottom:1.25rem}
+.slbl-bar{width:24px;height:1.5px;border-radius:1px}
+.bs{background:var(--gs)}.bc{background:linear-gradient(90deg,var(--c1),var(--c2))}
+.slbl-t{font-family:var(--f1);font-size:.63rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase}
+.ts{color:rgba(245,166,35,.7)}.tc{color:rgba(0,212,255,.7)}
+.sh{font-family:var(--f1);font-size:clamp(2rem,4.5vw,3.4rem);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin-bottom:1rem}
+.sp{font-size:clamp(.95rem,1.4vw,1.04rem);color:var(--m3);line-height:1.9;max-width:530px;font-weight:300}
+.acs{color:var(--s1)}.acc{color:var(--c1)}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .75s var(--ez),transform .75s var(--ez)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+.bwa{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;font-family:var(--f1);font-weight:800;font-size:.92rem;padding:16px 34px;border-radius:100px;border:none;cursor:pointer;transition:all .35s var(--ez);box-shadow:0 4px 26px rgba(37,211,102,.25);position:relative;overflow:hidden;letter-spacing:.02em}
+.bwa:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 14px 44px rgba(37,211,102,.45)}
+.bghost{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.05);border:1px solid var(--b2);color:var(--m2);font-family:var(--f1);font-weight:700;font-size:.87rem;padding:15px 27px;border-radius:100px;transition:all .3s}
+.bghost:hover{background:rgba(255,255,255,.09);color:#fff;border-color:rgba(255,255,255,.2)}
+/* WA float */
+#wa-float{position:fixed;bottom:28px;right:28px;z-index:9500;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#25d366,#128c7e);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 28px rgba(37,211,102,.45);transition:transform .3s,box-shadow .3s;cursor:pointer;text-decoration:none}
+#wa-float:hover{transform:scale(1.12)}
+#wa-float svg{width:26px;height:26px;fill:#fff}
+.wa-pulse{position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(37,211,102,.45);animation:waPulse 2.2s ease-out infinite}
+.wa-pulse2{animation-delay:.9s}
+@keyframes waPulse{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.55);opacity:0}}
+/* Cookie banner */
+#ck-banner{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120px);z-index:99997;width:min(680px,calc(100vw - 32px));background:rgba(8,13,22,.97);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:1.5rem 1.75rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;box-shadow:0 20px 60px rgba(0,0,0,.7);backdrop-filter:blur(24px);opacity:0;pointer-events:none;transition:transform .55s cubic-bezier(.34,1.56,.64,1),opacity .45s ease}
+#ck-banner.ck-show{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:auto}
+.ck-icon{font-size:1.6rem;flex-shrink:0}
+.ck-txt{flex:1;min-width:220px}
+.ck-title{font-family:var(--f1);font-size:.85rem;font-weight:700;color:#fff;margin-bottom:.25rem}
+.ck-desc{font-size:.72rem;color:var(--m3);font-weight:300;line-height:1.55}
+.ck-desc a{color:var(--s1)}
+.ck-btns{display:flex;gap:.6rem;flex-shrink:0}
+.ck-accept{display:inline-flex;align-items:center;gap:7px;background:var(--gs);color:var(--bg);font-family:var(--f1);font-weight:800;font-size:.75rem;padding:10px 22px;border-radius:100px;border:none;cursor:pointer;transition:all .3s;letter-spacing:.02em}
+.ck-reject{display:inline-flex;align-items:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:var(--m3);font-family:var(--f1);font-weight:700;font-size:.72rem;padding:9px 18px;border-radius:100px;cursor:pointer;transition:all .3s}
+@media(max-width:767px){
+  #ck-banner{bottom:16px;padding:1.25rem;gap:1rem}
+  .ck-btns{width:100%}
+  .ck-accept,.ck-reject{flex:1;justify-content:center}
+}
+
+/* ── LANDING PAGE SPECIFIC ── */
+.lp-hero{
+  position:relative;min-height:92vh;display:flex;align-items:center;
+  padding:140px clamp(1.5rem,5vw,3.5rem) 80px;overflow:hidden;background:var(--bg);
+}
+.lp-hbg{position:absolute;inset:0;z-index:0;overflow:hidden;isolation:isolate}
+.lp-hbg::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(108deg,rgba(3,5,10,.98) 0%,rgba(3,5,10,.85) 50%,rgba(3,5,10,.5) 100%),
+             linear-gradient(to top,rgba(3,5,10,.95) 0%,transparent 40%);
+}
+.lp-hbg img{width:100%;height:100%;object-fit:cover;filter:brightness(.22) saturate(.4)}
+.lp-hdots{position:absolute;inset:0;z-index:1;pointer-events:none;background-image:radial-gradient(circle,rgba(255,255,255,.035) 1px,transparent 1px);background-size:40px 40px;mask-image:radial-gradient(ellipse 80% 80% at 35% 50%,black 5%,transparent 70%)}
+.lp-horb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(100px);z-index:1}
+.lp-horb1{width:55vw;height:55vw;top:-15%;left:-10%;background:radial-gradient(ellipse,rgba(245,166,35,.07) 0%,transparent 65%);animation:orbF 22s ease-in-out infinite alternate}
+.lp-horb2{width:45vw;height:45vw;bottom:-15%;right:-5%;background:radial-gradient(ellipse,rgba(0,212,255,.06) 0%,transparent 65%);animation:orbF 28s ease-in-out infinite alternate;animation-delay:-10s}
+@keyframes orbF{0%{transform:translate(0,0)}100%{transform:translate(2%,-1.5%)}}
+.lp-hcont{position:relative;z-index:5;max-width:860px}
+.lp-eyebrow{display:inline-flex;align-items:center;gap:8px;margin-bottom:2rem;background:rgba(0,230,118,.07);border:1px solid rgba(0,230,118,.18);border-radius:100px;padding:5px 14px 5px 8px;animation:eyeIn .9s var(--sp) both}
+@keyframes eyeIn{from{opacity:0;transform:translateY(-12px) scale(.9)}to{opacity:1;transform:none}}
+.lp-ew-dot{width:7px;height:7px;border-radius:50%;background:var(--g1);box-shadow:0 0 8px var(--g1);animation:dpulse 2s ease-in-out infinite;flex-shrink:0}
+@keyframes dpulse{0%,100%{opacity:1}50%{opacity:.28}}
+.lp-ew-txt{font-family:var(--f1);font-size:.63rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(0,230,118,.82)}
+.lp-h1{font-family:var(--f1);font-weight:800;line-height:.95;letter-spacing:-.045em;margin-bottom:.75rem}
+.lp-h1-l1{display:block;overflow:hidden}
+.lp-h1-l1 span{display:inline-block;font-size:clamp(2.8rem,6.5vw,6.2rem);color:rgba(255,255,255,.92);animation:rowIn .9s var(--sp) .06s both}
+.lp-h1-accent{display:block;overflow:hidden}
+.lp-h1-accent span{display:inline-block;font-size:clamp(2.8rem,6.5vw,6.2rem);background:linear-gradient(135deg,#f5a623 0%,#ff6b35 55%,#e8572a 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:rowIn .9s var(--sp) .18s both}
+.lp-h1-sub{display:block;overflow:hidden}
+.lp-h1-sub span{display:inline-block;font-size:clamp(1rem,1.8vw,1.55rem);color:rgba(255,255,255,.3);font-weight:400;animation:rowIn .9s var(--sp) .3s both}
+@keyframes rowIn{from{opacity:0;transform:translateY(55px)}to{opacity:1;transform:none}}
+.lp-h1-line{display:block;height:2px;width:0;margin:.9rem 0 1.8rem;background:linear-gradient(90deg,var(--s1),var(--s2),transparent);border-radius:2px;animation:lineGrow .9s var(--ez) .5s forwards}
+@keyframes lineGrow{to{width:clamp(100px,20vw,240px)}}
+.lp-desc{font-size:clamp(.95rem,1.3vw,1.04rem);color:var(--m2);max-width:580px;line-height:1.9;margin-bottom:2rem;font-weight:300;animation:fup .8s var(--ez) .55s both}
+@keyframes fup{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.lp-pains{display:flex;flex-wrap:wrap;gap:.55rem;margin-bottom:2.25rem;animation:fup .8s var(--ez) .65s both}
+.lp-pain{display:inline-flex;align-items:center;gap:7px;background:rgba(255,107,53,.07);border:1px solid rgba(255,107,53,.18);padding:5px 13px;border-radius:100px;font-size:.72rem;font-weight:500;color:rgba(255,107,53,.85)}
+.lp-ctarow{display:flex;flex-wrap:wrap;gap:.85rem;animation:fup .8s var(--ez) .75s both}
+
+/* Portfolio grid */
+.lp-port-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3.5rem}
+@media(max-width:900px){.lp-port-g{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.lp-port-g{grid-template-columns:1fr}}
+.lp-proj{border-radius:18px;overflow:hidden;border:1px solid var(--b1);position:relative;cursor:pointer;transition:transform .45s var(--ez),box-shadow .45s,border-color .4s;display:block}
+.lp-proj:hover{transform:translateY(-6px) scale(1.01);box-shadow:0 22px 55px rgba(0,0,0,.6);border-color:rgba(255,255,255,.12)}
+.lp-proj-img{position:relative;height:220px;overflow:hidden}
+.lp-proj-img img{width:100%;height:100%;object-fit:cover;object-position:top;filter:brightness(.55) saturate(.65);transition:transform .7s var(--ez),filter .5s}
+.lp-proj:hover .lp-proj-img img{transform:scale(1.07);filter:brightness(.75) saturate(1)}
+.lp-proj-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(3,5,10,.95) 0%,rgba(3,5,10,.2) 60%,transparent 100%)}
+.lp-proj-btn{position:absolute;bottom:.85rem;right:.85rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.7);font-family:var(--f1);font-size:.65rem;font-weight:700;padding:5px 12px;border-radius:100px;transition:all .3s}
+.lp-proj:hover .lp-proj-btn{background:var(--gs);color:var(--bg);border-color:transparent}
+.lp-proj-body{padding:1.1rem 1.25rem}
+.lp-proj-name{font-family:var(--f1);font-size:.92rem;font-weight:700;color:#fff;margin-bottom:.2rem}
+.lp-proj-loc{font-size:.68rem;color:var(--m3);margin-bottom:.5rem}
+.lp-proj-tags{display:flex;flex-wrap:wrap;gap:.3rem}
+.lp-proj-tags span{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.4);font-size:.58rem;padding:2px 8px;border-radius:100px}
+
+/* Why section */
+.lp-why-g{display:flex;flex-direction:column;gap:1rem;margin-top:3rem;max-width:680px;margin-left:auto;margin-right:auto}
+.lp-why{display:flex;align-items:flex-start;gap:1.25rem;padding:1.25rem 1.5rem;background:rgba(6,10,18,.7);border:1px solid var(--b1);border-radius:16px;transition:border-color .3s,background .3s}
+.lp-why:hover{border-color:rgba(245,166,35,.2);background:rgba(245,166,35,.03)}
+.lp-why-ic{font-size:1.5rem;flex-shrink:0;line-height:1;margin-top:.1rem}
+.lp-why-t{font-family:var(--f1);font-size:.88rem;font-weight:700;color:#fff;margin-bottom:.3rem}
+.lp-why-d{font-size:.8rem;color:var(--m3);font-weight:300;line-height:1.7}
+
+/* FAQ */
+.lp-faq-list{display:flex;flex-direction:column;gap:.65rem;margin-top:3rem;max-width:720px;margin-left:auto;margin-right:auto}
+.lp-faq-item{border:1px solid var(--b1);border-radius:14px;overflow:hidden;background:rgba(6,10,18,.7);transition:border-color .35s}
+.lp-faq-item.open{border-color:rgba(245,166,35,.25)}
+.lp-faq-q{width:100%;background:none;border:none;padding:1.1rem 1.35rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;font-family:var(--f1);font-size:.88rem;font-weight:700;color:rgba(255,255,255,.8);cursor:pointer;text-align:left;transition:color .3s}
+.lp-faq-q:hover{color:#fff}
+.lp-faq-ic{font-size:1.2rem;font-weight:300;color:var(--s1);flex-shrink:0;transition:transform .35s var(--sp)}
+.lp-faq-item.open .lp-faq-ic{transform:rotate(45deg)}
+.lp-faq-a{display:none;padding:0 1.35rem 1.1rem}
+.lp-faq-item.open .lp-faq-a{display:block}
+.lp-faq-a p{font-size:.84rem;color:var(--m3);font-weight:300;line-height:1.8}
+
+/* CTA section */
+.lp-cta{background:var(--bg3);text-align:center;padding:clamp(4rem,7vw,7rem) clamp(1.5rem,5vw,3.5rem)}
+.lp-cta-card{max-width:600px;margin:0 auto;background:rgba(6,10,18,.85);border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:3rem 2.5rem;position:relative;overflow:hidden}
+.lp-cta-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gs)}
+
+/* Mobile */
+@media(max-width:767px){
+  .lp-hero{padding:120px 1rem 60px}
+  .lp-h1-l1 span,.lp-h1-accent span{font-size:clamp(2.4rem,11vw,3.5rem)}
+  .lp-port-g{grid-template-columns:1fr}
+  .lp-cta-card{padding:2rem 1.25rem}
+}
+
+
+/* ─── FOOTER UPGRADE ─── */
+#site-footer{background:var(--bg);border-top:1px solid var(--b1)}
+.foot-top{padding:4.5rem clamp(1.5rem,5vw,3.5rem) 3rem}
+.foot-top-in{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1.4fr 1.2fr;gap:3.5rem;align-items:start}
+.flogo svg{width:200px;height:52px}
+.foot-desc{font-size:.79rem;color:var(--m3);max-width:260px;line-height:1.8;font-weight:300;margin-top:.85rem}
+.foot-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(0,230,118,.07);border:1px solid rgba(0,230,118,.18);border-radius:100px;padding:5px 14px;font-size:.67rem;color:rgba(0,230,118,.8);font-weight:500;margin-top:1.25rem}
+.foot-badge-dot{width:5px;height:5px;border-radius:50%;background:var(--g1);animation:dpulse 2s ease-in-out infinite}
+.foot-col{display:flex;flex-direction:column;gap:.75rem}
+.foot-col-t{font-family:var(--f1);font-size:.6rem;font-weight:700;color:var(--m3);letter-spacing:.22em;text-transform:uppercase;margin-bottom:.35rem}
+.foot-col a{font-size:.79rem;color:var(--m3);transition:color .25s,transform .25s;font-weight:300;text-decoration:none;display:inline-block}
+.foot-col a:hover{color:var(--s1);transform:translateX(3px)}
+.foot-bot-bar{border-top:1px solid var(--b1);padding:1.5rem clamp(1.5rem,5vw,3.5rem)}
+.foot-bot-in{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.7rem;color:var(--m3);font-weight:300}
+.foot-bot-links{display:flex;gap:1.5rem}
+.foot-bot-links a{color:var(--m3);transition:color .25s;text-decoration:none}.foot-bot-links a:hover{color:#fff}
+.foot-tagline{font-family:var(--f1);font-size:.72rem;font-weight:700;color:var(--m3)}
+.fstripe{height:2px;background:linear-gradient(90deg,#f5a623,#ff6b35,#00d4ff,#00e676);opacity:.25}
+
+@media(max-width:1080px){
+  .cta-inner{grid-template-columns:1fr;max-width:560px}
+  .foot-top-in{grid-template-columns:1fr 1fr}
+  .foot-brand{grid-column:1/-1}
+}
+@media(max-width:767px){
+  .tl-wrap{padding-left:0}
+  .foot-top-in{grid-template-columns:1fr}
+  .foot-bot-in{flex-direction:column;align-items:flex-start;gap:.75rem}
+  .cta-proof{flex-direction:column;border-radius:18px}
+  .cta-proof-sep{width:80%;height:1px}
+}
+#mob-cta{display:flex}
+  body{padding-bottom:70px}
+}
+
+/* ─── RICH CONTENT SECTIONS ─── */
+.lp-article{padding:clamp(4rem,7vw,6rem) clamp(1.5rem,5vw,3.5rem);position:relative;overflow:hidden}
+.lp-article-inner{max-width:860px;margin:0 auto}
+.lp-article h2{font-family:var(--f1);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;letter-spacing:-.03em;color:#fff;margin-bottom:.75rem;line-height:1.1}
+.lp-article h2 span{color:var(--s1)}
+.lp-article h3{font-family:var(--f1);font-size:1.05rem;font-weight:700;color:#fff;margin:1.75rem 0 .5rem}
+.lp-article p{font-size:.92rem;color:var(--m2);line-height:1.85;margin-bottom:1rem;font-weight:300}
+.lp-article strong{color:rgba(255,255,255,.75);font-weight:600}
+.lp-article ul{list-style:none;display:flex;flex-direction:column;gap:.5rem;margin-bottom:1rem}
+.lp-article ul li{font-size:.9rem;color:var(--m2);padding-left:1.4rem;position:relative;font-weight:300;line-height:1.7}
+.lp-article ul li::before{content:"→";position:absolute;left:0;color:var(--s1);font-weight:700}
+.lp-costs{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.5rem 0}
+@media(max-width:640px){.lp-costs{grid-template-columns:1fr}}
+.lp-cost-card{background:rgba(6,10,18,.8);border:1px solid var(--b1);border-radius:14px;padding:1.25rem;text-align:center;transition:border-color .3s}
+.lp-cost-card.bad{border-color:rgba(255,100,100,.2)}
+.lp-cost-card.ok{border-color:rgba(245,166,35,.25);background:rgba(245,166,35,.04)}
+.lp-cost-card.good{border-color:rgba(0,230,118,.2)}
+.lp-cost-ic{font-size:1.5rem;margin-bottom:.5rem}
+.lp-cost-name{font-family:var(--f1);font-size:.78rem;font-weight:700;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.4rem}
+.lp-cost-price{font-family:var(--f1);font-size:1.6rem;font-weight:800;line-height:1;margin-bottom:.3rem}
+.lp-cost-price.red{color:#ff7675}
+.lp-cost-price.gold{color:var(--s1)}
+.lp-cost-price.green{color:var(--g1)}
+.lp-cost-desc{font-size:.7rem;color:var(--m3);font-weight:300;line-height:1.5}
+.lp-errors{display:flex;flex-direction:column;gap:.75rem;margin:1.25rem 0}
+.lp-error{display:flex;align-items:flex-start;gap:1rem;background:rgba(255,100,100,.05);border:1px solid rgba(255,100,100,.12);border-radius:12px;padding:1rem 1.25rem}
+.lp-error-ic{font-size:1.2rem;flex-shrink:0;margin-top:.1rem}
+.lp-error h4{font-family:var(--f1);font-size:.85rem;font-weight:700;color:#ff8a80;margin-bottom:.25rem}
+.lp-error p{font-size:.8rem;color:var(--m3);margin:0;font-weight:300;line-height:1.65}
+.lp-zona{background:rgba(245,166,35,.05);border:1px solid rgba(245,166,35,.15);border-radius:16px;padding:1.5rem 1.75rem;margin:1.5rem 0}
+.lp-zona h4{font-family:var(--f1);font-size:.9rem;font-weight:700;color:var(--s1);margin-bottom:.75rem}
+.lp-zona p{font-size:.85rem;color:var(--m2);margin-bottom:.5rem;font-weight:300;line-height:1.75}
+.lp-zona p:last-child{margin-bottom:0}
+
+
+</style>
+</head>
+<body>
+<header id="main-nav" class="pt-elem" style="--pt-d:0s">
+  <div class="nav-w">
+    <a class="nav-logo" href="#hero" aria-label="CostaDigital inicio">
+      <svg viewBox="0 0 310 78" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="nlg" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f5a623"/><stop offset="45%" stop-color="#ff6b35"/><stop offset="100%" stop-color="#00d4ff"/></linearGradient>
+          <linearGradient id="nlg2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f5a623" stop-opacity=".18"/><stop offset="100%" stop-color="#00d4ff" stop-opacity=".08"/></linearGradient>
+        </defs>
+        <path d="M4 42 C11 30,18 30,25 42 C32 54,39 54,46 42 C53 30,60 30,67 42" stroke="url(#nlg2)" stroke-width="7" stroke-linecap="round" fill="none"/>
+        <path d="M4 38 C11 24,18 24,25 38 C32 52,39 52,46 38 C53 24,60 24,67 38" stroke="url(#nlg)" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+        <circle cx="4"  cy="38" r="4"   fill="#f5a623"/><circle cx="4"  cy="38" r="8"  fill="#f5a623" fill-opacity=".14"/>
+        <circle cx="25" cy="38" r="3.5" fill="#ff6b35"/><circle cx="25" cy="38" r="7"  fill="#ff6b35" fill-opacity=".13"/>
+        <circle cx="46" cy="38" r="3.5" fill="#60b8ff"/><circle cx="46" cy="38" r="7"  fill="#60b8ff" fill-opacity=".13"/>
+        <circle cx="67" cy="38" r="4"   fill="#00d4ff"/><circle cx="67" cy="38" r="8"  fill="#00d4ff" fill-opacity=".14"/>
+        <rect x="16" y="20" width="2.5" height="2.5" rx=".6" fill="#f5a623" opacity=".4"/>
+        <rect x="54" y="18" width="2.5" height="2.5" rx=".6" fill="#00d4ff" opacity=".4"/>
+        <rect x="35" y="56" width="2"   height="2"   rx=".5" fill="#ff6b35" opacity=".32"/>
+        <text x="82" y="31" font-family="'Syne','Arial Black',sans-serif" font-weight="800" font-size="27" fill="rgba(255,255,255,.93)" letter-spacing="-1.2">Costa</text>
+        <text x="82" y="61" font-family="'Syne','Arial Black',sans-serif" font-weight="800" font-size="27" fill="url(#nlg)" letter-spacing="-1.2">Digital</text>
+        <text x="83" y="73" font-family="'Syne',sans-serif" font-weight="600" font-size="8.5" fill="url(#nlg)" letter-spacing="3.5" opacity=".65">WEBS · SEO · TODA ESPAÑA</text>
+      </svg>
+    </a>
+    <ul class="nav-ul" role="list">
+      <li><a href="index.html#servicios" class="ntab">
+        <span class="ntab-ic">🎨</span>
+        <span class="ntab-txt">Servicios</span>
+      </a></li>
+      <li><a href="index.html#portfolio" class="ntab">
+        <span class="ntab-ic">🖥️</span>
+        <span class="ntab-txt">Portfolio</span>
+      </a></li>
+      <li><a href="index.html#precios" class="ntab">
+        <span class="ntab-ic">💰</span>
+        <span class="ntab-txt">Precios</span>
+      </a></li>
+      <li><a href="index.html#proceso" class="ntab">
+        <span class="ntab-ic">🚀</span>
+        <span class="ntab-txt">Proceso</span>
+      </a></li>
+      <li><a href="index.html#pablo" class="ntab">
+        <span class="ntab-ic">👤</span>
+        <span class="ntab-txt">Pablo</span>
+      </a></li>
+      <li><a href="index.html#faq" class="ntab">
+        <span class="ntab-ic">💬</span>
+        <span class="ntab-txt">FAQ</span>
+      </a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:.75rem">
+      <a href="https://wa.me/34654256764?text=Hola%20Pablo,%20quiero%20información" class="nav-cta rh hm" target="_blank" rel="noopener">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Presupuesto gratis
+      </a>
+      <button class="ham" id="HAM" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="lp-hero">
+  <div class="lp-hbg"><img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1920&q=80" alt="" loading="eager" fetchpriority="high"></div>
+  <div class="lp-hdots" aria-hidden="true"></div>
+  <div class="lp-horb lp-horb1" aria-hidden="true"></div>
+  <div class="lp-horb lp-horb2" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="lp-hcont">
+      <div class="lp-eyebrow">
+        <span class="lp-ew-dot"></span>
+        <span class="lp-ew-txt">Especialistas en alojamientos · Toda España</span>
+      </div>
+      <h1 class="lp-h1">
+        <span class="lp-h1-l1"><span>Tu alojamiento,</span></span>
+        <span class="lp-h1-accent"><span>reservas directas.</span></span>
+        <span class="lp-h1-sub"><span>Sin comisiones. En 7 días.</span></span>
+      </h1>
+      <span class="lp-h1-line" aria-hidden="true"></span>
+      <p class="lp-desc">Booking y Airbnb se quedan entre el 15% y el 20% de cada reserva. Con una web propia bien posicionada en Google, el viajero reserva directamente contigo — sin comisiones, con mejor margen y con el cliente como tuyo.</p>
+      <div class="lp-pains">
+        <span class="lp-pain">❌ Pago comisiones altísimas a Booking</span>
+        <span class="lp-pain">❌ El viajero no sabe que existo</span>
+        <span class="lp-pain">❌ Sin sistema de reserva directa</span>
+      </div>
+      <div class="lp-ctarow">
+        <a href="https://wa.me/34654256764?text=Hola%20Pablo%2C%20tengo%20un%20alojamiento%20y%20quiero%20presupuesto%20para%20mi%20web" class="bwa" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Pedir presupuesto gratis
+        </a>
+        <a href="index.html" class="bghost">Ver todos los servicios →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POR QUÉ -->
+<section class="sec" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="rv" style="text-align:center;max-width:560px;margin:0 auto">
+      <div class="slbl" style="justify-content:center"><div class="slbl-bar bs"></div><span class="slbl-t ts">Por qué CostaDigital</span></div>
+      <h2 class="sh">Lo que incluye tu web<br><span class="acs">sin letra pequeña.</span></h2>
+    </div>
+    <div class="lp-why-g">
+      <div class="lp-why rv">
+        <div class="lp-why-ic">💰</div>
+        <div>
+          <div class="lp-why-t">Reserva directa sin comisiones</div>
+          <div class="lp-why-d">El viajero reserva desde la web y el dinero llega íntegro a ti. Sin Booking, sin Airbnb, sin el 15-20% que se llevan por cada noche.</div>
+        </div>
+      </div>
+      <div class="lp-why rv">
+        <div class="lp-why-ic">📸</div>
+        <div>
+          <div class="lp-why-t">Galería de habitaciones y espacios</div>
+          <div class="lp-why-d">Las fotos de las habitaciones, el exterior, el desayuno y los espacios comunes son el factor decisivo para que el viajero reserve.</div>
+        </div>
+      </div>
+      <div class="lp-why rv">
+        <div class="lp-why-ic">🔍</div>
+        <div>
+          <div class="lp-why-t">SEO para "hotel [ciudad]" y "casa rural [zona]"</div>
+          <div class="lp-why-d">Posicionamos para las búsquedas de alojamiento en tu zona. El viajero que llega por Google tiene menor precio medio que el que viene por portal.</div>
+        </div>
+      </div>
+      <div class="lp-why rv">
+        <div class="lp-why-ic">📅</div>
+        <div>
+          <div class="lp-why-t">Disponibilidad y precios por temporada</div>
+          <div class="lp-why-d">Mostrar la disponibilidad actualizada y los precios por temporada reduce las llamadas innecesarias y aumenta las reservas directas.</div>
+        </div>
+      </div>
+      <div class="lp-why rv">
+        <div class="lp-why-ic">⭐</div>
+        <div>
+          <div class="lp-why-t">Valoraciones de Google visibles</div>
+          <div class="lp-why-d">Tus puntuaciones de Google y TripAdvisor integradas en la web. El 88% de los viajeros lee valoraciones antes de reservar.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COSTE REAL -->
+<section class="lp-article" style="background:var(--bg)">
+  <div class="lp-article-inner rv">
+    <h2>¿Cuánto cuesta una web para <span>hoteles y alojamientos</span>?</h2>
+    <p>La pregunta más frecuente antes de contratar. Estos son los tres escenarios reales en el mercado español en 2026:</p>
+    <div class="lp-costs">
+      <div class="lp-cost-card bad">
+        <div class="lp-cost-ic">😬</div>
+        <div class="lp-cost-name">Solo portales (Booking/Airbnb)</div>
+        <div class="lp-cost-price red">15–20% por reserva</div>
+        <div class="lp-cost-desc">Pagas comisión por cada reserva para siempre. El cliente es del portal, no tuyo. Sin web propia no puedes captar reservas directas ni fidelizar al viajero.</div>
+      </div>
+      <div class="lp-cost-card ok">
+        <div class="lp-cost-ic">🤔</div>
+        <div class="lp-cost-name">Freelance básico</div>
+        <div class="lp-cost-price gold">400–800€</div>
+        <div class="lp-cost-desc">Página de presentación sin galería completa, sin sistema de reservas, sin SEO local. El viajero la visita pero termina reservando por Booking.</div>
+      </div>
+      <div class="lp-cost-card good">
+        <div class="lp-cost-ic">✓</div>
+        <div class="lp-cost-name">CostaDigital</div>
+        <div class="lp-cost-price green">700–1.200€</div>
+        <div class="lp-cost-desc">Diseño a medida, SEO local real, Google Business optimizado, entrega en 7 días. Pago único, sin cuotas. La web es tuya para siempre.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ERRORES -->
+<section class="lp-article" style="background:var(--bg2)">
+  <div class="lp-article-inner rv">
+    <h2>Errores frecuentes en webs de <span>hoteles y alojamientos</span></h2>
+    <div class="lp-errors">
+      <div class="lp-error">
+        <span class="lp-error-ic">❌</span>
+        <div>
+          <h4>Solo tienen perfil en Booking o Airbnb</h4>
+          <p>El viajero fidelizado busca directamente el alojamiento en Google para reservar sin pasar por el portal. Si no tienen web, acaban pagando la comisión igual.</p>
+        </div>
+      </div>
+      <div class="lp-error">
+        <span class="lp-error-ic">❌</span>
+        <div>
+          <h4>Galería de fotos insuficiente o anticuada</h4>
+          <p>El viajero decide en base a las fotos. Una galería de 3 fotos borrosas pierde reservas frente a alojamientos con 20 fotos actualizadas y de calidad.</p>
+        </div>
+      </div>
+      <div class="lp-error">
+        <span class="lp-error-ic">❌</span>
+        <div>
+          <h4>Sin precios visibles en la web</h4>
+          <p>El viajero que no encuentra precio orientativo va directamente a Booking. Con precios en la web, el viajero considera reservar sin comisión.</p>
+        </div>
+      </div>
+      <div class="lp-error">
+        <span class="lp-error-ic">❌</span>
+        <div>
+          <h4>Sin SEO para búsquedas de zona</h4>
+          <p>"Casa rural Sierra de Gredos" o "hotel boutique Ronda" son búsquedas con miles de consultas mensuales. Sin SEO, el alojamiento no aparece.</p>
+        </div>
+      </div>
+      <div class="lp-error">
+        <span class="lp-error-ic">❌</span>
+        <div>
+          <h4>Google Business sin fotos recientes</h4>
+          <p>El perfil de Maps con pocas fotos o fotos antiguas transmite abandono. Las fotos actualizadas de temporada aumentan el interés del viajero.</p>
+        </div>
+      </div>
+    </div>
+    <div class="lp-zona">
+      <h4>🏨 Cobertura — hoteles y alojamientos en toda España</h4>
+      <p>Trabajo con hoteles, hostales, pensiones, apartamentos turísticos, casas rurales, glamping y cualquier tipo de alojamiento de toda España — desde la Costa Tropical de Granada donde empecé hasta el País Vasco, Cataluña, Castilla o las Canarias. El sector turístico tiene una estacionalidad clara, pero con SEO local correcto se puede generar reservas incluso en temporada baja.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENIDO EXTRA SEO -->
+<section class="lp-article" style="background:var(--bg)">
+  <div class="lp-article-inner rv">
+    <h2>Por qué cada reserva directa vale el doble que una de portal</h2>
+    <p>La matemática es simple: una habitación a 80€ por noche en Booking genera 64-68€ netos después de comisión. La misma habitación reservada directamente genera 80€ completos. En 100 noches al año, son entre 1.200€ y 1.600€ de diferencia — exactamente el coste de la web en un solo año.</p><p>Además, las reservas directas tienen otras ventajas:</p><ul><li>El viajero es tuyo — puedes contactarle para futuras visitas.</li><li>Sin condiciones de los portales sobre precios mínimos o cancelaciones.</li><li>Puedes ofrecer mejoras o extras directamente sin comisión.</li><li>Construyes una base de clientes fiel que no depende de ninguna plataforma.</li></ul>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" style="background:var(--bg2)">
+  <div class="wrap">
+    <div class="rv" style="text-align:center;max-width:560px;margin:0 auto">
+      <div class="slbl" style="justify-content:center"><div class="slbl-bar bs"></div><span class="slbl-t ts">Preguntas frecuentes</span></div>
+      <h2 class="sh">Dudas sobre tu web<br><span class="acs">respondidas.</span></h2>
+    </div>
+    <div class="lp-faq-list rv d1">
+        <div class="lp-faq-item">
+          <button class="lp-faq-q">¿La web puede sustituir a Booking?<span class="lp-faq-ic">+</span></button>
+          <div class="lp-faq-a"><p>No sustituye a los portales pero los complementa. Los portales dan visibilidad masiva, la web propia evita pagar comisión cuando el viajero ya te conoce.</p></div>
+        </div>
+        <div class="lp-faq-item">
+          <button class="lp-faq-q">¿Funciona para casas rurales y apartamentos turísticos?<span class="lp-faq-ic">+</span></button>
+          <div class="lp-faq-a"><p>Perfectamente. El proceso es el mismo para cualquier tipo de alojamiento — hotel, hostal, pensión, casa rural, apartamentos turísticos, glamping.</p></div>
+        </div>
+        <div class="lp-faq-item">
+          <button class="lp-faq-q">¿Puedo incluir sistema de reservas con calendario?<span class="lp-faq-ic">+</span></button>
+          <div class="lp-faq-a"><p>El plan Local incluye formulario de consulta de disponibilidad. Para sistema de reservas con calendario y pago online necesitarías el plan Autoridad.</p></div>
+        </div>
+        <div class="lp-faq-item">
+          <button class="lp-faq-q">¿Cuánto tarda en generar reservas directas?<span class="lp-faq-ic">+</span></button>
+          <div class="lp-faq-a"><p>Para búsquedas locales de alojamiento, entre 6 y 14 semanas para posiciones estables. En zonas turísticas con alta demanda puede ser antes.</p></div>
+        </div>
+        <div class="lp-faq-item">
+          <button class="lp-faq-q">¿Puedo mostrar los precios por temporada?<span class="lp-faq-ic">+</span></button>
+          <div class="lp-faq-a"><p>Sí. Alta, media y baja temporada con precios diferenciados. Actualizable con el plan de mantenimiento cuando cambies tarifas.</p></div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENLACES INTERNOS -->
+<section style="padding:2.5rem clamp(1.5rem,5vw,3.5rem);background:var(--bg);border-top:1px solid var(--b1)">
+  <div class="wrap">
+    <p style="font-size:.72rem;color:var(--m3);margin-bottom:.75rem;font-family:var(--f1);letter-spacing:.1em;text-transform:uppercase">Más sectores</p>
+    <div style="display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.25rem">
+      <a href="web-para-talleres.html" style="font-size:.7rem;color:var(--s1);border:1px solid rgba(245,166,35,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Talleres</a> <a href="web-para-restaurantes.html" style="font-size:.7rem;color:var(--s1);border:1px solid rgba(245,166,35,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Restaurantes</a> <a href="web-para-clinicas.html" style="font-size:.7rem;color:var(--s1);border:1px solid rgba(245,166,35,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Clínicas</a> <a href="web-para-electricistas.html" style="font-size:.7rem;color:var(--s1);border:1px solid rgba(245,166,35,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Electricistas</a> <a href="web-para-fontaneros.html" style="font-size:.7rem;color:var(--s1);border:1px solid rgba(245,166,35,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Fontaneros</a> <a href="web-para-peluquerias.html" style="font-size:.7rem;color:var(--s1);border:1px solid rgba(245,166,35,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Peluquerías</a> <a href="web-para-abogados.html" style="font-size:.7rem;color:var(--s1);border:1px solid rgba(245,166,35,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Abogados</a> <a href="web-para-inmobiliarias.html" style="font-size:.7rem;color:var(--s1);border:1px solid rgba(245,166,35,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Inmobiliarias</a> <a href="web-para-estetica.html" style="font-size:.7rem;color:var(--s1);border:1px solid rgba(245,166,35,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Estética</a>
+    </div>
+    <p style="font-size:.72rem;color:var(--m3);margin-bottom:.75rem;font-family:var(--f1);letter-spacing:.1em;text-transform:uppercase">Por ciudad</p>
+    <div style="display:flex;flex-wrap:wrap;gap:.5rem">
+      <a href="diseno-web-granada.html" style="font-size:.7rem;color:var(--c1);border:1px solid rgba(0,212,255,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Granada</a> <a href="diseno-web-malaga.html" style="font-size:.7rem;color:var(--c1);border:1px solid rgba(0,212,255,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Málaga</a> <a href="diseno-web-sevilla.html" style="font-size:.7rem;color:var(--c1);border:1px solid rgba(0,212,255,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Sevilla</a> <a href="diseno-web-madrid.html" style="font-size:.7rem;color:var(--c1);border:1px solid rgba(0,212,255,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Madrid</a> <a href="diseno-web-barcelona.html" style="font-size:.7rem;color:var(--c1);border:1px solid rgba(0,212,255,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Barcelona</a> <a href="diseno-web-valencia.html" style="font-size:.7rem;color:var(--c1);border:1px solid rgba(0,212,255,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Valencia</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<div class="lp-cta">
+  <div class="lp-cta-card rv">
+    <div style="font-size:2.5rem;margin-bottom:1rem">🏨</div>
+    <h2 style="font-family:var(--f1);font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;letter-spacing:-.03em;margin-bottom:.75rem">¿Tienes hoteles y alojamientos?<br><span style="color:var(--s1)">Tu web en 7 días.</span></h2>
+    <p style="font-size:.9rem;color:var(--m3);font-weight:300;max-width:420px;margin:0 auto 2rem;line-height:1.8">Presupuesto en menos de 24h. Todo por WhatsApp. Desde 700€ pago único.</p>
+    <a href="https://wa.me/34654256764?text=Hola%20Pablo%2C%20tengo%20un%20alojamiento%20y%20quiero%20presupuesto%20para%20mi%20web" class="bwa" target="_blank" rel="noopener" style="margin:0 auto">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Quiero mi web ahora
+    </a>
+    <p style="font-size:.65rem;color:var(--m3);margin-top:1rem">Sin compromiso · Respondo en menos de 1h</p>
+  </div>
+</div>
+
+<!-- ════ FOOTER ════ -->
+<footer id="site-footer">
+  <div class="foot-top">
+    <div class="foot-top-in">
+      <!-- Brand -->
+      <div class="foot-brand">
+        <div class="flogo">
+          <svg viewBox="0 0 320 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="flg2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f5a623"/><stop offset="50%" stop-color="#ff6b35"/><stop offset="100%" stop-color="#00d4ff"/></linearGradient></defs>
+            <path d="M11 40 C17 30,23 30,29 40 C35 50,41 50,47 40 C53 30,59 30,65 40" stroke="url(#flg2)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <circle cx="11" cy="40" r="3" fill="#f5a623"/><circle cx="29" cy="40" r="2.5" fill="#ff6b35"/><circle cx="47" cy="40" r="2.5" fill="#60b8ff"/><circle cx="65" cy="40" r="3" fill="#00d4ff"/>
+            <text x="80" y="36" font-family="'Syne','Arial Black',sans-serif" font-weight="800" font-size="21" fill="rgba(255,255,255,.85)" letter-spacing="-1">Costa</text>
+            <text x="80" y="60" font-family="'Syne','Arial Black',sans-serif" font-weight="800" font-size="21" fill="url(#flg2)" letter-spacing="-1">Digital</text>
+            <text x="80" y="73" font-family="'DM Sans',Arial,sans-serif" font-weight="500" font-size="7" fill="rgba(255,255,255,.28)" letter-spacing="2.5">AGENCIA WEB · TODA ESPAÑA</text>
+          </svg>
+        </div>
+        <p class="foot-desc">Webs para cualquier tipo de negocio en toda España. Sin importar el sector. Código limpio, sin WordPress, entrega en 7 días.</p>
+        <div class="foot-badge">
+          <span class="foot-badge-dot"></span>
+          Disponible ahora · Responde en ~1h
+        </div>
+      </div>
+
+      <!-- Nav -->
+      <div class="foot-col">
+        <div class="foot-col-t">Navegación</div>
+        <a href="index.html#servicios">Servicios</a>
+        <a href="index.html#portfolio">Portfolio</a>
+        <a href="index.html#precios">Precios</a>
+        <a href="index.html#proceso">Proceso</a>
+        <a href="index.html#pablo">Quién soy</a>
+        <a href="index.html#faq">FAQ</a>
+      </div>
+
+      <!-- Servicios -->
+      <div class="foot-col">
+        <div class="foot-col-t">Servicios</div>
+        <a href="index.html#servicios">Diseño web premium</a>
+        <a href="index.html#servicios">SEO local avanzado</a>
+        <a href="index.html#precios">Plan Presencia · 700€</a>
+        <a href="index.html#precios">Plan Local · 1.200€</a>
+        <a href="index.html#precios">Plan Autoridad · 2.000€</a>
+        <a href="index.html#precios">Mantenimiento · 60€/mes</a>
+      </div>
+
+      <!-- Contacto -->
+      <div class="foot-col">
+        <div class="foot-col-t">Contacto directo</div>
+        <a href="https://wa.me/34654256764" target="_blank" rel="noopener">📲 WhatsApp</a>
+        <a href="tel:+34654256764">📞 654 256 764</a>
+        <a href="/cdn-cgi/l/email-protection#442d256a342526282b6a2523212a272d25042329252d286a272b29"><span class="__cf_email__" data-cfemail="9bf2fab5ebfaf9f7f4b5fafcfef5f8f2fadbfcf6faf2f7b5f8f4f6">[email&#160;protected]</span></a>
+        <div class="foot-col-t" style="margin-top:1.25rem">Cobertura</div>
+        <span style="font-size:.78rem;color:var(--m3);font-weight:300">Toda España · Online</span>
+        <span style="font-size:.78rem;color:var(--m3);font-weight:300">Base: Costa Tropical, Granada</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot-bot-bar">
+    <div class="foot-bot-in">
+      <span>© 2026 CostaDigital · Pablo · Costa Tropical, Granada</span>
+      <div class="foot-bot-links">
+        <a href="aviso-legal.html">Aviso legal</a>
+        <a href="privacidad.html">Privacidad</a>
+        <a href="cookies.html">Cookies</a>
+      </div>
+      <span class="foot-tagline">Webs que aparecen en Google 🌊</span>
+    </div>
+  </div>
+  <div class="fstripe" aria-hidden="true"></div>
+</footer>
+
+<a id="wa-float" href="https://wa.me/34654256764?text=Hola%20Pablo!" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <span class="wa-pulse"></span>
+  <span class="wa-pulse wa-pulse2"></span>
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span class="wa-tooltip">Escríbeme ahora</span>
+</a>
+
+
+
+<!-- COOKIE BANNER -->
+<div id="ck-banner" role="dialog" aria-label="Aviso de cookies">
+  <span class="ck-icon">🍪</span>
+  <div class="ck-txt">
+    <div class="ck-title">Usamos cookies analíticas</div>
+    <div class="ck-desc">Solo Google Analytics (anónimo). <a href="cookies.html">Política de cookies</a> · <a href="privacidad.html">Privacidad</a></div>
+  </div>
+  <div class="ck-btns">
+    <button class="ck-accept" id="ckAccept">✓ Aceptar</button>
+    <button class="ck-reject" id="ckReject">Solo necesarias</button>
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+/* Nav scroll */
+(function(){
+  const nav=document.getElementById('main-nav');
+  if(!nav)return;
+  window.addEventListener('scroll',()=>nav.classList.toggle('on',window.scrollY>40),{passive:true});
+})();
+/* Hamburger */
+(function(){
+  const HAM=document.getElementById('HAM'),MOB=document.getElementById('mob'),MOBX=document.getElementById('MOBX');
+  if(!HAM)return;
+  HAM.addEventListener('click',()=>{MOB.classList.add('on');HAM.classList.add('on');document.body.style.overflow='hidden';});
+  function cM(){MOB.classList.remove('on');HAM.classList.remove('on');document.body.style.overflow='';}
+  MOBX?.addEventListener('click',cM);
+  document.addEventListener('keydown',e=>e.key==='Escape'&&cM());
+  document.querySelectorAll('#mob a').forEach(a=>a.addEventListener('click',cM));
+})();
+/* Scroll reveal */
+(function(){
+  const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target);}}),{threshold:0.07,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+})();
+/* WA float */
+(function(){
+  const btn=document.getElementById('wa-float');
+  if(!btn)return;
+  btn.style.cssText='opacity:0;transform:scale(0);transition:opacity .5s,transform .5s cubic-bezier(.34,1.56,.64,1)';
+  setTimeout(()=>{btn.style.opacity='1';btn.style.transform='';},1800);
+})();
+/* Cookie consent */
+(function(){
+  const STORAGE_KEY='cd_cookie_consent';
+  const banner=document.getElementById('ck-banner');
+  const btnAcc=document.getElementById('ckAccept');
+  const btnRej=document.getElementById('ckReject');
+  if(!banner)return;
+  if(localStorage.getItem(STORAGE_KEY))return;
+  setTimeout(()=>banner.classList.add('ck-show'),1500);
+  function dismiss(accepted){
+    banner.classList.remove('ck-show');
+    localStorage.setItem(STORAGE_KEY,accepted?'granted':'denied');
+    if(accepted&&typeof gtag==='function') gtag('consent','update',{analytics_storage:'granted',ad_storage:'denied'});
+  }
+  btnAcc?.addEventListener('click',()=>dismiss(true));
+  btnRej?.addEventListener('click',()=>dismiss(false));
+})();
+
+/* FAQ accordion */
+document.querySelectorAll('.lp-faq-q').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+ 
+
+<div id="ck-banner" role="dialog" aria-label="Aviso de cookies" style="position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120px);z-index:99997;width:min(680px,calc(100vw - 32px));background:rgba(8,13,22,.97);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:1.5rem 1.75rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;box-shadow:0 20px 60px rgba(0,0,0,.7);backdrop-filter:blur(24px);opacity:0;pointer-events:none;transition:transform .55s cubic-bezier(.34,1.56,.64,1),opacity .45s ease">
+  <span style="font-size:1.6rem">🍪</span>
+  <div style="flex:1;min-width:220px">
+    <div style="font-family:var(--f1);font-size:.85rem;font-weight:700;color:#fff;margin-bottom:.25rem">Usamos cookies analíticas</div>
+    <div style="font-size:.72rem;color:rgba(255,255,255,.2)">Solo Google Analytics. <a href="cookies.html" style="color:var(--s1)">Política de cookies</a></div>
+  </div>
+  <div style="display:flex;gap:.6rem">
+    <button id="ckAccept" style="background:var(--gs);color:#000;font-family:var(--f1);font-weight:800;font-size:.75rem;padding:10px 22px;border-radius:100px;border:none;cursor:pointer">✓ Aceptar</button>
+    <button id="ckReject" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.3);font-family:var(--f1);font-weight:700;font-size:.72rem;padding:9px 18px;border-radius:100px;cursor:pointer">Solo necesarias</button>
+  </div>
+</div>
+
+<script>
+
+/* FAQ accordion */
+document.querySelectorAll('.lp-faq-q').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item=btn.closest('.lp-faq-item');
+    const isOpen=item.classList.contains('open');
+    document.querySelectorAll('.lp-faq-item').forEach(i=>i.classList.remove('open'));
+    if(!isOpen) item.classList.add('open');
+  });
+});
+/* Cookie */
+(function(){
+  const b=document.getElementById('ck-banner');
+  if(!b||localStorage.getItem('cd_cookie_consent'))return;
+  setTimeout(()=>{b.style.transform=b.style.transform.replace('translateY(120px)','translateY(0)');b.style.opacity='1';b.style.pointerEvents='auto';},1500);
+  function d(a){b.style.opacity='0';b.style.pointerEvents='none';localStorage.setItem('cd_cookie_consent',a?'granted':'denied');if(a&&typeof gtag==='function')gtag('consent','update',{analytics_storage:'granted'});}
+  document.getElementById('ckAccept')?.addEventListener('click',()=>d(true));
+  document.getElementById('ckReject')?.addEventListener('click',()=>d(false));
+})();
+</script>
+</body>
+</html>
