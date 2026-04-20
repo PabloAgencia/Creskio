@@ -1100,6 +1100,10 @@ body.chov #c-ring{width:56px;height:56px;border-color:rgba(0,212,255,.28)}
 .prx-card:hover{transform:translateY(-8px);box-shadow:0 28px 72px rgba(0,0,0,.55)}
 .prx-card.prx-feat{border-color:rgba(245,166,35,.3);background:linear-gradient(165deg,rgba(6,10,18,.98),rgba(245,166,35,.05));box-shadow:0 0 0 1px rgba(245,166,35,.12),0 32px 80px rgba(245,166,35,.08)}
 .prx-card.prx-feat:hover{transform:translateY(-10px)}
+.prx-card.prx-elite{overflow:visible;border:2px solid rgba(245,166,35,.7);transform:scale(1.04);animation:neonPulse 3s ease-in-out infinite;z-index:2}
+.prx-card.prx-elite:hover{transform:scale(1.04) translateY(-10px)}
+.prx-card.prx-elite.prx-pop{animation:cardPop .6s cubic-bezier(.34,1.56,.64,1) forwards,neonPulse 3s ease-in-out 0.6s infinite}
+@keyframes cardPop{0%{transform:scale(.92);opacity:0}60%{transform:scale(1.07)}100%{transform:scale(1.04);opacity:1}}
 .prx-top{position:absolute;top:0;left:0;right:0;height:2.5px}
 .prx-top-s{background:var(--gs)}
 .prx-top-f{background:var(--gf);background-size:200% 100%;animation:gflow 3s linear infinite}
@@ -3363,14 +3367,13 @@ body.chov #c-ring{width:56px;height:56px;border-color:rgba(0,212,255,.28)}
     </div>
     <div class="prx-g rv d1" style="grid-template-columns:repeat(3,1fr)">
 
-      <!-- PLAN 1: Web Esencial -->
-      <div class="prx-card" style="opacity:.88">
+      <!-- PLAN 1: Web Esencial — sobrio, sin badges de recomendación -->
+      <div class="prx-card" style="opacity:.82;border-color:rgba(255,255,255,.07)">
         <div class="prx-top prx-top-s"></div>
         <div class="prx-head">
-          <div class="prx-name" style="color:rgba(255,255,255,.7)">Plan Web Esencial</div>
-          <div style="display:inline-block;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.4);font-size:.58rem;font-family:var(--f1);font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:100px;margin-bottom:.6rem">Presencia Esencial</div>
-          <div class="prx-price" style="color:rgba(255,255,255,.75)"><sup></sup>900€<sup style="font-size:.55rem;font-weight:500;color:rgba(255,255,255,.4)"> + IVA</sup></div>
-          <div class="prx-sub" style="color:rgba(255,255,255,.45)">Para negocios que solo quieren estar en internet</div>
+          <div class="prx-name" style="color:rgba(255,255,255,.65);font-size:.9rem">Plan Web Esencial</div>
+          <div class="prx-price" style="color:rgba(255,255,255,.7);font-size:clamp(1.8rem,3vw,2.4rem)"><sup></sup>900€<sup style="font-size:.5rem;font-weight:400;color:rgba(255,255,255,.35)"> + IVA</sup></div>
+          <div class="prx-sub" style="color:rgba(255,255,255,.38)">Para negocios que solo quieren estar en internet</div>
         </div>
         <div class="prx-div"></div>
         <ul class="prx-list">
@@ -3382,33 +3385,31 @@ body.chov #c-ring{width:56px;height:56px;border-color:rgba(0,212,255,.28)}
           <li class="prx-no"><span class="prx-x">✗</span><span>Automatización de citas</span></li>
         </ul>
         <!-- Aviso crítico -->
-        <div style="background:rgba(255,80,80,.07);border:1px solid rgba(255,80,80,.2);border-radius:10px;padding:.75rem 1rem;margin:.75rem 0;display:flex;gap:.6rem;align-items:flex-start">
-          <span style="font-size:1rem;flex-shrink:0">⚠️</span>
-          <p style="font-size:.72rem;color:rgba(255,200,200,.8);line-height:1.6;margin:0"><strong style="color:rgba(255,180,180,.95)">Sin IA ni automatización.</strong> Todas las consultas, presupuestos y citas requieren <strong style="color:rgba(255,180,180,.95)">gestión manual</strong> de tu parte. Cada llamada, tú la atiendes.</p>
+        <div style="background:rgba(255,70,70,.06);border:1px solid rgba(255,70,70,.18);border-radius:10px;padding:.75rem 1rem;margin:.85rem 0;display:flex;gap:.6rem;align-items:flex-start">
+          <span style="font-size:.95rem;flex-shrink:0;margin-top:.05rem">⚠️</span>
+          <p style="font-size:.71rem;color:rgba(255,190,190,.75);line-height:1.6;margin:0"><strong style="color:rgba(255,170,170,.9)">Requiere gestión manual y atención telefónica constante.</strong> Sin IA activa, cada consulta y cita la gestionas tú personalmente.</p>
         </div>
-        <div class="prx-btns">
-          <a href="https://wa.me/34654256764?text=Me%20interesa%20el%20Plan%20Web%20Esencial%20(900%E2%82%AC%20%2B%20IVA)" class="prx-btn rh" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.65);flex:1;justify-content:center" target="_blank" rel="noopener">Solicitar info</a>
-          <a href="tel:+34654256764" class="prx-btn prx-call rh"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a>
+        <div class="prx-btns" style="margin-top:auto;padding-top:.75rem">
+          <a href="https://wa.me/34654256764?text=Me%20interesa%20el%20Plan%20Web%20Esencial%20(900%E2%82%AC%20%2B%20IVA)" class="prx-btn rh" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.55);flex:1;justify-content:center;font-size:.74rem" target="_blank" rel="noopener">Más información</a>
+          <a href="tel:+34654256764" class="prx-btn prx-call rh" style="opacity:.7"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a>
         </div>
       </div>
 
-      <!-- PLAN 2: Sistema Captación Inteligente (PROTAGONISTA) -->
-      <div class="prx-card prx-feat" style="border:2px solid rgba(245,166,35,.7);animation:neonPulse 3s ease-in-out infinite;transform:scale(1.05);background:linear-gradient(165deg,rgba(8,14,26,.98),rgba(245,166,35,.08),rgba(8,14,26,.98))">
+      <!-- PLAN 2: Sistema Captación Inteligente — PROTAGONISTA ABSOLUTO -->
+      <div class="prx-card prx-feat prx-elite">
         <div class="prx-top" style="background:linear-gradient(90deg,#f5a623,#ff6b35,#f5a623);background-size:200%;animation:gflow 3s linear infinite;height:3px"></div>
-        <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.75rem">
-          <div class="prx-badge" style="position:relative;background:linear-gradient(135deg,#f5a623,#ff6b35);color:#000;font-weight:900;font-size:.6rem;letter-spacing:.08em;padding:5px 13px">🏆 EL FAVORITO DE LOS TALLERES</div>
-          <div style="display:inline-flex;align-items:center;gap:4px;background:rgba(0,230,118,.12);border:1px solid rgba(0,230,118,.35);color:rgba(0,230,118,.95);font-size:.6rem;font-family:var(--f1);font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 11px;border-radius:100px">⚡ MÁXIMO RENDIMIENTO</div>
-        </div>
-        <div class="prx-head">
-          <div class="prx-name" style="font-size:1rem;color:#fff">Sistema de Captación Inteligente</div>
+        <!-- Badge flotante ENCIMA de la tarjeta -->
+        <div style="position:absolute;top:-16px;left:50%;transform:translateX(-50%);white-space:nowrap;z-index:3;background:linear-gradient(135deg,#f5a623,#ff6b35);color:#000;font-family:var(--f1);font-weight:900;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:5px 16px;border-radius:100px;box-shadow:0 4px 18px rgba(245,166,35,.5)">🏆 SOLUCIÓN LÍDER · MÁXIMA RENTABILIDAD</div>
+        <div class="prx-head" style="padding-top:.5rem">
+          <div class="prx-name" style="font-size:1.05rem;color:#fff;margin-bottom:.3rem">Sistema de Captación Inteligente</div>
           <div class="prx-price" style="color:#f5a623"><sup></sup>2.100€<sup style="font-size:.55rem;font-weight:500;color:rgba(245,166,35,.65)"> + IVA</sup></div>
-          <div class="prx-sub" style="color:rgba(255,255,255,.75);font-weight:500">El sistema que gestiona tu taller mientras tú trabajas</div>
+          <div class="prx-sub" style="color:rgba(255,255,255,.8);font-weight:500">El sistema que gestiona tu taller mientras tú trabajas</div>
         </div>
         <div class="prx-div"></div>
         <ul class="prx-list">
-          <li><span class="prx-ok">✓</span><strong>Recepción Automatizada 24/7</strong> — La IA atiende, informa y filtra cada oportunidad</li>
-          <li><span class="prx-ok">✓</span><strong>Agenda Asistida por IA</strong> — El bot gestiona la intención de cita, verifica el servicio y envía la reserva lista para confirmar a WhatsApp</li>
-          <li><span class="prx-ok">✓</span><strong>Ventaja Competitiva</strong> — Posicionamiento por encima de talleres tradicionales que siguen perdiendo clientes al teléfono</li>
+          <li><span class="prx-ok">✓</span><strong style="color:#f5a623">Recepción 100% Automatizada 24/7</strong> <span style="color:rgba(255,255,255,.65)">— La IA atiende, informa y filtra cada oportunidad</span></li>
+          <li><span class="prx-ok">✓</span><strong style="color:#00e676">Agenda Asistida por IA</strong> <span style="color:rgba(255,255,255,.65)">— Recopila modelo, problema y fecha; envía la reserva a tu WhatsApp lista para confirmar</span></li>
+          <li><span class="prx-ok">✓</span><strong style="color:#f5a623">IA Inteligente 24/7</strong> <span style="color:rgba(255,255,255,.65)">— Posicionamiento por encima de talleres que pierden clientes al teléfono</span></li>
           <li><span class="prx-ok">✓</span>Estrategia SEO para búsquedas de urgencia local</li>
           <li><span class="prx-ok">✓</span>Todo el Plan Web Esencial incluido</li>
         </ul>
@@ -4067,6 +4068,15 @@ const ro = new IntersectionObserver(es=>es.forEach(e=>{
   if(e.isIntersecting){e.target.classList.add('in'); ro.unobserve(e.target);}
 }), {threshold:0.07, rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.rv,.rvl').forEach(el=>ro.observe(el));
+
+/* Elite card pop on entry */
+const eliteCard = document.querySelector('.prx-elite');
+if(eliteCard){
+  const eo = new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting){eliteCard.classList.add('prx-pop');eo.unobserve(eliteCard);}
+  }),{threshold:0.15});
+  eo.observe(eliteCard);
+}
 
 /* ══════════════════════════════════════════
    PARTICLE CANVAS
