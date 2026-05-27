@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -904,40 +904,12 @@ body.chov #c-ring{width:56px;height:56px;border-color:rgba(0,212,255,.28)}
 /* FAQ accordion */
 document.querySelectorAll('.lp-faq-q').forEach(btn=>{
   btn.addEventListener('click',()=>{
- 
-
-<div id="ck-banner" role="dialog" aria-label="Aviso de cookies" style="position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120px);z-index:99997;width:min(680px,calc(100vw - 32px));background:rgba(8,13,22,.97);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:1.5rem 1.75rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;box-shadow:0 20px 60px rgba(0,0,0,.7);backdrop-filter:blur(24px);opacity:0;pointer-events:none;transition:transform .55s cubic-bezier(.34,1.56,.64,1),opacity .45s ease">
-  <span style="font-size:1.6rem">🍪</span>
-  <div style="flex:1;min-width:220px">
-    <div style="font-family:var(--f1);font-size:.85rem;font-weight:700;color:#fff;margin-bottom:.25rem">Usamos cookies analíticas</div>
-    <div style="font-size:.72rem;color:rgba(255,255,255,.2)">Solo Google Analytics. <a href="cookies.html" style="color:var(--s1)">Política de cookies</a></div>
-  </div>
-  <div style="display:flex;gap:.6rem">
-    <button id="ckAccept" style="background:var(--gs);color:#000;font-family:var(--f1);font-weight:800;font-size:.75rem;padding:10px 22px;border-radius:100px;border:none;cursor:pointer">✓ Aceptar</button>
-    <button id="ckReject" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.3);font-family:var(--f1);font-weight:700;font-size:.72rem;padding:9px 18px;border-radius:100px;cursor:pointer">Solo necesarias</button>
-  </div>
-</div>
-
-<script>
-
-/* FAQ accordion */
-document.querySelectorAll('.lp-faq-q').forEach(btn=>{
-  btn.addEventListener('click',()=>{
     const item=btn.closest('.lp-faq-item');
     const isOpen=item.classList.contains('open');
     document.querySelectorAll('.lp-faq-item').forEach(i=>i.classList.remove('open'));
     if(!isOpen) item.classList.add('open');
   });
 });
-/* Cookie */
-(function(){
-  const b=document.getElementById('ck-banner');
-  if(!b||localStorage.getItem('cd_cookie_consent'))return;
-  setTimeout(()=>{b.style.transform=b.style.transform.replace('translateY(120px)','translateY(0)');b.style.opacity='1';b.style.pointerEvents='auto';},1500);
-  function d(a){b.style.opacity='0';b.style.pointerEvents='none';localStorage.setItem('cd_cookie_consent',a?'granted':'denied');if(a&&typeof gtag==='function')gtag('consent','update',{analytics_storage:'granted'});}
-  document.getElementById('ckAccept')?.addEventListener('click',()=>d(true));
-  document.getElementById('ckReject')?.addEventListener('click',()=>d(false));
-})();
 </script>
 </body>
 </html>
