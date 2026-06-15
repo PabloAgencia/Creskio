@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#03050a"/>
+      <stop offset="100%" stop-color="#060a12"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+    <radialGradient id="orb1" cx="80%" cy="20%" r="50%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity=".12"/>
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orb2" cx="15%" cy="80%" r="40%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity=".08"/>
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Fondo -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#orb1)"/>
+  <rect width="1200" height="630" fill="url(#orb2)"/>
+
+  <!-- Grid puntitos -->
+  <pattern id="dots" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+    <circle cx="1" cy="1" r="1" fill="rgba(255,255,255,.04)"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+
+  <!-- Línea accent izquierda -->
+  <rect x="72" y="180" width="4" height="270" rx="2" fill="url(#accent)"/>
+
+  <!-- CK grande decorativo -->
+  <text x="980" y="480" font-family="Arial Black,sans-serif" font-weight="900" font-size="320" fill="rgba(139,92,246,.06)" text-anchor="middle">CK</text>
+
+  <!-- Tag pill -->
+  <rect x="104" y="172" width="180" height="32" rx="16" fill="rgba(139,92,246,.12)" stroke="rgba(139,92,246,.3)" stroke-width="1"/>
+  <text x="194" y="192" font-family="Arial,sans-serif" font-weight="700" font-size="13" fill="#8b5cf6" text-anchor="middle" letter-spacing="2">AGENCIA DIGITAL</text>
+
+  <!-- Título principal -->
+  <text x="104" y="290" font-family="Arial Black,sans-serif" font-weight="900" font-size="72" fill="#ffffff" letter-spacing="-2">Tu negocio captando</text>
+  <text x="104" y="375" font-family="Arial Black,sans-serif" font-weight="900" font-size="72" fill="url(#accent)" letter-spacing="-2">clientes 24h.</text>
+
+  <!-- Subtítulo -->
+  <text x="104" y="440" font-family="Arial,sans-serif" font-weight="300" font-size="28" fill="rgba(255,255,255,.4)">Diseño web · SEO local · Entrega en 7 días · Toda España</text>
+
+  <!-- Stats -->
+  <text x="104" y="528" font-family="Arial Black,sans-serif" font-weight="900" font-size="22" fill="#8b5cf6">⚡ &lt;2s</text>
+  <text x="204" y="528" font-family="Arial,sans-serif" font-weight="300" font-size="22" fill="rgba(255,255,255,.25)">carga</text>
+  <text x="310" y="528" font-family="Arial,sans-serif" font-weight="300" font-size="22" fill="rgba(255,255,255,.15)">·</text>
+  <text x="334" y="528" font-family="Arial Black,sans-serif" font-weight="900" font-size="22" fill="#22d3ee">⚡ 7 días</text>
+  <text x="450" y="528" font-family="Arial,sans-serif" font-weight="300" font-size="22" fill="rgba(255,255,255,.25)">entrega</text>
+  <text x="572" y="528" font-family="Arial,sans-serif" font-weight="300" font-size="22" fill="rgba(255,255,255,.15)">·</text>
+  <text x="596" y="528" font-family="Arial Black,sans-serif" font-weight="900" font-size="22" fill="#10b981">✓ Auditoría gratuita</text>
+
+  <!-- Logo Creskio -->
+  <text x="1128" y="580" font-family="Arial Black,sans-serif" font-weight="900" font-size="22" fill="rgba(255,255,255,.2)" text-anchor="end" letter-spacing="-0.5">creskio.com</text>
+</svg>
