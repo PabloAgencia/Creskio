@@ -28,9 +28,10 @@ ul li{margin-bottom:.35rem}
 footer{text-align:center;padding:2rem;border-top:1px solid var(--b1);font-size:.75rem;color:var(--m3)}
 </style>
 
-<!-- Google Analytics GA4 — sustituye G-XXXXXXXXXX por tu Measurement ID -->
+<!-- Google Analytics GA4 con consent mode — sustituye G-XXXXXXXXXX por tu Measurement ID -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('consent','default',{analytics_storage:'denied',wait_for_update:500});</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+<script>gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
 </head>
 <body>
 <nav>
@@ -61,5 +62,33 @@ footer{text-align:center;padding:2rem;border-top:1px solid var(--b1);font-size:.
   </ul>
 </div>
 <footer>© 2026 Creskio · Pablo · Costa Tropical, Granada</footer>
+<!-- ════ COOKIE BANNER ════ -->
+<div id="cc-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9998;background:rgba(6,10,18,.97);border-top:1px solid rgba(139,92,246,.28);padding:.85rem 1.4rem;gap:.9rem;align-items:center;flex-wrap:wrap;font-family:inherit;backdrop-filter:blur(8px)">
+  <p style="flex:1;min-width:200px;font-size:.8rem;color:rgba(255,255,255,.7);margin:0;line-height:1.5">Usamos <strong style="color:rgba(255,255,255,.9)">Google Analytics</strong> para analizar visitas de forma anónima y mejorar la web. No vendemos tus datos. <a href="/aviso-legal.html" style="color:#22d3ee;text-decoration:none">Política de privacidad</a></p>
+  <div style="display:flex;gap:.55rem;flex-shrink:0">
+    <button id="cc-reject" style="border:1px solid rgba(255,255,255,.15);background:transparent;color:rgba(255,255,255,.6);border-radius:8px;padding:7px 14px;font-size:.78rem;cursor:pointer;font-family:inherit">Solo esenciales</button>
+    <button id="cc-accept" style="background:#8b5cf6;color:#fff;border:none;border-radius:8px;padding:7px 18px;font-size:.78rem;font-weight:600;cursor:pointer;font-family:inherit">Aceptar</button>
+  </div>
+</div>
+<style>@media(max-width:767px){#cc-banner{bottom:56px}}</style>
+<script>
+(function(){
+  var KEY='creskio_cc';
+  var saved=localStorage.getItem(KEY);
+  if(saved==='all'){gtag('consent','update',{analytics_storage:'granted'});return}
+  if(saved==='essential'){return}
+  var banner=document.getElementById('cc-banner');
+  banner.style.display='flex';
+  document.getElementById('cc-accept').onclick=function(){
+    localStorage.setItem(KEY,'all');
+    gtag('consent','update',{analytics_storage:'granted'});
+    banner.style.display='none';
+  };
+  document.getElementById('cc-reject').onclick=function(){
+    localStorage.setItem(KEY,'essential');
+    banner.style.display='none';
+  };
+})();
+</script>
 </body>
 </html>
