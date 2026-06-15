@@ -136,7 +136,7 @@ body.chov #c-dot{width:4px;height:4px;background:var(--c1)}
 body.chov #c-ring{width:56px;height:56px;border-color:rgba(34,211,238,.28)}
 /* Con cursor custom activo, ocultar también el nativo en interactivos (evita doble cursor) */
 @media(hover:hover) and (pointer:fine) and (min-width:768px){
-  a,button,.faq-q,.pf-btn,.mob-x,.cw-close,.cw-btn,.bmock-ndot{cursor:none!important}
+  a,button,.faq-q,.mob-x,.cw-close,.cw-btn,.bmock-ndot{cursor:none!important}
   input,textarea{cursor:text!important}
 }
 
@@ -1612,6 +1612,39 @@ table{max-width:100%}
   line-height:1.65;
 }
 
+/* ─── PLANTILLAS GRID ─── */
+.tmpl-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;margin-top:2.5rem}
+@media(max-width:767px){.tmpl-grid{grid-template-columns:1fr;gap:1.5rem}}
+.tmpl-card{
+  background:rgba(6,9,15,.9);border:1px solid var(--b1);
+  border-radius:22px;overflow:hidden;
+  transition:transform .45s var(--sp),box-shadow .45s,border-color .3s;
+}
+.tmpl-card:hover{transform:translateY(-10px);box-shadow:0 32px 80px rgba(0,0,0,.65);border-color:rgba(255,255,255,.12)}
+.tmpl-preview{position:relative;height:320px;overflow:hidden}
+.tmpl-preview img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .7s var(--ez);display:block}
+.tmpl-card:hover .tmpl-preview img{transform:scale(1.04) translateY(-10px)}
+.tmpl-preview-ov{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(3,5,10,.6);backdrop-filter:blur(5px);
+  opacity:0;transition:opacity .35s var(--ez);
+}
+.tmpl-card:hover .tmpl-preview-ov{opacity:1}
+.tmpl-badge{
+  position:absolute;top:1rem;left:1rem;
+  font-size:.67rem;font-weight:700;letter-spacing:.03em;
+  padding:5px 14px;border-radius:100px;
+  background:rgba(139,92,246,.15);border:1px solid rgba(139,92,246,.35);color:rgba(139,92,246,.95);
+}
+.tmpl-badge-pink{background:rgba(236,72,153,.12);border-color:rgba(236,72,153,.32);color:rgba(236,72,153,.95)}
+.tmpl-body{padding:1.75rem 1.75rem 2rem}
+.tmpl-name{font-family:var(--f1);font-size:1.3rem;font-weight:800;color:#fff;margin-bottom:.7rem}
+.tmpl-desc{font-size:.84rem;color:var(--m3);line-height:1.88;font-weight:300;margin-bottom:1.2rem}
+.tmpl-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.6rem}
+.tmpl-chips span{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:100px;padding:4px 12px;font-size:.68rem;color:var(--m2);font-weight:400}
+@media(max-width:767px){.tmpl-preview{height:240px}}
+
 /* ══════════════════════════════════════════
    PREMIUM MOBILE OPTIMIZATION + ANIMATIONS
 ══════════════════════════════════════════ */
@@ -1993,212 +2026,85 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   </div>
 </section>
 
-<!-- ════ DEMOS DE CONCEPTO ════ -->
+<!-- ════ PLANTILLAS EN VIVO ════ -->
 <section id="demos" class="sec">
   <div class="sec-glow sec-glow sg-cool" style="top:15%;right:-8%" aria-hidden="true"></div>
   <div class="wrap">
 
-    <!-- Cabecera + filtros -->
-    <div class="rv" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;margin-bottom:2rem">
-      <div>
-        <div class="slbl"><div class="slbl-bar bc"></div><span class="slbl-t tc">Demos de Concepto: Soluciones por Sector</span></div>
-        <h2 class="sh" style="margin-bottom:.5rem">Potencia real de la IA <span class="acc">en entornos reales.</span></h2>
-        <p class="sp">Ejemplos de proyectos adaptados a distintos tipos de negocio.</p>
-      </div>
-      <div class="port-filter" id="portFilter">
-        <button class="pf-btn active" data-filter="all">Todos (8)</button>
-        <button class="pf-btn" data-filter="auto">Automoción</button>
-        <button class="pf-btn" data-filter="hosteleria">Hostelería</button>
-        <button class="pf-btn" data-filter="servicios">Servicios</button>
-        <button class="pf-btn" data-filter="turismo">Turismo</button>
-      </div>
+    <!-- Cabecera -->
+    <div class="rv" style="text-align:center;max-width:680px;margin:0 auto 3rem">
+      <div class="slbl" style="justify-content:center"><div class="slbl-bar bc"></div><span class="slbl-t tc">Plantillas en vivo</span></div>
+      <h2 class="sh" style="margin-bottom:.9rem">Así de buena queda <span class="acc">tu web.</span></h2>
+      <p class="sp">Plantillas premium por sector, desarrolladas y desplegadas. Funcionales al 100%, listas para tu negocio.</p>
     </div>
 
-    <div class="port-disclaimer">
-      Estos proyectos son demos técnicas desarrolladas para mostrar el sistema en distintos sectores. El estándar que esperarías al contratar.
-    </div>
+    <!-- ── GRID PLANTILLAS ── -->
+    <div class="tmpl-grid">
 
-    <!-- ── DESTACADO: Autoelectricidad Juan Sánchez ── -->
-    <div class="port-hero rv" id="portHero" data-pinned="true" data-cat="auto">
-      <div class="port-hero-img">
-        <img src="juan_sanchez.jpg" alt="Autoelectricidad Juan Sánchez — Sistema de Captación IA" loading="lazy">
-        <div class="port-hero-ov"></div>
-        <div class="port-hero-badge">🤖 Demo Elite · Sistema IA activo</div>
-      </div>
-      <div class="port-hero-info">
-        <div class="port-tag port-tag-auto">⚡ Electrónica de Precisión · Automoción</div>
-        <h3 class="port-hero-name">Autoelectricidad<br><span style="color:var(--s1)">Juan Sánchez</span></h3>
-        <p class="port-hero-desc">Sistema de captación completo para especialistas en electrónica del automóvil. El asistente IA 24/7 gestiona consultas sobre <strong>diagnosis avanzada, fallos en el cuadro de mandos y problemas de precisión</strong> — cualificando al cliente y enviándote un WhatsApp pre-rellenado antes de que tú intervengas. SEO configurado para búsquedas de urgencia en la zona.</p>
-        <div class="port-hero-stats">
-          <div class="port-stat"><span class="port-stat-n">IA 24/7</span><span class="port-stat-l">Asistente activo</span></div>
-          <div class="port-stat-sep"></div>
-          <div class="port-stat"><span class="port-stat-n">&lt;1.5s</span><span class="port-stat-l">Carga</span></div>
-          <div class="port-stat-sep"></div>
-          <div class="port-stat"><span class="port-stat-n">#1</span><span class="port-stat-l">Google Maps</span></div>
-        </div>
-        <div class="port-chips">
-          <span class="port-chip">Asistente IA Diagnosis</span>
-          <span class="port-chip">Lead cualificado a WhatsApp</span>
-          <span class="port-chip">SEO búsquedas urgencia</span>
-          <span class="port-chip">Schema.org @graph</span>
-          <span class="port-chip">Google Business</span>
-          <span class="port-chip">Botón WhatsApp IA</span>
-        </div>
-        <a href="https://autoelectricidadjuansanchez.vercel.app/" class="port-demo-btn rh" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Ver demo técnica en vivo →
-        </a>
-      </div>
-    </div>
-
-    <!-- ── GRID 6 PROYECTOS: 3 columnas ── -->
-    <div class="port-grid" id="portGrid">
-
-      <!-- 1. Talleres de la Torre -->
-      <div class="port-card rv d1" data-cat="auto">
-        <div class="port-card-img">
-          <img src="talleres_torre.jpg" alt="Talleres de la Torre" loading="lazy">
-          <div class="port-card-ov"></div>
-          <div class="port-card-hover">
-            <a href="https://talleresdelatorre.vercel.app/" class="port-card-link" target="_blank" rel="noopener">Ver demo técnica →</a>
+      <!-- 1. Taller Profesional -->
+      <div class="tmpl-card rv">
+        <div class="tmpl-preview">
+          <img src="taller profesional portada.png" alt="Taller Profesional — Plantilla para talleres y automoción" loading="lazy">
+          <div class="tmpl-badge">🔧 Talleres · Automoción</div>
+          <div class="tmpl-preview-ov">
+            <a href="https://taller-profesional.pages.dev/" class="bwa" target="_blank" rel="noopener" style="font-size:.78rem;padding:11px 24px">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="flex-shrink:0"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Ver web en vivo →
+            </a>
           </div>
         </div>
-        <div class="port-card-body">
-          <div class="port-tag port-tag-auto">🚗 Chapa &amp; Pintura</div>
-          <div class="port-card-name">Talleres de la Torre</div>
-          <div class="port-card-loc">📍 Motril, Granada</div>
-          <div class="port-card-tags"><span>Canvas partículas</span><span>SEO local</span><span>Bebas Neue</span></div>
+        <div class="tmpl-body">
+          <div class="tmpl-name">Taller Profesional</div>
+          <div class="tmpl-desc">Diseño oscuro y dinámico pensado para talleres y negocios de automoción. Chatbot IA integrado que cualifica clientes 24/7, sección de servicios clara y llamadas a la acción directas.</div>
+          <div class="tmpl-chips">
+            <span>Chatbot IA 24/7</span>
+            <span>Diseño premium oscuro</span>
+            <span>SEO local</span>
+            <span>Antes/Después</span>
+            <span>Mobile first</span>
+          </div>
+          <a href="https://taller-profesional.pages.dev/" class="port-demo-btn rh" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Ver web en vivo →
+          </a>
         </div>
       </div>
 
-      <!-- 2. El Rey del Boquerón -->
-      <div class="port-card rv d2" data-cat="hosteleria">
-        <div class="port-card-img">
-          <img src="el_rey_boqueron.jpg" alt="El Rey del Boquerón" loading="lazy">
-          <div class="port-card-ov"></div>
-          <div class="port-card-hover">
-            <a href="https://elreydelboqueron.vercel.app/" class="port-card-link" target="_blank" rel="noopener">Ver web en vivo →</a>
+      <!-- 2. Lumière Estética -->
+      <div class="tmpl-card rv d1">
+        <div class="tmpl-preview">
+          <img src="lumiere portada.png" alt="Lumière Estética — Plantilla para clínicas estéticas" loading="lazy">
+          <div class="tmpl-badge tmpl-badge-pink">💆 Clínicas Estéticas</div>
+          <div class="tmpl-preview-ov">
+            <a href="https://lumiere-estetica.pages.dev/" class="bwa" target="_blank" rel="noopener" style="font-size:.78rem;padding:11px 24px">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="flex-shrink:0"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Ver web en vivo →
+            </a>
           </div>
         </div>
-        <div class="port-card-body">
-          <div class="port-tag port-tag-host">🐟 Marisquería</div>
-          <div class="port-card-name">El Rey del Boquerón</div>
-          <div class="port-card-loc">📍 Motril, Granada</div>
-          <div class="port-card-tags"><span>Paleta navy &amp; arena</span><span>Carta digital</span><span>SEO local</span></div>
-        </div>
-      </div>
-
-      <!-- 3. Restaurante La Biznaga -->
-      <div class="port-card rv d3" data-cat="hosteleria">
-        <div class="port-card-img">
-          <img src="la_biznaga.jpg" alt="Restaurante La Biznaga" loading="lazy">
-          <div class="port-card-ov"></div>
-          <div class="port-card-hover">
-            <a href="https://restaurantelabiznaga.vercel.app/" class="port-card-link" target="_blank" rel="noopener">Ver web en vivo →</a>
+        <div class="tmpl-body">
+          <div class="tmpl-name">Lumière Estética</div>
+          <div class="tmpl-desc">Elegancia y sofisticación para clínicas y centros de estética. Paleta cálida, galería de tratamientos, sistema de citas y asistente IA que convierte visitas en reservas automáticamente.</div>
+          <div class="tmpl-chips">
+            <span>Chatbot IA citas</span>
+            <span>Diseño elegante</span>
+            <span>Galería tratamientos</span>
+            <span>SEO local</span>
+            <span>Mobile first</span>
           </div>
+          <a href="https://lumiere-estetica.pages.dev/" class="port-demo-btn rh" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Ver web en vivo →
+          </a>
         </div>
-        <div class="port-card-body">
-          <div class="port-tag port-tag-host">🍽️ Restaurante</div>
-          <div class="port-card-name">Restaurante La Biznaga</div>
-          <div class="port-card-loc">📍 Costa Tropical, Granada</div>
-          <div class="port-card-tags"><span>Menú interactivo</span><span>Reservas</span><span>SEO local</span></div>
-        </div>
-      </div>
-
-      <!-- 4. Electricidad Malpa -->
-      <div class="port-card rv d1" data-cat="servicios">
-        <div class="port-card-img">
-          <img src="electricidad_malpa.jpg" alt="Electricidad Malpa" loading="lazy">
-          <div class="port-card-ov"></div>
-          <div class="port-card-hover">
-            <a href="https://electricidadmalpa.vercel.app/" class="port-card-link" target="_blank" rel="noopener">Ver web en vivo →</a>
-          </div>
-        </div>
-        <div class="port-card-body">
-          <div class="port-tag port-tag-otros">⚡ Electricidad</div>
-          <div class="port-card-name">Electricidad Malpa</div>
-          <div class="port-card-loc">📍 Granada</div>
-          <div class="port-card-tags"><span>SEO instalaciones</span><span>Zona de cobertura</span><span>RGPD</span></div>
-        </div>
-      </div>
-
-      <!-- 5. Kayak Salobreña -->
-      <div class="port-card rv d2" data-cat="turismo">
-        <div class="port-card-img">
-          <img src="kayak_salobrena.jpg" alt="Kayak Salobreña" loading="lazy">
-          <div class="port-card-ov"></div>
-          <div class="port-card-hover">
-            <a href="https://kayaksalobrena.vercel.app/" class="port-card-link" target="_blank" rel="noopener">Ver web en vivo →</a>
-          </div>
-        </div>
-        <div class="port-card-body">
-          <div class="port-tag port-tag-otros">🏄 Turismo Activo</div>
-          <div class="port-card-name">Kayak Salobreña</div>
-          <div class="port-card-loc">📍 Salobreña, Granada</div>
-          <div class="port-card-tags"><span>Actividades outdoor</span><span>Reservas online</span><span>Galería</span></div>
-        </div>
-      </div>
-
-      <!-- 6. Clínica Anut -->
-      <div class="port-card rv d3" data-cat="servicios">
-        <div class="port-card-img">
-          <img src="clinicaanut.jpg" alt="Clínica Anut" loading="lazy">
-          <div class="port-card-ov"></div>
-          <div class="port-card-hover">
-            <a href="https://anut-clinica.vercel.app/" class="port-card-link" target="_blank" rel="noopener">Ver web en vivo →</a>
-          </div>
-        </div>
-        <div class="port-card-body">
-          <div class="port-tag port-tag-otros">💆 Estética · Clínica</div>
-          <div class="port-card-name">Clínica Anut</div>
-          <div class="port-card-loc">📍 Demo · España</div>
-          <div class="port-card-tags"><span>Tratamientos</span><span>Cita online</span><span>SEO local</span></div>
-        </div>
-      </div>
-
-      <!-- 7. Transportes Pedro Justo -->
-      <div class="port-card rv d1" data-cat="servicios">
-        <div class="port-card-img">
-          <img src="transportespedrojusto.jpg" alt="Transportes Pedro Justo" loading="lazy">
-          <div class="port-card-ov"></div>
-          <div class="port-card-hover">
-            <a href="https://transportespedrojusto.vercel.app/" class="port-card-link" target="_blank" rel="noopener">Ver web en vivo →</a>
-          </div>
-        </div>
-        <div class="port-card-body">
-          <div class="port-tag port-tag-otros">🚚 Transportes</div>
-          <div class="port-card-name">Transportes Pedro Justo</div>
-          <div class="port-card-loc">📍 Demo · España</div>
-          <div class="port-card-tags"><span>Flota</span><span>Cobertura nacional</span><span>SEO local</span></div>
-        </div>
-      </div>
-
-      <!-- CTA card -->
-      <div class="port-cta-card rv d2">
-        <div class="port-cta-ic">🤖</div>
-        <div class="port-cta-t">¿Tu sector aquí?</div>
-        <div class="port-cta-d">Diseñamos el sistema de captación para tu industria. Auditoría gratuita — te mostramos exactamente qué leads estás perdiendo ahora mismo.</div>
-        <a href="#cta" class="bwa rh" style="font-size:.79rem;padding:12px 22px;width:100%;justify-content:center;margin-top:1.5rem;background:linear-gradient(135deg,#8b5cf6,#7c3aed);color:#000;font-weight:800">
-          SOLICITAR AUDITORÍA
-        </a>
       </div>
 
     </div>
 
-    <!-- Contador de proyectos visible -->
-    <div class="rv" style="text-align:center;margin-top:2.5rem;display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap">
-      <div style="display:flex;align-items:center;gap:.6rem;font-size:.78rem;color:var(--m3);font-weight:300">
-        <span style="width:6px;height:6px;border-radius:50%;background:var(--g1);display:inline-block"></span>
-        8 demos técnicas · todas funcionales
-      </div>
-      <div style="display:flex;align-items:center;gap:.6rem;font-size:.78rem;color:var(--m3);font-weight:300">
-        <span style="width:6px;height:6px;border-radius:50%;background:var(--c1);display:inline-block"></span>
-        6 sectores distintos
-      </div>
-      <div style="display:flex;align-items:center;gap:.6rem;font-size:.78rem;color:var(--m3);font-weight:300">
-        <span style="width:6px;height:6px;border-radius:50%;background:var(--s1);display:inline-block"></span>
-        Código custom, sin plantillas
-      </div>
+    <!-- CTA centrado -->
+    <div class="rv" style="text-align:center;margin-top:3.5rem">
+      <p style="font-size:.88rem;color:var(--m3);margin-bottom:1.6rem">¿Tu sector no está aquí? Más plantillas en camino — y siempre adaptamos a medida.</p>
+      <a href="#cta" class="bwa rh" style="font-size:.82rem;padding:13px 30px">Solicitar auditoría gratuita →</a>
     </div>
 
   </div>
@@ -2208,22 +2114,22 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <!-- ════ LOGOS CLIENTES ════ -->
 <div id="clientes-logos">
   <div class="wrap">
-    <p class="cl-head">Así quedaría el tuyo — 6 demos en vivo</p>
+    <p class="cl-head">Plantillas disponibles por sector — en producción hoy</p>
     <div class="cl-track-wrap">
       <div class="cl-track">
-        <div class="cl-logo"><span class="cl-logo-ic">⚡</span><span class="cl-logo-name">Autoelectricidad<br>Juan Sánchez</span><span class="cl-logo-loc">Motril</span></div>
-        <div class="cl-logo"><span class="cl-logo-ic">🚗</span><span class="cl-logo-name">Talleres de<br>la Torre</span><span class="cl-logo-loc">Motril</span></div>
-        <div class="cl-logo"><span class="cl-logo-ic">🐟</span><span class="cl-logo-name">El Rey del<br>Boquerón</span><span class="cl-logo-loc">Salobreña</span></div>
-        <div class="cl-logo"><span class="cl-logo-ic">🍽️</span><span class="cl-logo-name">Restaurante<br>La Biznaga</span><span class="cl-logo-loc">Salobreña</span></div>
-        <div class="cl-logo"><span class="cl-logo-ic">💡</span><span class="cl-logo-name">Electricidad<br>Malpa</span><span class="cl-logo-loc">Motril</span></div>
-        <div class="cl-logo"><span class="cl-logo-ic">🏄</span><span class="cl-logo-name">Kayak<br>Salobreña</span><span class="cl-logo-loc">Salobreña</span></div>
+        <div class="cl-logo"><span class="cl-logo-ic">🔧</span><span class="cl-logo-name">Taller<br>Profesional</span><span class="cl-logo-loc">Talleres · Automoción</span></div>
+        <div class="cl-logo"><span class="cl-logo-ic">💆</span><span class="cl-logo-name">Lumière<br>Estética</span><span class="cl-logo-loc">Clínicas Estéticas</span></div>
+        <div class="cl-logo"><span class="cl-logo-ic">🦷</span><span class="cl-logo-name">Blanc<br>Dental</span><span class="cl-logo-loc">Clínicas Dentales</span></div>
+        <div class="cl-logo"><span class="cl-logo-ic">🍽️</span><span class="cl-logo-name">Tu sector<br>aquí</span><span class="cl-logo-loc">Hostelería</span></div>
+        <div class="cl-logo"><span class="cl-logo-ic">⚡</span><span class="cl-logo-name">Tu sector<br>aquí</span><span class="cl-logo-loc">Servicios · Instalaciones</span></div>
+        <div class="cl-logo"><span class="cl-logo-ic">🏠</span><span class="cl-logo-name">Tu sector<br>aquí</span><span class="cl-logo-loc">Inmobiliario</span></div>
         <!-- duplicate for infinite scroll -->
-        <div class="cl-logo"><span class="cl-logo-ic">⚡</span><span class="cl-logo-name">Autoelectricidad<br>Juan Sánchez</span><span class="cl-logo-loc">Motril</span></div>
-        <div class="cl-logo"><span class="cl-logo-ic">🚗</span><span class="cl-logo-name">Talleres de<br>la Torre</span><span class="cl-logo-loc">Motril</span></div>
-        <div class="cl-logo"><span class="cl-logo-ic">🐟</span><span class="cl-logo-name">El Rey del<br>Boquerón</span><span class="cl-logo-loc">Salobreña</span></div>
-        <div class="cl-logo"><span class="cl-logo-ic">🍽️</span><span class="cl-logo-name">Restaurante<br>La Biznaga</span><span class="cl-logo-loc">Salobreña</span></div>
-        <div class="cl-logo"><span class="cl-logo-ic">💡</span><span class="cl-logo-name">Electricidad<br>Malpa</span><span class="cl-logo-loc">Motril</span></div>
-        <div class="cl-logo"><span class="cl-logo-ic">🏄</span><span class="cl-logo-name">Kayak<br>Salobreña</span><span class="cl-logo-loc">Salobreña</span></div>
+        <div class="cl-logo"><span class="cl-logo-ic">🔧</span><span class="cl-logo-name">Taller<br>Profesional</span><span class="cl-logo-loc">Talleres · Automoción</span></div>
+        <div class="cl-logo"><span class="cl-logo-ic">💆</span><span class="cl-logo-name">Lumière<br>Estética</span><span class="cl-logo-loc">Clínicas Estéticas</span></div>
+        <div class="cl-logo"><span class="cl-logo-ic">🦷</span><span class="cl-logo-name">Blanc<br>Dental</span><span class="cl-logo-loc">Clínicas Dentales</span></div>
+        <div class="cl-logo"><span class="cl-logo-ic">🍽️</span><span class="cl-logo-name">Tu sector<br>aquí</span><span class="cl-logo-loc">Hostelería</span></div>
+        <div class="cl-logo"><span class="cl-logo-ic">⚡</span><span class="cl-logo-name">Tu sector<br>aquí</span><span class="cl-logo-loc">Servicios · Instalaciones</span></div>
+        <div class="cl-logo"><span class="cl-logo-ic">🏠</span><span class="cl-logo-name">Tu sector<br>aquí</span><span class="cl-logo-loc">Inmobiliario</span></div>
       </div>
     </div>
   </div>
@@ -2232,7 +2138,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <!-- ════ NÚMEROS ════ -->
 <div id="nums">
   <div class="nums-g">
-    <div class="nc rv"><span class="ncg" aria-hidden="true">8</span><span class="ncn" data-count="8">8</span><div class="ncl">Demos técnicas en vivo</div></div>
+    <div class="nc rv"><span class="ncg" aria-hidden="true">3+</span><span class="ncn" data-count="3" data-suffix="+">3+</span><div class="ncl">Plantillas premium en producción</div></div>
     <div class="nc rv d1"><span class="ncg" aria-hidden="true">&lt;2s</span><span class="ncn" data-text="&lt;2s">&lt;2s</span><div class="ncl">Velocidad de carga media</div></div>
     <div class="nc rv d2"><span class="ncg" aria-hidden="true">5-7</span><span class="ncn" data-count="7" data-pre="5–">5–7</span><div class="ncl">Días de entrega media por proyecto</div></div>
     <div class="nc rv d3"><span class="ncg" aria-hidden="true">24h</span><span class="ncn" data-text="24h">24h</span><div class="ncl">Para recibir tu presupuesto listo</div></div>
@@ -2826,39 +2732,6 @@ document.querySelectorAll('[data-count]').forEach(el=>cObs.observe(el));
   });
 })();
 
-/* ══════════════════════════════════════════
-   PORTFOLIO — filtro por categoría
-══════════════════════════════════════════ */
-(function(){
-  const btns = document.querySelectorAll('.pf-btn');
-  const cards = document.querySelectorAll('.port-card, .port-hero');
-  const ctaCard = document.querySelector('.port-cta-card');
-  if(!btns.length) return;
-
-  btns.forEach(btn=>{
-    btn.addEventListener('click',()=>{
-      btns.forEach(b=>b.classList.remove('active'));
-      btn.classList.add('active');
-      const filter = btn.dataset.filter;
-
-      cards.forEach((card,i)=>{
-        if(card.dataset.pinned === 'true') return;
-        const cat = card.dataset.cat || 'otros';
-        const show = filter === 'all' || cat === filter;
-        if(show){
-          card.classList.remove('pf-hidden');
-          card.style.transitionDelay = (i % 3) * 0.06 + 's';
-        } else {
-          card.classList.add('pf-hidden');
-          card.style.transitionDelay = '0s';
-        }
-      });
-
-      // CTA card siempre visible
-      if(ctaCard) ctaCard.classList.remove('pf-hidden');
-    });
-  });
-})();
 
 /* ══════════════════════════════════════════
    FAQ ACORDEÓN
@@ -3293,106 +3166,6 @@ document.querySelectorAll('[data-count]').forEach(el=>cObs.observe(el));
   }, {passive:true});
 })();
 
-/* ── PORTFOLIO HERO — rotación aleatoria en cada carga ── */
-(function(){
-  const hero = document.getElementById('portHero');
-  if(!hero) return;
-
-  const demos = [
-    {
-      cat:'auto', tag:'⚡ Electrónica de Precisión · Automoción', tagClass:'port-tag-auto',
-      img:'juan_sanchez.jpg', alt:'Autoelectricidad Juan Sánchez — Sistema de Captación IA',
-      name:'Autoelectricidad<br><span style="color:var(--s1)">Juan Sánchez</span>',
-      nameAcc:'Autoelectricidad Juan Sánchez',
-      desc:'Sistema de captación completo para especialistas en electrónica del automóvil. El asistente IA 24/7 gestiona consultas sobre <strong>diagnosis avanzada, fallos en el cuadro de mandos y problemas de precisión</strong> — cualificando al cliente y enviándote un WhatsApp pre-rellenado antes de que tú intervengas.',
-      chips:['Asistente IA Diagnosis','Lead cualificado a WhatsApp','SEO búsquedas urgencia','Schema.org @graph','Google Business','Botón WhatsApp IA'],
-      href:'https://autoelectricidadjuansanchez.vercel.app/'
-    },
-    {
-      cat:'auto', tag:'🚗 Chapa & Pintura · Automoción', tagClass:'port-tag-auto',
-      img:'talleres_torre.jpg', alt:'Talleres de la Torre — Sistema de Captación IA',
-      name:'Talleres de<br><span style="color:var(--s1)">la Torre</span>',
-      nameAcc:'Talleres de la Torre',
-      desc:'Sistema de captación para taller de chapa y pintura. Canvas animado de partículas, SEO local potente para búsquedas de urgencia en la zona y asistente IA disponible 24/7.',
-      chips:['Canvas partículas','SEO local urgencia','Lead cualificado a WhatsApp','Botón WhatsApp IA'],
-      href:'https://talleresdelatorre.vercel.app/'
-    },
-    {
-      cat:'hosteleria', tag:'🐟 Marisquería · Hostelería', tagClass:'port-tag-host',
-      img:'el_rey_boqueron.jpg', alt:'El Rey del Boquerón — Sistema de Captación IA',
-      name:'El Rey del<br><span style="color:var(--s1)">Boquerón</span>',
-      nameAcc:'El Rey del Boquerón',
-      desc:'Web para marisquería con carta digital interactiva. SEO local potente, paleta navy & arena, y sistema de captación que convierte búsquedas de "restaurante cerca" en reservas directas.',
-      chips:['Carta digital','SEO hostelería local','Paleta premium','Lead a WhatsApp'],
-      href:'https://elreydelboqueron.vercel.app/'
-    },
-    {
-      cat:'hosteleria', tag:'🍽️ Restaurante · Hostelería', tagClass:'port-tag-host',
-      img:'la_biznaga.jpg', alt:'Restaurante La Biznaga — Sistema de Captación IA',
-      name:'Restaurante<br><span style="color:var(--s1)">La Biznaga</span>',
-      nameAcc:'Restaurante La Biznaga',
-      desc:'Sistema completo para restaurante en primera línea de Salobreña. Menú interactivo, reservas integradas y SEO posicionado en búsquedas de "restaurante Salobreña" desde el día 1.',
-      chips:['Menú interactivo','Reservas online','SEO local','WhatsApp pre-rellenado'],
-      href:'https://restaurantelabiznaga.vercel.app/'
-    },
-    {
-      cat:'servicios', tag:'⚡ Electricidad · Servicios', tagClass:'port-tag-otros',
-      img:'electricidad_malpa.jpg', alt:'Electricidad Malpa — Sistema de Captación IA',
-      name:'Electricidad<br><span style="color:var(--s1)">Malpa</span>',
-      nameAcc:'Electricidad Malpa',
-      desc:'Sistema de captación para electricistas autorizados. SEO de instalaciones, zona de cobertura interactiva y asistente IA que cualifica cada lead antes de pasártelo por WhatsApp.',
-      chips:['SEO instalaciones','Zona de cobertura','RGPD','Lead a WhatsApp'],
-      href:'https://electricidadmalpa.vercel.app/'
-    },
-    {
-      cat:'turismo', tag:'🏄 Turismo Activo · Turismo', tagClass:'port-tag-otros',
-      img:'kayak_salobrena.jpg', alt:'Kayak Salobreña — Sistema de Captación IA',
-      name:'Kayak<br><span style="color:var(--s1)">Salobreña</span>',
-      nameAcc:'Kayak Salobreña',
-      desc:'Sistema para empresa de turismo activo. 5 rutas disponibles, galería de actividades y SEO posicionado en búsquedas de "kayak Costa Tropical". Reservas online integradas.',
-      chips:['Actividades outdoor','Reservas online','Galería','SEO turismo'],
-      href:'https://kayaksalobrena.vercel.app/'
-    },
-    {
-      cat:'servicios', tag:'💆 Estética · Clínica', tagClass:'port-tag-otros',
-      img:'clinicaanut.jpg', alt:'Clínica Anut — Sistema de Captación IA',
-      name:'Clínica<br><span style="color:var(--s1)">Anut</span>',
-      nameAcc:'Clínica Anut',
-      desc:'Sistema de captación para clínica de estética. Catálogo de tratamientos, cita online y asistente IA que cualifica al cliente recogiendo nombre, contacto y tipo de tratamiento.',
-      chips:['Tratamientos','Cita online','SEO local','WhatsApp pre-rellenado'],
-      href:'https://anut-clinica.vercel.app/'
-    },
-    {
-      cat:'servicios', tag:'🚚 Transportes · Logística', tagClass:'port-tag-otros',
-      img:'transportespedrojusto.jpg', alt:'Transportes Pedro Justo — Sistema de Captación IA',
-      name:'Transportes<br><span style="color:var(--s1)">Pedro Justo</span>',
-      nameAcc:'Transportes Pedro Justo',
-      desc:'Sistema de captación para empresa de transportes. Información de flota, cobertura nacional y asistente IA que recoge la necesidad del cliente y te lo envía a WhatsApp listo para presupuestar.',
-      chips:['Flota','Cobertura nacional','SEO local','Lead a WhatsApp'],
-      href:'https://transportespedrojusto.vercel.app/'
-    }
-  ];
-
-  const d = demos[Math.floor(Math.random() * demos.length)];
-
-  hero.dataset.cat = d.cat;
-
-  const imgEl    = hero.querySelector('.port-hero-img img');
-  const badgeTag = hero.querySelector('.port-tag');
-  const nameEl   = hero.querySelector('.port-hero-name');
-  const descEl   = hero.querySelector('.port-hero-desc');
-  const chipsEl  = hero.querySelector('.port-chips');
-  const linkEl   = hero.querySelector('.port-demo-btn');
-
-  if(imgEl)   { imgEl.src = d.img; imgEl.alt = d.alt; }
-  if(badgeTag){ badgeTag.className = 'port-tag ' + d.tagClass; badgeTag.textContent = d.tag; }
-  if(nameEl)  nameEl.innerHTML = d.name;
-  if(descEl)  descEl.innerHTML = d.desc;
-  if(chipsEl) {
-    chipsEl.innerHTML = d.chips.map(c=>`<span class="port-chip">${c}</span>`).join('');
-  }
-  if(linkEl)  linkEl.href = d.href;
-})();
 </script>
 
 <script>
