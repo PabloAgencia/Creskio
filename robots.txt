@@ -1,10 +1,10 @@
-# CostaDigital · robots.txt
+﻿# Creskio · robots.txt
 User-agent: *
 Allow: /
 Disallow: /cdn-cgi/
 
 # Sitemaps
-Sitemap: https://costadigital.es/sitemap.xml
+Sitemap: https://creskio.es/sitemap.xml
 
 # Crawl-delay for bots (no Google)
 User-agent: SemrushBot

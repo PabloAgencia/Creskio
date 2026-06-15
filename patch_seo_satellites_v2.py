@@ -1,6 +1,6 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
-patch_seo_satellites_v2.py — CostaDigital SEO Patch (versión corregida)
+patch_seo_satellites_v2.py — Creskio SEO Patch (versión corregida)
 Ejecutar desde la raíz del repo: python3 patch_seo_satellites_v2.py
 
 Fixes:
@@ -123,7 +123,7 @@ def build_breadcrumb_schema(url, label):
         "@type": "BreadcrumbList",
         "@id": f"{url}#breadcrumb",
         "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://costadigital.es/"},
+            {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://creskio.es/"},
             {"@type": "ListItem", "position": 2, "name": label, "item": url}
         ]
     }
@@ -179,7 +179,7 @@ def inject_schema_items(content, url, label, faq_pairs):
 
 def add_og_meta(content):
     """Add missing OG/Twitter meta tags after og:image."""
-    anchor = '<meta property="og:image" content="https://costadigital.es/og-image.jpg">'
+    anchor = '<meta property="og:image" content="https://creskio.es/og-image.jpg">'
     additions = []
     if 'og:image:width' not in content:
         additions.append('<meta property="og:image:width" content="1200">')
@@ -188,7 +188,7 @@ def add_og_meta(content):
     if 'og:locale' not in content:
         additions.append('<meta property="og:locale" content="es_ES">')
     if 'og:site_name' not in content:
-        additions.append('<meta property="og:site_name" content="CostaDigital">')
+        additions.append('<meta property="og:site_name" content="Creskio">')
     if not additions:
         return content, False
     idx = content.find(anchor)
@@ -216,7 +216,7 @@ def add_twitter_meta(content):
     additions = []
     if 'twitter:card' not in content:
         additions.append('<meta name="twitter:card" content="summary_large_image">')
-    additions.append('<meta name="twitter:image" content="https://costadigital.es/og-image.jpg">')
+    additions.append('<meta name="twitter:image" content="https://creskio.es/og-image.jpg">')
     content = content[:end] + '\n' + '\n'.join(additions) + content[end:]
     return content, True
 
@@ -256,7 +256,7 @@ def patch_sector(fname, label, icon):
         content = f.read()
 
     changed = False
-    url = f"https://costadigital.es/{fname}"
+    url = f"https://creskio.es/{fname}"
 
     c, ok = fix_fonts(content); content = c; changed = changed or ok
     c, ok = add_og_meta(content); content = c; changed = changed or ok
@@ -297,7 +297,7 @@ def patch_city(fname, city, region_code, lat, lng):
         content = f.read()
 
     changed = False
-    url = f"https://costadigital.es/{fname}"
+    url = f"https://creskio.es/{fname}"
 
     c, ok = fix_fonts(content); content = c; changed = changed or ok
     c, ok = add_og_meta(content); content = c; changed = changed or ok

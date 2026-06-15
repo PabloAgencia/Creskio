@@ -1,6 +1,6 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
-patch_seo_satellites.py — CostaDigital SEO Patch
+patch_seo_satellites.py — Creskio SEO Patch
 Ejecutar desde la raíz del repo: python3 patch_seo_satellites.py
 
 Aplica a las 11 páginas de sector y 11 de ciudad restantes:
@@ -72,8 +72,8 @@ def patch_sector_page(filepath, label):
     # 1. og:locale, og:site_name
     if 'og:locale' not in content:
         content = add_meta_after(content, 
-            '<meta property="og:image" content="https://costadigital.es/og-image.jpg">',
-            '<meta property="og:locale" content="es_ES">\n<meta property="og:site_name" content="CostaDigital">\n<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">'
+            '<meta property="og:image" content="https://creskio.es/og-image.jpg">',
+            '<meta property="og:locale" content="es_ES">\n<meta property="og:site_name" content="Creskio">\n<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">'
         )
         modified = True
 
@@ -81,7 +81,7 @@ def patch_sector_page(filepath, label):
     if 'twitter:image' not in content:
         content = add_meta_after(content,
             '<meta name="twitter:description"',
-            '<meta name="twitter:image" content="https://costadigital.es/og-image.jpg">'
+            '<meta name="twitter:image" content="https://creskio.es/og-image.jpg">'
         )
         modified = True
 
@@ -96,12 +96,12 @@ def patch_sector_page(filepath, label):
     # 4. BreadcrumbList in schema
     if 'BreadcrumbList' not in content:
         slug = filepath.replace('.html','')
-        url = f"https://costadigital.es/{filepath}"
+        url = f"https://creskio.es/{filepath}"
         breadcrumb = {
             "@type": "BreadcrumbList",
             "@id": f"{url}#breadcrumb",
             "itemListElement": [
-                {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://costadigital.es/"},
+                {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://creskio.es/"},
                 {"@type": "ListItem", "position": 2, "name": label, "item": url}
             ]
         }
@@ -132,7 +132,7 @@ def patch_sector_page(filepath, label):
                     "name": q,
                     "acceptedAnswer": {"@type": "Answer", "text": a}
                 })
-            url = f"https://costadigital.es/{filepath}"
+            url = f"https://creskio.es/{filepath}"
             faq_schema = {
                 "@type": "FAQPage",
                 "@id": f"{url}#faq",
@@ -177,8 +177,8 @@ def patch_city_page(filepath, city, region_code, lat, lng):
     # og:locale, og:site_name, og:image dimensions
     if 'og:locale' not in content:
         content = add_meta_after(content,
-            '<meta property="og:image" content="https://costadigital.es/og-image.jpg">',
-            '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n<meta property="og:locale" content="es_ES">\n<meta property="og:site_name" content="CostaDigital">'
+            '<meta property="og:image" content="https://creskio.es/og-image.jpg">',
+            '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n<meta property="og:locale" content="es_ES">\n<meta property="og:site_name" content="Creskio">'
         )
         modified = True
 
@@ -188,7 +188,7 @@ def patch_city_page(filepath, city, region_code, lat, lng):
         if 'twitter:description' in content:
             m = re.search(r'(<meta name="twitter:description"[^>]+>)', content)
             if m:
-                content = content[:m.end()] + '\n<meta name="twitter:image" content="https://costadigital.es/og-image.jpg">' + content[m.end():]
+                content = content[:m.end()] + '\n<meta name="twitter:image" content="https://creskio.es/og-image.jpg">' + content[m.end():]
                 modified = True
 
     # geo meta
@@ -201,7 +201,7 @@ def patch_city_page(filepath, city, region_code, lat, lng):
 
     # hreflang
     if 'hreflang' not in content:
-        url = f"https://costadigital.es/{filepath}"
+        url = f"https://creskio.es/{filepath}"
         content = add_meta_after(content,
             '<meta name="theme-color"',
             f'<link rel="hreflang" href="{url}" hreflang="es-ES">'
@@ -210,12 +210,12 @@ def patch_city_page(filepath, city, region_code, lat, lng):
 
     # BreadcrumbList
     if 'BreadcrumbList' not in content:
-        url = f"https://costadigital.es/{filepath}"
+        url = f"https://creskio.es/{filepath}"
         breadcrumb = {
             "@type": "BreadcrumbList",
             "@id": f"{url}#breadcrumb",
             "itemListElement": [
-                {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://costadigital.es/"},
+                {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://creskio.es/"},
                 {"@type": "ListItem", "position": 2, "name": f"Diseño Web {city}", "item": url}
             ]
         }
@@ -233,7 +233,7 @@ def patch_city_page(filepath, city, region_code, lat, lng):
         qs = [q.strip() for q in qs if '?' in q]
         as_ = [re.sub(r'<[^>]+>', '', a).strip() for a in as_]
         if qs and as_ and len(qs) == len(as_):
-            url = f"https://costadigital.es/{filepath}"
+            url = f"https://creskio.es/{filepath}"
             entities = [{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in zip(qs,as_)]
             faq_schema = {"@type":"FAQPage","@id":f"{url}#faq","mainEntity":entities}
             if '"@graph"' in content:
