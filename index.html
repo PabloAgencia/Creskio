@@ -370,6 +370,17 @@ body.chov #c-ring{width:56px;height:56px;border-color:rgba(34,211,238,.28)}
   animation:bgZoom 22s ease-in-out infinite alternate
 }
 @keyframes bgZoom{from{transform:scale(1)}to{transform:scale(1.07)}}
+
+/* ── HERO FLOATING ORBS ── */
+@keyframes floatOrb1{0%,100%{transform:translate(0,0) scale(1)}40%{transform:translate(40px,-28px) scale(1.07)}70%{transform:translate(-20px,22px) scale(.96)}}
+@keyframes floatOrb2{0%,100%{transform:translate(0,0) scale(1)}35%{transform:translate(-32px,25px) scale(.94)}65%{transform:translate(25px,-20px) scale(1.08)}}
+@keyframes floatOrb3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(20px,-32px) scale(1.05)}}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;will-change:transform}
+.hero-orb-1{width:520px;height:520px;background:rgba(139,92,246,.15);top:-130px;right:6%;z-index:1;animation:floatOrb1 16s ease-in-out infinite}
+.hero-orb-2{width:420px;height:420px;background:rgba(34,211,238,.09);bottom:2%;left:-6%;z-index:1;animation:floatOrb2 20s ease-in-out infinite}
+.hero-orb-3{width:320px;height:320px;background:rgba(139,92,246,.08);top:40%;left:22%;z-index:1;animation:floatOrb3 24s ease-in-out infinite}
+@media(max-width:767px){.hero-orb-1{width:280px;height:280px}.hero-orb-2{width:220px;height:220px}.hero-orb-3{display:none}}
+
 /* Split glow — left dark, right has subtle light beam */
 .hbg::after{
   content:'';position:absolute;inset:0;
@@ -1756,6 +1767,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
     <source media="(max-width:1279px)" srcset="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1280&q=80">
     <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1920&q=80" alt="Fondo de oficina - Creskio diseño web" loading="eager" fetchpriority="high">
   </picture></div>
+  <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
+  <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
+  <div class="hero-orb hero-orb-3" aria-hidden="true"></div>
   <div class="hdiag" aria-hidden="true"></div>
   <div class="hdots" aria-hidden="true"></div>
   <div class="horb horb1" aria-hidden="true"></div>
@@ -1801,9 +1815,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
       </div>
 
       <div class="hstats">
-        <div class="hstat"><span class="hstatn">&lt;2s</span><span class="hstatl">Velocidad de carga</span></div>
-        <div class="hstat"><span class="hstatn">7 días</span><span class="hstatl">Entrega garantizada</span></div>
-        <div class="hstat"><span class="hstatn">24h</span><span class="hstatl">Tu propuesta lista</span></div>
+        <div class="hstat"><span class="hstatn" data-count="2" data-prefix="&lt;" data-suffix="s">&lt;2s</span><span class="hstatl">Velocidad de carga</span></div>
+        <div class="hstat"><span class="hstatn" data-count="7" data-suffix=" días">7 días</span><span class="hstatl">Entrega garantizada</span></div>
+        <div class="hstat"><span class="hstatn" data-count="24" data-suffix="h">24h</span><span class="hstatl">Tu propuesta lista</span></div>
       </div>
     </div>
 
@@ -3378,6 +3392,78 @@ document.querySelectorAll('[data-count]').forEach(el=>cObs.observe(el));
     chipsEl.innerHTML = d.chips.map(c=>`<span class="port-chip">${c}</span>`).join('');
   }
   if(linkEl)  linkEl.href = d.href;
+})();
+</script>
+
+<script>
+/* ── CONTADOR HERO STATS ── */
+(function(){
+  const els = document.querySelectorAll('.hstatn[data-count]');
+  if(!els.length) return;
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(!e.isIntersecting) return;
+      io.unobserve(e.target);
+      const el = e.target;
+      const target = +el.dataset.count;
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      let start = null;
+      const dur = 1400;
+      function step(ts){
+        if(!start) start = ts;
+        const prog = Math.min((ts - start) / dur, 1);
+        const ease = 1 - Math.pow(1 - prog, 3);
+        el.textContent = prefix + Math.round(ease * target) + suffix;
+        if(prog < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }, {threshold:.6});
+  els.forEach(el => io.observe(el));
+})();
+
+/* ── TIMELINE DRAW ANIMATION ── */
+(function(){
+  const sec = document.getElementById('proceso');
+  if(!sec) return;
+  const fill = sec.querySelector('.tl-line-fill');
+  const steps = sec.querySelectorAll('.tl-step');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(!e.isIntersecting) return;
+      io.unobserve(e.target);
+      if(fill) fill.style.height = '100%';
+      steps.forEach((s, i) => setTimeout(() => s.classList.add('tl-active'), 150 + i * 320));
+    });
+  }, {threshold:.12});
+  io.observe(sec);
+})();
+
+/* ── 3D TILT EN PORTFOLIO CARDS (solo desktop) ── */
+(function(){
+  if(window.matchMedia('(hover:none)').matches) return;
+  document.querySelectorAll('.port-card, .port-hero').forEach(card => {
+    let raf = null;
+    card.addEventListener('mouseenter', () => {
+      card.style.transition = 'box-shadow .3s, border-color .3s';
+    });
+    card.addEventListener('mousemove', e => {
+      if(raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const r = card.getBoundingClientRect();
+        const x = ((e.clientX - r.left) / r.width  - .5) * 12;
+        const y = ((e.clientY - r.top)  / r.height - .5) * -9;
+        card.style.transform = `perspective(700px) rotateY(${x}deg) rotateX(${y}deg) translateY(-6px)`;
+      });
+    });
+    card.addEventListener('mouseleave', () => {
+      if(raf) cancelAnimationFrame(raf);
+      card.style.transition = 'transform .55s var(--sp), box-shadow .3s, border-color .3s';
+      card.style.transform = '';
+      setTimeout(() => { card.style.transition = ''; }, 560);
+    });
+  });
 })();
 </script>
 </body>
