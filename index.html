@@ -20,7 +20,7 @@
 <meta property="og:title" content="Creskio · Diseño Web Profesional con IA para Negocios — Toda España">
 <meta property="og:description" content="Crea tu web profesional con IA en 7 días. Diseño a medida, chatbot 24h, SEO local y Google Business para tu negocio. Auditoría gratuita.">
 <meta property="og:url" content="https://creskio.com/">
-<meta property="og:image" content="https://creskio.com/og-image.svg">
+<meta property="og:image" content="https://creskio.com/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="es_ES">
@@ -30,7 +30,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Creskio · Agencia de Diseño Web con IA — Toda España">
 <meta name="twitter:description" content="Web profesional + chatbot IA + SEO local en 7 días. Cada propuesta es personalizada para tu negocio. Auditoría gratuita.">
-<meta name="twitter:image" content="https://creskio.com/og-image.svg">
+<meta name="twitter:image" content="https://creskio.com/og-image.jpg">
 
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="favicon.svg">
@@ -85,7 +85,7 @@
 }
 </script>
 
-<!-- Google Analytics GA4 con consent mode — sustituye G-C7B0MZ81ZF por tu Measurement ID -->
+<!-- Google Analytics GA4 con consent mode —  G-C7B0MZ81ZF -->
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('consent','default',{analytics_storage:'denied',wait_for_update:500});</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-C7B0MZ81ZF"></script>
 <script>gtag('js',new Date());gtag('config','G-C7B0MZ81ZF');</script>
@@ -2007,7 +2007,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 
 <!-- ════ SERVICIOS ════ -->
 <section id="servicios" class="sec">
-  <div class="sec-glow sec-glow sg-warm" style="top:20%;left:-8%" aria-hidden="true"></div>
+  <div class="sec-glow sg-warm" style="top:20%;left:-8%" aria-hidden="true"></div>
   <div class="wrap">
     <div class="rv" style="text-align:center;max-width:640px;margin:0 auto 4rem">
       <div class="slbl" style="justify-content:center"><div class="slbl-bar bs"></div><span class="slbl-t ts">El Sistema Creskio</span></div>
@@ -2079,7 +2079,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 
 <!-- ════ PLANTILLAS EN VIVO ════ -->
 <section id="demos" class="sec">
-  <div class="sec-glow sec-glow sg-cool" style="top:15%;right:-8%" aria-hidden="true"></div>
+  <div class="sec-glow sg-cool" style="top:15%;right:-8%" aria-hidden="true"></div>
   <div class="wrap">
 
     <!-- Cabecera -->
@@ -3211,7 +3211,6 @@ document.querySelectorAll('[data-count]:not(.hstatn)').forEach(el=>cObs.observe(
 /* ── ROTATING HERO TEXT ── */
 (function(){
   const rotLine = document.getElementById('heroRotLine');
-  const rotSub  = document.getElementById('heroRotSub');
   if(!rotLine) return;
 
   const slides = [
@@ -3234,14 +3233,6 @@ document.querySelectorAll('[data-count]:not(.hstatn)').forEach(el=>cObs.observe(
       rotLine.style.animation = 'none';
       rotLine.offsetHeight; // reflow
       rotLine.style.animation = '';
-      if(rotSub) {
-        rotSub.style.opacity = '0';
-        setTimeout(() => {
-          rotSub.textContent = slides[cur].sub;
-          rotSub.style.transition = 'opacity .35s';
-          rotSub.style.opacity = '1';
-        }, 220);
-      }
     }, 350);
   }
 
