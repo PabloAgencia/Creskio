@@ -573,7 +573,7 @@ body.chov #c-ring{width:56px;height:56px;border-color:rgba(34,211,238,.28)}
   /* NAV MOBILE FIX */
   .nav-ul{display:none !important}
   .ham{display:flex !important}
-  .nav-logo img{height:68px !important;width:auto !important}
+  .nav-logo img{height:90px !important;width:auto !important}
   #main-nav{padding:3px clamp(1rem,4vw,1.5rem)}
   .nav-cta{font-size:.72rem;padding:9px 16px}
 
@@ -780,7 +780,7 @@ body.chov #c-ring{width:56px;height:56px;border-color:rgba(34,211,238,.28)}
 @media(max-width:399px){
   .hrow:nth-child(1) span,.hrow:nth-child(2) span{font-size:1.95rem !important}
   .nums-g{grid-template-columns:1fr}
-  .nav-logo img{height:56px !important;width:auto !important}
+  .nav-logo img{height:72px !important;width:auto !important}
 }
 
 
@@ -1308,9 +1308,28 @@ body.chov #c-ring{width:56px;height:56px;border-color:rgba(34,211,238,.28)}
 .hbmock .hcmicro{padding:.75rem 1.25rem;margin-top:0;border-top:1px solid rgba(255,255,255,.055)}
 
 
+/* ─── CHAT TRIGGER BUTTON ─── */
+#chat-trigger{
+  position:fixed;bottom:28px;right:28px;z-index:9500;
+  width:54px;height:54px;border-radius:50%;
+  background:linear-gradient(135deg,var(--s1),#7c3aed);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 24px rgba(139,92,246,.5);
+  cursor:pointer;border:none;
+  transition:transform .3s var(--sp),box-shadow .3s;
+}
+#chat-trigger:hover{transform:scale(1.1);box-shadow:0 10px 36px rgba(139,92,246,.65)}
+#chat-trigger svg{width:24px;height:24px;fill:#fff;transition:transform .3s}
+#chat-trigger.cw-open svg.ic-chat{display:none}
+#chat-trigger.cw-open svg.ic-close{display:block}
+#chat-trigger svg.ic-close{display:none}
+@keyframes triggerPulse{0%{box-shadow:0 6px 24px rgba(139,92,246,.5)}50%{box-shadow:0 6px 32px rgba(139,92,246,.8),0 0 0 8px rgba(139,92,246,.12)}100%{box-shadow:0 6px 24px rgba(139,92,246,.5)}}
+#chat-trigger:not(.cw-open){animation:triggerPulse 2.5s ease-in-out infinite}
+@media(max-width:767px){#chat-trigger{bottom:58px;right:12px;width:48px;height:48px}}
+
 /* ─── CHAT WIDGET ─── */
 #chat-widget{
-  position:fixed;bottom:28px;right:28px;z-index:9400;
+  position:fixed;bottom:94px;right:28px;z-index:9400;
   width:300px;
   max-width:calc(100vw - 40px);
   background:rgba(6,10,18,.97);border:1px solid rgba(255,255,255,.1);
@@ -1321,7 +1340,7 @@ body.chov #c-ring{width:56px;height:56px;border-color:rgba(34,211,238,.28)}
   backdrop-filter:blur(20px)
 }
 #chat-widget.cw-show{transform:none;opacity:1;pointer-events:auto}
-@media(max-width:767px){#chat-widget{bottom:58px;right:12px}}
+@media(max-width:767px){#chat-widget{bottom:114px;right:12px}}
 .cw-head{
   background:linear-gradient(135deg,#25d366,#128c7e);
   padding:.85rem 1.1rem;display:flex;align-items:center;gap:.75rem
@@ -3148,6 +3167,12 @@ document.querySelectorAll('[data-count]').forEach(el=>cObs.observe(el));
 
 </script>
 
+<!-- ════ CHAT TRIGGER ════ -->
+<button id="chat-trigger" aria-label="Abrir chat">
+  <svg class="ic-chat" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+  <svg class="ic-close" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+</button>
+
 <!-- ════ CHAT WIDGET ════ -->
 <div id="chat-widget" role="dialog" aria-label="Chat con Pablo">
   <div class="cw-head">
@@ -3214,28 +3239,40 @@ document.querySelectorAll('[data-count]').forEach(el=>cObs.observe(el));
 
 
 <script>
-/* ── CHAT WIDGET — aparece una vez (solo desktop) ── */
+/* ── CHAT WIDGET ── */
 (function(){
   const w = document.getElementById('chat-widget');
   const x = document.getElementById('cwClose');
-  if(!w || !x) return;
-  let shown = false;
-  let off = false;
-  try{ off = !!localStorage.getItem('cwOff'); }catch(e){}
-  function show(){
-    if(shown || off) return;
-    shown = true;
+  const btn = document.getElementById('chat-trigger');
+  if(!w || !x || !btn) return;
+
+  function open(){
     w.classList.add('cw-show');
+    btn.classList.add('cw-open');
   }
-  setTimeout(show, 9000);
-  window.addEventListener('scroll', function onSc(){
-    if(window.scrollY > window.innerHeight * 1.5){ show(); window.removeEventListener('scroll', onSc); }
-  }, {passive:true});
-  x.addEventListener('click', ()=>{
+  function close(){
     w.classList.remove('cw-show');
-    off = true;
-    try{ localStorage.setItem('cwOff','1'); }catch(e){}
+    btn.classList.remove('cw-open');
+  }
+
+  btn.addEventListener('click', ()=>{
+    w.classList.contains('cw-show') ? close() : open();
   });
+  x.addEventListener('click', close);
+
+  /* Auto-show una vez tras 9s o scroll — no vuelve si ya se vio */
+  let autoShown = false;
+  try{ autoShown = !!localStorage.getItem('cwSeen'); }catch(e){}
+  function autoShow(){
+    if(autoShown) return;
+    autoShown = true;
+    try{ localStorage.setItem('cwSeen','1'); }catch(e){}
+    open();
+  }
+  setTimeout(autoShow, 9000);
+  window.addEventListener('scroll', function onSc(){
+    if(window.scrollY > window.innerHeight * 1.5){ autoShow(); window.removeEventListener('scroll', onSc); }
+  }, {passive:true});
 })();
 
 /* ── PORTFOLIO HERO — rotación aleatoria en cada carga ── */
