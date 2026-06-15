@@ -2,6 +2,7 @@
 User-agent: *
 Allow: /
 Disallow: /cdn-cgi/
+Disallow: /backlink-snippet.html
 
 # Sitemaps
 Sitemap: https://creskio.com/sitemap.xml
