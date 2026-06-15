@@ -70,4 +70,45 @@ footer{text-align:center;padding:2rem;border-top:1px solid var(--b1);font-size:.
   <h2>Tus derechos</h2>
   <p>Tienes derecho a acceder, rectificar, suprimir, oponerte y limitar el tratamiento de tus datos, así como a la portabilidad. Para ejercerlos, escribe a <!--email_off--><a href="mailto:ia.pablo.agencia@gmail.com">ia.pablo.agencia@gmail.com</a><!--/email_off-->. Responderemos en un plazo máximo de 30 días.</p>
   <p>También puedes presentar una reclamación ante la <a href="https://www.aepd.es" target="_blank" rel="noopener">Agencia Española de Protección de Datos</a>.</p>
-  <h2>Con
+  <h2>Contacto y ejercicio de derechos</h2>
+  <p>Para cualquier consulta sobre esta política o para ejercer tus derechos, puedes contactar directamente:</p>
+  <ul>
+    <li>Email: <!--email_off--><a href="mailto:ia.pablo.agencia@gmail.com">ia.pablo.agencia@gmail.com</a><!--/email_off--></li>
+    <li>WhatsApp: <a href="https://wa.me/34654256764" target="_blank" rel="noopener">+34 654 256 764</a></li>
+  </ul>
+  <p>Responderemos en un plazo máximo de 30 días naturales desde la recepción de tu solicitud.</p>
+  <h2>Cambios en esta política</h2>
+  <p>Creskio se reserva el derecho a modificar esta política de privacidad para adaptarla a novedades legislativas o jurisprudenciales. En tal caso, se anunciará en esta misma página con la fecha de actualización. El uso continuado del sitio web tras los cambios implica la aceptación de la nueva versión.</p>
+</div>
+<footer>© 2026 Creskio · <a href="/aviso-legal.html">Aviso legal</a> · <a href="/cookies.html">Política de cookies</a></footer>
+
+<!-- ════ COOKIE BANNER ════ -->
+<div id="cc-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9998;background:rgba(6,10,18,.97);border-top:1px solid rgba(139,92,246,.28);padding:.85rem 1.4rem;gap:.9rem;align-items:center;flex-wrap:wrap;font-family:inherit;backdrop-filter:blur(8px)">
+  <p style="flex:1;min-width:200px;font-size:.8rem;color:rgba(255,255,255,.7);margin:0;line-height:1.5">Usamos <strong style="color:rgba(255,255,255,.9)">Google Analytics</strong> para analizar visitas de forma anónima y mejorar la web. No vendemos tus datos. <a href="/aviso-legal.html" style="color:#22d3ee;text-decoration:none">Política de privacidad</a></p>
+  <div style="display:flex;gap:.55rem;flex-shrink:0">
+    <button id="cc-reject" style="border:1px solid rgba(255,255,255,.15);background:transparent;color:rgba(255,255,255,.6);border-radius:8px;padding:7px 14px;font-size:.78rem;cursor:pointer;font-family:inherit">Solo esenciales</button>
+    <button id="cc-accept" style="background:#8b5cf6;color:#fff;border:none;border-radius:8px;padding:7px 18px;font-size:.78rem;font-weight:600;cursor:pointer;font-family:inherit">Aceptar</button>
+  </div>
+</div>
+<style>@media(max-width:767px){#cc-banner{bottom:56px}}</style>
+<script>
+(function(){
+  var KEY='creskio_cc';
+  var saved=localStorage.getItem(KEY);
+  if(saved==='all'){gtag('consent','update',{analytics_storage:'granted'});return}
+  if(saved==='essential'){return}
+  var banner=document.getElementById('cc-banner');
+  banner.style.display='flex';
+  document.getElementById('cc-accept').onclick=function(){
+    localStorage.setItem(KEY,'all');
+    gtag('consent','update',{analytics_storage:'granted'});
+    banner.style.display='none';
+  };
+  document.getElementById('cc-reject').onclick=function(){
+    localStorage.setItem(KEY,'essential');
+    banner.style.display='none';
+  };
+})();
+</script>
+</body>
+</html>
