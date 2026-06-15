@@ -4,7 +4,7 @@ Allow: /
 Disallow: /cdn-cgi/
 
 # Sitemaps
-Sitemap: https://creskio.es/sitemap.xml
+Sitemap: https://creskio.com/sitemap.xml
 
 # Crawl-delay for bots (no Google)
 User-agent: SemrushBot
