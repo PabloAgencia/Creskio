@@ -1214,6 +1214,66 @@ body.chov #c-ring{width:56px;height:56px;border-color:rgba(34,211,238,.28)}
 }
 
 
+/* ─── EXIT INTENT POPUP (desktop) ─── */
+#exit-popup{
+  position:fixed;inset:0;z-index:99997;display:none;
+  align-items:center;justify-content:center;
+  background:rgba(3,5,10,.75);backdrop-filter:blur(6px);
+  padding:1.5rem;
+}
+#exit-popup.show{display:flex}
+.exit-card{
+  position:relative;max-width:420px;width:100%;
+  background:linear-gradient(160deg,#0e1018,#03050a);
+  border:1px solid rgba(139,92,246,.3);border-radius:22px;
+  padding:2.5rem 2.25rem;text-align:center;
+  box-shadow:0 30px 80px rgba(0,0,0,.6);
+  animation:exitIn .35s var(--ez) both;
+}
+@keyframes exitIn{from{opacity:0;transform:scale(.92) translateY(10px)}to{opacity:1;transform:none}}
+.exit-close{
+  position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);
+  color:rgba(255,255,255,.6);font-size:.8rem;cursor:pointer;transition:background .2s,color .2s;
+}
+.exit-close:hover{background:rgba(255,255,255,.1);color:#fff}
+.exit-ic{font-size:2.4rem;margin-bottom:.75rem}
+.exit-title{font-family:var(--f1);font-size:1.35rem;font-weight:800;color:#fff;margin-bottom:.6rem;letter-spacing:-.02em;line-height:1.2}
+.exit-desc{font-size:.88rem;color:rgba(255,255,255,.55);line-height:1.7;margin-bottom:1.6rem}
+.exit-cta{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  background:linear-gradient(135deg,#8b5cf6,#7c3aed);color:#fff;
+  font-family:var(--f1);font-weight:800;font-size:.85rem;
+  padding:14px 26px;border-radius:100px;text-decoration:none;
+  transition:transform .25s,box-shadow .25s;
+}
+.exit-cta:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(139,92,246,.45)}
+.exit-sub{font-size:.7rem;color:rgba(255,255,255,.3);margin-top:1rem}
+@media(max-width:900px){#exit-popup{display:none !important}}
+
+/* ─── BARRA STICKY DESKTOP (scroll, sin haber hecho clic en ningun CTA) ─── */
+#desk-bar{
+  position:fixed;left:0;right:0;z-index:8900;
+  display:none;align-items:center;justify-content:center;gap:1.5rem;
+  padding:.8rem 2rem;background:rgba(8,10,16,.97);backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(139,92,246,.25);
+  transform:translateY(-100%);transition:transform .4s var(--ez);
+}
+#desk-bar.show{display:flex;transform:translateY(0)}
+.desk-bar-txt{font-size:.85rem;color:rgba(255,255,255,.8)}
+.desk-bar-cta{
+  display:inline-flex;align-items:center;gap:6px;
+  background:linear-gradient(135deg,#8b5cf6,#7c3aed);color:#fff;
+  font-family:var(--f1);font-weight:700;font-size:.8rem;
+  padding:9px 18px;border-radius:100px;text-decoration:none;white-space:nowrap;
+  transition:transform .2s;
+}
+.desk-bar-cta:hover{transform:translateY(-1px)}
+.desk-bar-close{background:none;border:none;color:rgba(255,255,255,.4);font-size:.85rem;cursor:pointer;padding:4px;line-height:1}
+.desk-bar-close:hover{color:#fff}
+@media(max-width:900px){#desk-bar{display:none !important}}
+
+
 
 /* ─── HERO SCROLL INDICATOR ─── */
 .hscroll-ind{
@@ -1888,6 +1948,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
         <span style="display:inline-flex;align-items:center;gap:6px;background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.22);border-radius:100px;padding:6px 14px;font-size:.74rem;color:rgba(255,255,255,.8)">🛡️ 7 días o el hosting gratis*</span>
         <span style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:100px;padding:6px 14px;font-size:.74rem;color:rgba(255,255,255,.75)">✦ Diseño premium</span>
         <span style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:100px;padding:6px 14px;font-size:.74rem;color:rgba(255,255,255,.75)">🤖 Automatización incluida</span>
+        <span style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:100px;padding:6px 14px;font-size:.74rem;color:rgba(255,255,255,.75)">🔁 2 rondas de cambios sin coste</span>
       </div>
       <p style="font-size:.68rem;color:rgba(255,255,255,.35);margin-top:-.3rem;margin-bottom:.5rem">*Contado desde la recepción de textos, imágenes y datos del cliente.</p>
 
@@ -1897,7 +1958,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
         </a>
         <a href="#demos" class="bghost">Ver proyectos →</a>
       </div>
-      <p style="font-size:.67rem;color:rgba(255,255,255,.28);margin-top:.4rem">Al contactar aceptas nuestra <a href="/privacidad.html" style="color:rgba(255,255,255,.4);text-decoration:underline">Política de Privacidad</a>.</p>
+      <p style="font-size:.67rem;color:rgba(255,255,255,.28);margin-top:.4rem">Respondo en menos de 1h, no es un bot · Al contactar aceptas nuestra <a href="/privacidad.html" style="color:rgba(255,255,255,.4);text-decoration:underline">Política de Privacidad</a>.</p>
 
       <div class="hstats">
         <div class="hstat"><span class="hstatn" data-count="2" data-prefix="&lt;" data-suffix="s">&lt;2s</span><span class="hstatl">Velocidad de carga</span></div>
@@ -2070,7 +2131,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
       <div style="padding:2.5rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:20px">
         <div style="font-size:2rem;margin-bottom:1.25rem">🤝</div>
         <div style="font-family:var(--f1);font-size:1rem;font-weight:700;color:#fff;margin-bottom:.75rem">Atención directa</div>
-        <p style="font-size:.87rem;color:rgba(255,255,255,.6);line-height:1.7;margin:0">Hablas con quien hace el trabajo. Sin intermediarios, sin agencias con 10 capas.</p>
+        <p style="font-size:.87rem;color:rgba(255,255,255,.6);line-height:1.7;margin:0">Hablas con quien hace el trabajo. Sin intermediarios, sin agencias con 10 capas. Trabajo con pocos negocios a la vez para no perder calidad — no es una cadena de producción.</p>
       </div>
     </div>
   </div>
@@ -2156,7 +2217,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
     <!-- CTA centrado -->
     <div class="rv" style="text-align:center;margin-top:3.5rem">
       <p style="font-size:.88rem;color:var(--m3);margin-bottom:1.6rem">¿Tu sector no está aquí? Más plantillas en camino — y siempre adaptamos a medida.</p>
-      <a href="#cta" class="bwa rh" style="font-size:.82rem;padding:13px 30px">Solicitar auditoría gratuita →</a>
+      <a href="#cta" class="bwa rh" style="font-size:.82rem;padding:13px 30px">Quiero la mía a medida →</a>
     </div>
 
   </div>
@@ -3209,6 +3270,25 @@ document.querySelectorAll('[data-count]:not(.hstatn)').forEach(el=>cObs.observe(
   <div class="cw-footer">Responde en menos de 1h · Sin compromiso</div>
 </div>
 
+<!-- ════ EXIT INTENT POPUP (desktop) ════ -->
+<div id="exit-popup" role="dialog" aria-modal="true" aria-label="Antes de irte">
+  <div class="exit-card">
+    <button class="exit-close" id="exitClose" aria-label="Cerrar">✕</button>
+    <div class="exit-ic">👋</div>
+    <h3 class="exit-title">¿Te vas sin tu auditoría gratuita?</h3>
+    <p class="exit-desc">En 2 minutos te digo qué clientes estás perdiendo ahora mismo por no tener web o no aparecer en Google. Sin compromiso.</p>
+    <a href="https://wa.me/34654256764?text=Hola%20Pablo,%20quiero%20mi%20auditor%C3%ADa%20gratuita" target="_blank" rel="noopener" class="exit-cta" id="exitCta">Quiero mi auditoría gratuita</a>
+    <p class="exit-sub">Respondo en menos de 1h · Sin compromiso</p>
+  </div>
+</div>
+
+<!-- ════ BARRA STICKY DESKTOP ════ -->
+<div id="desk-bar" role="region" aria-label="Auditoría gratuita">
+  <span class="desk-bar-txt">¿Quieres saber qué clientes estás perdiendo ahora mismo?</span>
+  <a href="https://wa.me/34654256764?text=Hola%20Pablo,%20quiero%20una%20auditor%C3%ADa%20gratuita%20de%20mi%20negocio" target="_blank" rel="noopener" class="desk-bar-cta" id="deskBarCta">Auditoría gratuita →</a>
+  <button class="desk-bar-close" id="deskBarClose" aria-label="Cerrar">✕</button>
+</div>
+
 <script>
 /* ── ROTATING HERO TEXT ── */
 (function(){
@@ -3220,6 +3300,9 @@ document.querySelectorAll('[data-count]:not(.hstatn)').forEach(el=>cObs.observe(
     { accent: 'con recepcionista IA 24h' },
     { accent: 'con reservas automáticas' },
     { accent: 'apareciendo en Google' },
+    { accent: 'sin perder ni una llamada' },
+    { accent: 'captando clientes mientras duermes' },
+    { accent: 'antes que tu competencia' },
   ];
 
   let cur = 0;
@@ -3280,6 +3363,77 @@ document.querySelectorAll('[data-count]:not(.hstatn)').forEach(el=>cObs.observe(
   }, {passive:true});
 })();
 
+</script>
+
+<script>
+/* ── EXIT INTENT + BARRA STICKY DESKTOP ──
+   Solo escritorio (mobile ya tiene #mob-cta). Una sola interrupcion por
+   sesion: la que dispare primero suprime a la otra. Se suprimen ambas
+   si el usuario ya hizo clic en cualquier CTA de auditoria. */
+(function(){
+  if(!window.matchMedia('(min-width:901px)').matches) return;
+
+  const exitPopup = document.getElementById('exit-popup');
+  const exitClose = document.getElementById('exitClose');
+  const exitCta = document.getElementById('exitCta');
+  const deskBar = document.getElementById('desk-bar');
+  const deskBarClose = document.getElementById('deskBarClose');
+  const deskBarCta = document.getElementById('deskBarCta');
+  const nav = document.getElementById('main-nav');
+  if(!exitPopup || !deskBar) return;
+
+  let promptShown = false;
+  try{ promptShown = sessionStorage.getItem('leadPromptShown') === '1'; }catch(e){}
+
+  let ctaClicked = false;
+  document.querySelectorAll('a[href*="wa.me"]').forEach(a=>{
+    a.addEventListener('click', ()=>{ ctaClicked = true; });
+  });
+
+  function markShown(){
+    promptShown = true;
+    try{ sessionStorage.setItem('leadPromptShown','1'); }catch(e){}
+  }
+
+  function showExitPopup(){
+    if(promptShown || ctaClicked) return;
+    markShown();
+    exitPopup.classList.add('show');
+  }
+  function hideExitPopup(){ exitPopup.classList.remove('show'); }
+
+  function showDeskBar(){
+    if(promptShown || ctaClicked) return;
+    markShown();
+    if(nav) deskBar.style.top = nav.offsetHeight + 'px';
+    deskBar.classList.add('show');
+  }
+  function hideDeskBar(){ deskBar.classList.remove('show'); }
+
+  exitClose.addEventListener('click', hideExitPopup);
+  exitCta.addEventListener('click', hideExitPopup);
+  exitPopup.addEventListener('click', e=>{ if(e.target === exitPopup) hideExitPopup(); });
+  deskBarClose.addEventListener('click', hideDeskBar);
+  deskBarCta.addEventListener('click', hideDeskBar);
+
+  /* Exit intent: raton sale por arriba del viewport, tras al menos 4s en la pagina */
+  const readyAt = Date.now() + 4000;
+  document.addEventListener('mouseout', e=>{
+    if(Date.now() < readyAt) return;
+    if(e.clientY > 0) return;
+    if(!e.relatedTarget && !e.toElement) showExitPopup();
+  });
+
+  /* Barra sticky: scroll pasado el 65% de la pagina */
+  window.addEventListener('scroll', function onSc(){
+    const scrolled = window.scrollY + window.innerHeight;
+    const total = document.documentElement.scrollHeight;
+    if(scrolled / total > 0.65){
+      showDeskBar();
+      window.removeEventListener('scroll', onSc);
+    }
+  }, {passive:true});
+})();
 </script>
 
 <script>
