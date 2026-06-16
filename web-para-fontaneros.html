@@ -277,7 +277,7 @@ body.chov #c-ring{width:56px;height:56px;border-color:rgba(34,211,238,.28)}
 .bs{background:var(--gs)}.bc{background:linear-gradient(90deg,var(--c1),var(--c2))}
 .slbl-t{font-family:var(--f1);font-size:.63rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase}
 .ts{color:rgba(139,92,246,.7)}.tc{color:rgba(34,211,238,.7)}
-.sh{font-family:var(--f1);font-size:clamp(2rem,4.5vw,3.4rem);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin-bottom:1rem}
+.sh{font-family:var(--f1);font-size:clamp(2rem,4.5vw,3.4rem);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin-bottom:1rem;overflow-wrap:break-word}
 .sp{font-size:clamp(.95rem,1.4vw,1.04rem);color:var(--m3);line-height:1.9;max-width:530px;font-weight:300}
 .acs{color:var(--s1)}.acc{color:var(--c1)}
 .rv{opacity:0;transform:translateY(28px);transition:opacity .75s var(--ez),transform .75s var(--ez)}
@@ -316,6 +316,7 @@ body.chov #c-ring{width:56px;height:56px;border-color:rgba(34,211,238,.28)}
   position:relative;min-height:92vh;display:flex;align-items:center;
   padding:140px clamp(1.5rem,5vw,3.5rem) 80px;overflow:hidden;background:var(--bg);
 }
+.lp-hero .wrap{width:100%}
 .lp-hbg{position:absolute;inset:0;z-index:0;overflow:hidden;isolation:isolate}
 .lp-hbg::after{
   content:'';position:absolute;inset:0;
@@ -329,16 +330,16 @@ body.chov #c-ring{width:56px;height:56px;border-color:rgba(34,211,238,.28)}
 .lp-horb2{width:45vw;height:45vw;bottom:-15%;right:-5%;background:radial-gradient(ellipse,rgba(34,211,238,.06) 0%,transparent 65%);animation:orbF 28s ease-in-out infinite alternate;animation-delay:-10s}
 @keyframes orbF{0%{transform:translate(0,0)}100%{transform:translate(2%,-1.5%)}}
 .lp-hcont{position:relative;z-index:5;max-width:860px}
-.lp-eyebrow{display:inline-flex;align-items:center;gap:8px;margin-bottom:2rem;background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.18);border-radius:100px;padding:5px 14px 5px 8px;animation:eyeIn .9s var(--sp) both}
+.lp-eyebrow{display:inline-flex;align-items:center;gap:8px;margin-bottom:2rem;background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.18);border-radius:100px;padding:5px 14px 5px 8px;animation:eyeIn .9s var(--sp) both;max-width:100%;box-sizing:border-box}
 @keyframes eyeIn{from{opacity:0;transform:translateY(-12px) scale(.9)}to{opacity:1;transform:none}}
 .lp-ew-dot{width:7px;height:7px;border-radius:50%;background:var(--g1);box-shadow:0 0 8px var(--g1);animation:dpulse 2s ease-in-out infinite;flex-shrink:0}
 @keyframes dpulse{0%,100%{opacity:1}50%{opacity:.28}}
-.lp-ew-txt{font-family:var(--f1);font-size:.63rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(16,185,129,.82)}
+.lp-ew-txt{font-family:var(--f1);font-size:.63rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(16,185,129,.82);min-width:0}
 .lp-h1{font-family:var(--f1);font-weight:800;line-height:.95;letter-spacing:-.045em;margin-bottom:.75rem}
 .lp-h1-l1{display:block;overflow:hidden}
-.lp-h1-l1 span{display:inline-block;font-size:clamp(2.8rem,6.5vw,6.2rem);color:rgba(255,255,255,.92);animation:rowIn .9s var(--sp) .06s both}
+.lp-h1-l1 span{display:inline-block;font-size:clamp(2.8rem,6.5vw,6.2rem);color:rgba(255,255,255,.92);animation:rowIn .9s var(--sp) .06s both;overflow-wrap:break-word;max-width:100%}
 .lp-h1-accent{display:block;overflow:hidden}
-.lp-h1-accent span{display:inline-block;font-size:clamp(2.8rem,6.5vw,6.2rem);background:linear-gradient(135deg,#8b5cf6 0%,#7c3aed 55%,#e8572a 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:rowIn .9s var(--sp) .18s both}
+.lp-h1-accent span{display:inline-block;font-size:clamp(2.8rem,6.5vw,6.2rem);background:linear-gradient(135deg,#8b5cf6 0%,#7c3aed 55%,#e8572a 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:rowIn .9s var(--sp) .18s both;overflow-wrap:break-word;max-width:100%}
 .lp-h1-sub{display:block;overflow:hidden}
 .lp-h1-sub span{display:inline-block;font-size:clamp(1rem,1.8vw,1.55rem);color:rgba(255,255,255,.3);font-weight:400;animation:rowIn .9s var(--sp) .3s both}
 @keyframes rowIn{from{opacity:0;transform:translateY(55px)}to{opacity:1;transform:none}}
@@ -406,7 +407,7 @@ body.chov #c-ring{width:56px;height:56px;border-color:rgba(34,211,238,.28)}
 #site-footer{background:var(--bg);border-top:1px solid var(--b1)}
 .foot-top{padding:4.5rem clamp(1.5rem,5vw,3.5rem) 3rem}
 .foot-top-in{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1.4fr 1.2fr;gap:3.5rem;align-items:start}
-.flogo svg{width:200px;height:52px}
+.flogo img{height:52px;width:auto;filter:invert(1)}
 .foot-desc{font-size:.79rem;color:var(--m3);max-width:260px;line-height:1.8;font-weight:300;margin-top:.85rem}
 .foot-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.18);border-radius:100px;padding:5px 14px;font-size:.67rem;color:rgba(16,185,129,.8);font-weight:500;margin-top:1.25rem}
 .foot-badge-dot{width:5px;height:5px;border-radius:50%;background:var(--g1);animation:dpulse 2s ease-in-out infinite}
@@ -705,11 +706,11 @@ body.chov #c-ring{width:56px;height:56px;border-color:rgba(34,211,238,.28)}
     <p style="font-size:.72rem;color:var(--m3);margin-bottom:.75rem;font-family:var(--f1);letter-spacing:.1em;text-transform:uppercase">Más sectores</p>
     <div style="display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.25rem">
       <a href="web-para-talleres.html" style="font-size:.7rem;color:var(--s1);border:1px solid rgba(139,92,246,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Talleres</a> <a href="web-para-restaurantes.html" style="font-size:.7rem;color:var(--s1);border:1px solid rgba(139,92,246,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Restaurantes</a> <a href="web-para-clinicas.html" style="font-size:.7rem;color:var(--s1);border:1px solid rgba(139,92,246,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Clínicas</a> <a href="web-para-electricistas.html" style="font-size:.7rem;color:var(--s1);border:1px solid rgba(139,92,246,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Electricistas</a> <a href="web-para-peluquerias.html" style="font-size:.7rem;color:var(--s1);border:1px solid rgba(139,92,246,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Peluquerías</a> <a href="web-para-abogados.html" style="font-size:.7rem;color:var(--s1);border:1px solid rgba(139,92,246,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Abogados</a> <a href="web-para-inmobiliarias.html" style="font-size:.7rem;color:var(--s1);border:1px solid rgba(139,92,246,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Inmobiliarias</a> <a href="web-para-estetica.html" style="font-size:.7rem;color:var(--s1);border:1px solid rgba(139,92,246,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Estética</a>
-    </div>
+     <a href="web-para-gimnasios.html" style="font-size:.7rem;color:var(--s1);border:1px solid rgba(139,92,246,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Gimnasios</a> <a href="web-para-academias.html" style="font-size:.7rem;color:var(--s1);border:1px solid rgba(139,92,246,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Academias</a> <a href="web-para-hoteles.html" style="font-size:.7rem;color:var(--s1);border:1px solid rgba(139,92,246,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Hoteles</a></div>
     <p style="font-size:.72rem;color:var(--m3);margin-bottom:.75rem;font-family:var(--f1);letter-spacing:.1em;text-transform:uppercase">Por ciudad</p>
     <div style="display:flex;flex-wrap:wrap;gap:.5rem">
       <a href="diseno-web-granada.html" style="font-size:.7rem;color:var(--c1);border:1px solid rgba(34,211,238,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Granada</a> <a href="diseno-web-malaga.html" style="font-size:.7rem;color:var(--c1);border:1px solid rgba(34,211,238,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Málaga</a> <a href="diseno-web-sevilla.html" style="font-size:.7rem;color:var(--c1);border:1px solid rgba(34,211,238,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Sevilla</a> <a href="diseno-web-madrid.html" style="font-size:.7rem;color:var(--c1);border:1px solid rgba(34,211,238,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Madrid</a> <a href="diseno-web-barcelona.html" style="font-size:.7rem;color:var(--c1);border:1px solid rgba(34,211,238,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Barcelona</a> <a href="diseno-web-valencia.html" style="font-size:.7rem;color:var(--c1);border:1px solid rgba(34,211,238,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Valencia</a>
-    </div>
+     <a href="diseno-web-bilbao.html" style="font-size:.7rem;color:var(--c1);border:1px solid rgba(34,211,238,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Bilbao</a> <a href="diseno-web-zaragoza.html" style="font-size:.7rem;color:var(--c1);border:1px solid rgba(34,211,238,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Zaragoza</a> <a href="diseno-web-alicante.html" style="font-size:.7rem;color:var(--c1);border:1px solid rgba(34,211,238,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Alicante</a> <a href="diseno-web-cordoba.html" style="font-size:.7rem;color:var(--c1);border:1px solid rgba(34,211,238,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Córdoba</a> <a href="diseno-web-valladolid.html" style="font-size:.7rem;color:var(--c1);border:1px solid rgba(34,211,238,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Valladolid</a> <a href="diseno-web-murcia.html" style="font-size:.7rem;color:var(--c1);border:1px solid rgba(34,211,238,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Murcia</a> <a href="diseno-web-palma.html" style="font-size:.7rem;color:var(--c1);border:1px solid rgba(34,211,238,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Palma</a> <a href="diseno-web-vigo.html" style="font-size:.7rem;color:var(--c1);border:1px solid rgba(34,211,238,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Vigo</a> <a href="diseno-web-las-palmas.html" style="font-size:.7rem;color:var(--c1);border:1px solid rgba(34,211,238,.2);padding:3px 10px;border-radius:100px;white-space:nowrap">Las Palmas</a></div>
   </div>
 </section>
 
@@ -733,14 +734,7 @@ body.chov #c-ring{width:56px;height:56px;border-color:rgba(34,211,238,.28)}
       <!-- Brand -->
       <div class="foot-brand">
         <div class="flogo">
-          <svg viewBox="0 0 320 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs><linearGradient id="flg2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="50%" stop-color="#7c3aed"/><stop offset="100%" stop-color="#22d3ee"/></linearGradient></defs>
-            <path d="M11 40 C17 30,23 30,29 40 C35 50,41 50,47 40 C53 30,59 30,65 40" stroke="url(#flg2)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-            <circle cx="11" cy="40" r="3" fill="#8b5cf6"/><circle cx="29" cy="40" r="2.5" fill="#7c3aed"/><circle cx="47" cy="40" r="2.5" fill="#a78bfa"/><circle cx="65" cy="40" r="3" fill="#22d3ee"/>
-            <text x="80" y="36" font-family="'Syne','Arial Black',sans-serif" font-weight="800" font-size="21" fill="rgba(255,255,255,.85)" letter-spacing="-1">Costa</text>
-            <text x="80" y="60" font-family="'Syne','Arial Black',sans-serif" font-weight="800" font-size="21" fill="url(#flg2)" letter-spacing="-1">Digital</text>
-            <text x="80" y="73" font-family="'DM Sans',Arial,sans-serif" font-weight="500" font-size="7" fill="rgba(255,255,255,.28)" letter-spacing="2.5">AGENCIA WEB · TODA ESPAÑA</text>
-          </svg>
+          <img src="logo creskio (2).png" alt="Creskio">
         </div>
         <p class="foot-desc">Webs para cualquier tipo de negocio en toda España. Sin importar el sector. Código limpio, sin WordPress, entrega en 7 días.</p>
         <div class="foot-badge">
