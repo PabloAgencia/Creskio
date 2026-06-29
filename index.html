@@ -592,8 +592,8 @@ body.chov #c-ring{width:56px;height:56px;border-color:rgba(34,211,238,.28)}
   /* NAV MOBILE FIX */
   .nav-ul{display:none !important}
   .ham{display:flex !important}
-  .nav-logo img{height:120px !important;width:auto !important}
-  #main-nav{padding:3px clamp(1rem,4vw,1.5rem)}
+  .nav-logo img{height:38px !important;width:auto !important}
+  #main-nav{padding:8px clamp(1rem,4vw,1.5rem)}
   .nav-cta{font-size:.72rem;padding:9px 16px}
 
   /* HERO */
@@ -743,10 +743,10 @@ body[data-scene="cta"] #scene-wash{background:radial-gradient(ellipse 100% 80% a
 
 /* ─── RESPONSIVE ─── */
 @media(max-width:1080px){
-  .hcont{grid-template-columns:1fr;max-width:700px}
+  .hcont{grid-template-columns:1fr;max-width:700px;contain:none}
   .hleft{align-items:center;text-align:center}
   .hdesc,.sp{margin-left:auto;margin-right:auto}
-  .hctas,.hstats,.eyebrow,.slbl{justify-content:center}
+  .hctas,.hstats,.eyebrow,.slbl,.hpills{justify-content:center}
   .nums-g{grid-template-columns:repeat(2,1fr)}.nc:nth-child(2){border-right:none}.nc:nth-child(3){border-top:none}.nc:nth-child(4){border-right:none;border-top:none}
 }
 @media(max-width:767px){
@@ -818,7 +818,7 @@ body[data-scene="cta"] #scene-wash{background:radial-gradient(ellipse 100% 80% a
 @media(max-width:359px){
   .hrow:nth-child(1) span,.hrow:nth-child(2) span{font-size:1.95rem !important}
   .nums-g{grid-template-columns:1fr}
-  .nav-logo img{height:90px !important;width:auto !important}
+  .nav-logo img{height:32px !important;width:auto !important}
 }
 
 
@@ -1423,7 +1423,7 @@ body[data-scene="cta"] #scene-wash{background:radial-gradient(ellipse 100% 80% a
 #chat-trigger svg.ic-close{display:none}
 @keyframes triggerPulse{0%{box-shadow:0 6px 24px rgba(139,92,246,.5)}50%{box-shadow:0 6px 32px rgba(139,92,246,.8),0 0 0 8px rgba(139,92,246,.12)}100%{box-shadow:0 6px 24px rgba(139,92,246,.5)}}
 #chat-trigger:not(.cw-open){animation:triggerPulse 2.5s ease-in-out infinite}
-@media(max-width:767px){#chat-trigger{bottom:58px;right:12px;width:48px;height:48px}}
+@media(max-width:767px){#chat-trigger{bottom:82px;right:14px;width:48px;height:48px}}
 
 /* ─── CHAT WIDGET ─── */
 #chat-widget{
@@ -1438,7 +1438,7 @@ body[data-scene="cta"] #scene-wash{background:radial-gradient(ellipse 100% 80% a
   backdrop-filter:blur(20px)
 }
 #chat-widget.cw-show{transform:none;opacity:1;pointer-events:auto}
-@media(max-width:767px){#chat-widget{bottom:114px;right:12px}}
+@media(max-width:767px){#chat-widget{bottom:138px;right:14px}}
 .cw-head{
   background:linear-gradient(135deg,#25d366,#128c7e);
   padding:.85rem 1.1rem;display:flex;align-items:center;gap:.75rem
@@ -1985,7 +1985,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 
       <p class="hdesc" style="margin-top:1.5rem;font-size:clamp(.95rem,1.3vw,1.04rem);color:rgba(255,255,255,.72);max-width:500px">Web profesional + recepcionista IA + SEO local, integrados en un único sistema.<br>Cada propuesta es personalizada según tu negocio y sus objetivos.</p>
 
-      <div style="display:flex;flex-wrap:wrap;gap:.65rem;margin-bottom:2rem;animation:fup .8s var(--ez) .66s both">
+      <div class="hpills" style="display:flex;flex-wrap:wrap;gap:.65rem;margin-bottom:2rem;animation:fup .8s var(--ez) .66s both">
         <span style="display:inline-flex;align-items:center;gap:6px;background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.22);border-radius:100px;padding:6px 14px;font-size:.74rem;color:rgba(255,255,255,.8)">🛡️ 7 días o el hosting gratis*</span>
         <span style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:100px;padding:6px 14px;font-size:.74rem;color:rgba(255,255,255,.75)">✦ Diseño premium</span>
         <span style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:100px;padding:6px 14px;font-size:.74rem;color:rgba(255,255,255,.75)">🤖 Automatización incluida</span>
