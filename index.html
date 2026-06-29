@@ -1828,6 +1828,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   img,video,iframe{max-width:100%;height:auto}
 }
 
+/* ── WHATSAPP PHONE MOCKUP ── */
+@keyframes waDot{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
+.dif-ck{width:24px;height:24px;border-radius:50%;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.22);display:grid;place-items:center;font-size:.65rem;color:#10b981;flex-shrink:0}
+@media(max-width:900px){#dif-inner{grid-template-columns:1fr!important;gap:3rem!important}#wa-phone{margin:0 auto}}
+
 </style>
 </head>
 <body>
@@ -2288,9 +2293,43 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <!-- ════ DIFERENCIACIÓN ════ -->
 <section id="diferenciacion" style="padding:clamp(5rem,10vw,9rem) clamp(1rem,5vw,3.5rem);background:var(--bg2);position:relative;overflow:hidden">
   <div class="sec-glow sg-warm" style="top:-15%;left:30%" aria-hidden="true"></div>
-  <div style="max-width:860px;margin:0 auto;text-align:center;position:relative;z-index:1">
-    <h2 style="font-family:var(--f1);font-weight:800;font-size:clamp(1.9rem,4.5vw,4rem);letter-spacing:-.04em;line-height:1.05;color:#fff;margin-bottom:1.5rem">No se trata solo de tener<br>una web bonita.</h2>
-    <p style="font-size:clamp(1rem,1.4vw,1.2rem);color:rgba(255,255,255,.6);line-height:1.8;max-width:620px;margin:0 auto">El objetivo es generar clientes y automatizar procesos.<br>Diseño, captación con IA y presencia en Google trabajando juntos: eso es el <strong style="color:rgba(255,255,255,.85)">Sistema Creskio</strong>.</p>
+  <div id="dif-inner" style="max-width:1180px;margin:0 auto;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center">
+
+    <!-- Columna texto -->
+    <div class="rv">
+      <div class="slbl"><div class="slbl-bar bs"></div><span class="slbl-t ts">Recepcionista IA 24h</span></div>
+      <h2 style="font-family:var(--f1);font-weight:800;font-size:clamp(1.9rem,4.5vw,3.6rem);letter-spacing:-.04em;line-height:1.05;color:#fff;margin-bottom:1.5rem">No se trata solo de<br>tener una web bonita.</h2>
+      <p style="font-size:clamp(.95rem,1.4vw,1.1rem);color:rgba(255,255,255,.6);line-height:1.85;max-width:480px;margin-bottom:2rem">El objetivo es generar clientes y automatizar procesos. Diseño, captación con IA y presencia en Google trabajando juntos: eso es el <strong style="color:rgba(255,255,255,.85)">Sistema Creskio</strong>.</p>
+      <div style="display:flex;flex-direction:column;gap:.75rem">
+        <div style="display:flex;align-items:center;gap:.85rem;font-size:.87rem;color:rgba(255,255,255,.65)"><span class="dif-ck">✓</span>Responde en menos de 1 minuto, a cualquier hora</div>
+        <div style="display:flex;align-items:center;gap:.85rem;font-size:.87rem;color:rgba(255,255,255,.65)"><span class="dif-ck">✓</span>Agenda citas directo en tu Google Calendar</div>
+        <div style="display:flex;align-items:center;gap:.85rem;font-size:.87rem;color:rgba(255,255,255,.65)"><span class="dif-ck">✓</span>Conoce tu negocio: servicios, precios y horarios</div>
+        <div style="display:flex;align-items:center;gap:.85rem;font-size:.87rem;color:rgba(255,255,255,.65)"><span class="dif-ck">✓</span>Sin llamadas perdidas. Sin horario de oficina</div>
+      </div>
+    </div>
+
+    <!-- Columna teléfono con conversación animada -->
+    <div class="rv d1" style="display:flex;justify-content:center">
+      <div id="wa-phone" style="width:255px;background:#0d1117;border-radius:42px;padding:12px;box-shadow:0 32px 80px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.07);animation:floatY 5s ease-in-out infinite">
+        <div style="width:76px;height:5px;background:rgba(255,255,255,.07);border-radius:3px;margin:0 auto 10px"></div>
+        <!-- Cabecera WhatsApp -->
+        <div style="background:linear-gradient(135deg,#25d366,#128c7e);border-radius:18px 18px 0 0;padding:.7rem 1rem;display:flex;align-items:center;gap:.65rem">
+          <span style="font-size:1.35rem">🔧</span>
+          <div>
+            <div style="font-family:var(--f1);font-size:.76rem;font-weight:700;color:#fff;line-height:1.2">Asistente IA · Taller</div>
+            <div id="wa-status" style="font-size:.6rem;color:rgba(255,255,255,.8);display:flex;align-items:center;gap:4px;margin-top:2px">
+              <span style="width:5px;height:5px;border-radius:50%;background:#4ade80;display:inline-block;flex-shrink:0"></span>En línea
+            </div>
+          </div>
+        </div>
+        <!-- Área de mensajes -->
+        <div id="wa-msgs" style="background:#0b141a;min-height:340px;max-height:340px;padding:.85rem;border-radius:0 0 18px 18px;overflow:hidden;display:flex;flex-direction:column;gap:6px;position:relative">
+          <!-- mensajes inyectados por JS -->
+        </div>
+        <div style="width:56px;height:4px;background:rgba(255,255,255,.07);border-radius:2px;margin:8px auto 4px"></div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -3601,6 +3640,87 @@ document.querySelectorAll('[data-count]:not(.hstatn)').forEach(el=>cObs.observe(
       setTimeout(() => { card.style.transition = ''; }, 560);
     });
   });
+})();
+</script>
+
+<script>
+/* ── WHATSAPP CHAT SIMULATOR (sección diferenciación) ── */
+(function(){
+  var container = document.getElementById('wa-msgs');
+  var statusEl  = document.getElementById('wa-status');
+  if(!container || !statusEl) return;
+
+  var msgs = [
+    {type:'user', text:'¡Buenas! ¿Tenéis hueco para un cambio de pastillas este miércoles por la tarde?'},
+    {type:'bot',  text:'¡Hola! 🛠️ Sí, el miércoles tenemos libre a las 16:30 y a las 18:00. ¿Cuál te viene mejor?'},
+    {type:'user', text:'El de las 18:00 me viene perfecto.'},
+    {type:'bot',  text:'¡Reservado! Cita a las 18:00 del miércoles. Te llega la confirmación al móvil. ¡Nos vemos! 🚗'}
+  ];
+  var delays = [900, 2800, 4600, 6400];
+  var TOTAL  = 11000;
+  var timers = [];
+
+  function makeDot(delay){
+    var s = document.createElement('span');
+    s.style.cssText = 'width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.35);display:inline-block;animation:waDot 1.2s ease-in-out '+delay+'s infinite;flex-shrink:0';
+    return s;
+  }
+
+  function showTyping(){
+    var row = document.createElement('div');
+    row.id = 'wa-typing';
+    row.style.cssText = 'display:flex;gap:5px;align-items:center;padding:9px 12px;background:rgba(255,255,255,.07);border-radius:10px 10px 10px 0;width:fit-content;opacity:0;transition:opacity .25s';
+    [0,.25,.5].forEach(function(d){ row.appendChild(makeDot(d)); });
+    container.appendChild(row);
+    container.scrollTop = container.scrollHeight;
+    requestAnimationFrame(function(){ row.style.opacity='1'; });
+  }
+
+  function removeTyping(){
+    var el = document.getElementById('wa-typing');
+    if(el) el.remove();
+  }
+
+  function addMsg(msg){
+    removeTyping();
+    var isBot = msg.type==='bot';
+    statusEl.innerHTML = '<span style="width:5px;height:5px;border-radius:50%;background:#4ade80;display:inline-block;flex-shrink:0"></span>En línea';
+    var wrap = document.createElement('div');
+    wrap.style.cssText = 'display:flex;justify-content:'+(isBot?'flex-start':'flex-end')+';opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s';
+    var bubble = document.createElement('div');
+    bubble.style.cssText = 'max-width:82%;padding:8px 11px;border-radius:'+(isBot?'4px 12px 12px 12px':'12px 12px 4px 12px')+';background:'+(isBot?'rgba(255,255,255,.1)':'#128c7e')+';font-size:.73rem;line-height:1.5;color:rgba(255,255,255,.92);font-family:var(--f2);word-break:break-word';
+    bubble.textContent = msg.text;
+    wrap.appendChild(bubble);
+    container.appendChild(wrap);
+    container.scrollTop = container.scrollHeight;
+    requestAnimationFrame(function(){ wrap.style.opacity='1'; wrap.style.transform='none'; });
+  }
+
+  function clear(){
+    timers.forEach(clearTimeout); timers=[];
+    container.innerHTML='';
+  }
+
+  function run(){
+    clear();
+    msgs.forEach(function(msg, i){
+      var d = delays[i];
+      if(msg.type==='bot'){
+        timers.push(setTimeout(function(){
+          statusEl.innerHTML = '<span style="width:5px;height:5px;border-radius:50%;background:#4ade80;display:inline-block;flex-shrink:0"></span>Escribiendo...';
+          showTyping();
+        }, d - 1100));
+      }
+      timers.push(setTimeout(function(){ addMsg(msg); }, d));
+    });
+    timers.push(setTimeout(run, TOTAL));
+  }
+
+  var started = false;
+  var io = new IntersectionObserver(function(entries){
+    if(entries[0].isIntersecting && !started){ started=true; run(); }
+  }, {threshold:.2});
+  io.observe(container);
 })();
 </script>
 
