@@ -592,7 +592,7 @@ body.chov #c-ring{width:56px;height:56px;border-color:rgba(34,211,238,.28)}
   /* NAV MOBILE FIX */
   .nav-ul{display:none !important}
   .ham{display:flex !important}
-  .nav-logo img{height:38px !important;width:auto !important}
+  .nav-logo img{height:54px !important;width:auto !important}
   #main-nav{padding:8px clamp(1rem,4vw,1.5rem)}
   .nav-cta{font-size:.72rem;padding:9px 16px}
 
@@ -818,7 +818,7 @@ body[data-scene="cta"] #scene-wash{background:radial-gradient(ellipse 100% 80% a
 @media(max-width:359px){
   .hrow:nth-child(1) span,.hrow:nth-child(2) span{font-size:1.95rem !important}
   .nums-g{grid-template-columns:1fr}
-  .nav-logo img{height:32px !important;width:auto !important}
+  .nav-logo img{height:44px !important;width:auto !important}
 }
 
 
@@ -1842,47 +1842,47 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 .inf-chip{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:100px;padding:5px 14px;font-size:.72rem;color:rgba(255,255,255,.5);font-weight:500}
 @media(max-width:900px){.inf-grid{grid-template-columns:1fr!important}}
 
-/* ══ HERO MOBILE — CENTERING OVERRIDE FINAL ══
-   Este bloque va último para ganar sobre todos los anteriores.
-   Elimina ambigüedades de flexbox y garantiza simetría perfecta. */
-@media(max-width:1080px){
+/* ══ HERO MOBILE — CENTERING DEFINITIVO ══ */
+@media(max-width:767px){
   #hero{
-    display:flex;
-    flex-direction:column;
-    align-items:stretch;
+    padding-left:1.25rem !important;
+    padding-right:1.25rem !important;
   }
   .hcont{
-    width:100%;
-    max-width:100%;
-    margin-left:0;
-    margin-right:0;
+    width:100% !important;
+    max-width:100% !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
+    contain:none !important;
     box-sizing:border-box;
-    contain:none;
-    align-self:center;
   }
   .hleft{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    text-align:center;
-    width:100%;
-    max-width:100%;
-    padding-left:0;
-    padding-right:0;
-    margin-left:0;
-    margin-right:0;
+    align-items:center !important;
+    text-align:center !important;
+    width:100% !important;
+    padding-left:0 !important;
+    padding-right:0 !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
     box-sizing:border-box;
   }
-  .hleft > *{
-    max-width:100%;
-    box-sizing:border-box;
+  .hleft .hdesc,
+  .hleft p{
+    text-align:center !important;
+    overflow-wrap:break-word !important;
+    word-break:break-word !important;
+    max-width:100% !important;
+    width:100% !important;
   }
   .hpills{
-    justify-content:center;
-    width:100%;
+    justify-content:center !important;
+    width:100% !important;
   }
   .htitle-line{
-    align-self:center;
+    align-self:center !important;
+  }
+  .eyebrow{
+    justify-content:center !important;
   }
 }
 
