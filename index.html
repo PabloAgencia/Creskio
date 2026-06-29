@@ -1784,7 +1784,7 @@ table{max-width:100%}
 *,*::before,*::after{box-sizing:border-box}
 
 /* Scroll margin para la nav fija */
-#servicios,#demos,#proceso,#faq,#cta,#nums,#diferenciacion,#clientes-logos{scroll-margin-top:80px}
+#servicios,#demos,#infiltrado,#proceso,#faq,#cta,#nums,#diferenciacion,#clientes-logos{scroll-margin-top:80px}
 
 /* Spring easing en scroll reveal */
 .rv{transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
@@ -1833,6 +1833,15 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 .dif-ck{width:24px;height:24px;border-radius:50%;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.22);display:grid;place-items:center;font-size:.65rem;color:#10b981;flex-shrink:0}
 @media(max-width:900px){#dif-inner{grid-template-columns:1fr!important;gap:3rem!important}#wa-phone{margin:0 auto}}
 
+/* ── EL INFILTRADO ── */
+.inf-step{display:flex;align-items:flex-start;gap:1.25rem;padding:1.25rem 0}
+.inf-num{font-family:var(--f1);font-size:.72rem;font-weight:800;color:var(--g1);opacity:.6;letter-spacing:.08em;min-width:28px;padding-top:.2rem}
+.inf-t{font-family:var(--f1);font-size:.96rem;font-weight:700;color:#fff;margin-bottom:.45rem}
+.inf-d{font-size:.85rem;color:var(--m3);line-height:1.75;font-weight:300}
+.inf-line{width:2px;height:28px;background:rgba(16,185,129,.15);margin-left:13px;border-radius:1px}
+.inf-chip{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:100px;padding:5px 14px;font-size:.72rem;color:rgba(255,255,255,.5);font-weight:500}
+@media(max-width:900px){.inf-grid{grid-template-columns:1fr!important}}
+
 </style>
 </head>
 <body>
@@ -1864,6 +1873,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
       <li><a href="#demos" class="ntab">
         <span class="ntab-ic">🖥️</span>
         <span class="ntab-txt">Plantillas</span>
+      </a></li>
+      <li><a href="#infiltrado" class="ntab">
+        <span class="ntab-ic">🤖</span>
+        <span class="ntab-txt">El Infiltrado</span>
       </a></li>
       <li><a href="#proceso" class="ntab">
         <span class="ntab-ic">🚀</span>
@@ -1908,13 +1921,18 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
       <span class="mob-lbl">Plantillas</span>
       <span class="mob-arrow">→</span>
     </a>
-    <a href="#proceso" class="mob-item" onclick="cM()">
+    <a href="#infiltrado" class="mob-item" onclick="cM()">
       <span class="mob-num">03</span>
+      <span class="mob-lbl">El Infiltrado</span>
+      <span class="mob-arrow">→</span>
+    </a>
+    <a href="#proceso" class="mob-item" onclick="cM()">
+      <span class="mob-num">04</span>
       <span class="mob-lbl">Proceso</span>
       <span class="mob-arrow">→</span>
     </a>
     <a href="#cta" class="mob-item" onclick="cM()">
-      <span class="mob-num">04</span>
+      <span class="mob-num">05</span>
       <span class="mob-lbl">Contacto</span>
       <span class="mob-arrow">→</span>
     </a>
@@ -2253,6 +2271,113 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   </div>
 </section>
 
+
+<div class="s-sep" style="--bd:9s;--bdy:2.1s" aria-hidden="true"><div class="s-sep-dot"></div></div>
+
+<!-- ════ EL INFILTRADO ════ -->
+<section id="infiltrado" class="sec" style="background:var(--bg3);position:relative;overflow:hidden">
+  <div class="sec-glow sg-green" style="top:15%;right:-8%" aria-hidden="true"></div>
+  <div class="sec-glow sg-cool" style="bottom:-5%;left:-5%" aria-hidden="true"></div>
+  <div class="wrap">
+
+    <!-- Cabecera -->
+    <div class="rv" style="text-align:center;max-width:680px;margin:0 auto 4.5rem">
+      <div class="slbl" style="justify-content:center">
+        <div class="slbl-bar" style="background:var(--g1)"></div>
+        <span class="slbl-t" style="color:rgba(16,185,129,.7)">Para webs existentes</span>
+      </div>
+      <h2 class="sh">¿Ya tienes web?<br><span style="color:var(--g1)">Tu IA está esperando.</span></h2>
+      <p class="sp" style="margin:0 auto">No hace falta cambiar nada. El Recepcionista IA se instala en cualquier web en menos de 5 minutos — WordPress, Wix, Shopify o código propio.</p>
+    </div>
+
+    <!-- Grid 2 columnas -->
+    <div class="inf-grid rv d1" style="display:grid;grid-template-columns:1.1fr 1fr;gap:3.5rem;align-items:start;margin-bottom:4rem">
+
+      <!-- Columna izquierda: 3 pasos -->
+      <div>
+        <div class="inf-step">
+          <div class="inf-num">01</div>
+          <div>
+            <div class="inf-t">Me mandas los datos de tu negocio</div>
+            <p class="inf-d">Servicios, precios, horarios y tono. Un WhatsApp o email. Sin formularios eternos ni reuniones.</p>
+          </div>
+        </div>
+        <div class="inf-line" aria-hidden="true"></div>
+        <div class="inf-step">
+          <div class="inf-num">02</div>
+          <div>
+            <div class="inf-t">Configuro y entreno tu IA</div>
+            <p class="inf-d">El chatbot aprende tu negocio: responde dudas, da precios orientativos y agenda citas directo en tu Google Calendar.</p>
+          </div>
+        </div>
+        <div class="inf-line" aria-hidden="true"></div>
+        <div class="inf-step">
+          <div class="inf-num">03</div>
+          <div>
+            <div class="inf-t">Una línea en tu web, listo</div>
+            <p class="inf-d">Pegas un script antes del <code style="background:rgba(255,255,255,.07);padding:1px 6px;border-radius:4px;font-size:.8em">&lt;/body&gt;</code> — o lo hago yo — y el chatbot aparece en tu web sin tocar nada más.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Columna derecha: vs Doctoralia -->
+      <div style="background:rgba(16,185,129,.04);border:1px solid rgba(16,185,129,.15);border-radius:24px;padding:2.25rem">
+        <div style="font-family:var(--f1);font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(16,185,129,.6);margin-bottom:1.25rem">Por qué no Doctoralia ni similares</div>
+        <div style="display:flex;flex-direction:column;gap:.85rem;margin-bottom:1.75rem">
+          <div style="display:flex;align-items:flex-start;gap:.75rem;font-size:.86rem;color:rgba(255,255,255,.45)">
+            <span style="color:#ef4444;flex-shrink:0">✗</span>Ponen tu perfil al lado de tu competencia directa
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:.75rem;font-size:.86rem;color:rgba(255,255,255,.45)">
+            <span style="color:#ef4444;flex-shrink:0">✗</span>El cliente sale de tu web para reservar en la suya
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:.75rem;font-size:.86rem;color:rgba(255,255,255,.45)">
+            <span style="color:#ef4444;flex-shrink:0">✗</span>Comisión mensual que sube cada año sin que puedas evitarlo
+          </div>
+        </div>
+        <div style="height:1px;background:rgba(255,255,255,.06);margin-bottom:1.75rem"></div>
+        <div style="display:flex;flex-direction:column;gap:.85rem">
+          <div style="display:flex;align-items:flex-start;gap:.75rem;font-size:.86rem;color:rgba(255,255,255,.82)">
+            <span style="color:var(--g1);flex-shrink:0">✓</span>Tu chatbot, en tu web, sin distracciones
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:.75rem;font-size:.86rem;color:rgba(255,255,255,.82)">
+            <span style="color:var(--g1);flex-shrink:0">✓</span>El cliente reserva sin salir de tu página
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:.75rem;font-size:.86rem;color:rgba(255,255,255,.82)">
+            <span style="color:var(--g1);flex-shrink:0">✓</span>Cuota mensual fija. Sin comisiones ni sorpresas
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:.75rem;font-size:.86rem;color:rgba(255,255,255,.82)">
+            <span style="color:var(--g1);flex-shrink:0">✓</span>Compatible con cualquier web o plataforma
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chips plataformas -->
+    <div class="rv" style="text-align:center;margin-bottom:3.5rem">
+      <p style="font-size:.63rem;font-family:var(--f1);font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--m3);margin-bottom:1.1rem">Compatible con</p>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem">
+        <span class="inf-chip">WordPress</span>
+        <span class="inf-chip">Wix</span>
+        <span class="inf-chip">Shopify</span>
+        <span class="inf-chip">Squarespace</span>
+        <span class="inf-chip">Webflow</span>
+        <span class="inf-chip">Prestashop</span>
+        <span class="inf-chip">HTML / CSS</span>
+        <span class="inf-chip">Cualquier otra</span>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="rv" style="text-align:center">
+      <p style="font-size:.88rem;color:var(--m3);margin-bottom:1.5rem">Cuéntame qué web tienes y en menos de 24h te digo exactamente cómo funciona para tu caso.</p>
+      <a href="https://wa.me/34654256764?text=Hola%20Pablo%2C%20tengo%20web%20y%20me%20interesa%20a%C3%B1adir%20el%20chatbot%20IA" class="bwa rh mag" target="_blank" rel="noopener" style="font-size:.88rem;padding:15px 32px">
+        Quiero el chatbot para mi web →
+      </a>
+      <p style="font-size:.65rem;color:var(--m3);margin-top:.9rem">Sin cambiar tu web · Sin compromiso · Sin permanencia</p>
+    </div>
+
+  </div>
+</section>
 
 <!-- ════ LOGOS CLIENTES ════ -->
 <div id="clientes-logos">
