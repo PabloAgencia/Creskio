@@ -1882,11 +1882,31 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
     justify-content:center !important;
     width:100% !important;
   }
-  .htitle-line{
-    align-self:center !important;
-  }
   .eyebrow{
     justify-content:center !important;
+    width:100% !important;
+  }
+  /* Título: cada hrow span pasa a bloque → ocupa 100% y queda centrado sin depender de text-align heredado */
+  .htitle{
+    text-align:center !important;
+    width:100% !important;
+  }
+  .hrow{
+    text-align:center !important;
+    width:100% !important;
+  }
+  .hrow span{
+    display:block !important;
+    text-align:center !important;
+    width:100% !important;
+  }
+  /* Texto rotante: forzar full-width + justify-content:center */
+  .hrot-wrap{
+    width:100% !important;
+    justify-content:center !important;
+  }
+  .hrot-line{
+    text-align:center !important;
   }
 }
 
