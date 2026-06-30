@@ -1432,49 +1432,67 @@ body[data-scene="cta"] #scene-wash{background:radial-gradient(ellipse 100% 80% a
 /* ─── CHAT WIDGET ─── */
 #chat-widget{
   position:fixed;bottom:94px;right:28px;z-index:9400;
-  width:300px;
-  max-width:calc(100vw - 40px);
-  background:rgba(6,10,18,.97);border:1px solid rgba(255,255,255,.1);
-  border-radius:20px;overflow:hidden;
-  box-shadow:0 20px 60px rgba(0,0,0,.6);
+  width:320px;
+  max-width:calc(100vw - 28px);
+  background:#060a12;border:1px solid rgba(255,255,255,.1);
+  border-radius:22px;overflow:hidden;
+  box-shadow:0 24px 70px rgba(0,0,0,.7),0 0 0 1px rgba(139,92,246,.12);
   transform:translateY(18px) scale(.95);opacity:0;pointer-events:none;
   transition:transform .4s var(--sp),opacity .4s;
-  backdrop-filter:blur(20px)
+  backdrop-filter:blur(24px)
 }
 #chat-widget.cw-show{transform:none;opacity:1;pointer-events:auto}
-@media(max-width:767px){#chat-widget{bottom:138px;right:14px}}
+@media(max-width:767px){#chat-widget{bottom:142px;right:12px;width:calc(100vw - 24px)}}
 .cw-head{
-  background:linear-gradient(135deg,#25d366,#128c7e);
-  padding:.85rem 1.1rem;display:flex;align-items:center;gap:.75rem
+  background:linear-gradient(135deg,#1a0533 0%,#2d1155 50%,#0f1f3d 100%);
+  border-bottom:1px solid rgba(139,92,246,.2);
+  padding:1rem 1.1rem;display:flex;align-items:center;gap:.85rem
 }
-.cw-av{width:52px;height:52px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid rgba(255,255,255,.3)}
+.cw-av-wrap{position:relative;flex-shrink:0}
+.cw-av{width:48px;height:48px;border-radius:50%;overflow:hidden;border:2px solid rgba(139,92,246,.5)}
 .cw-av img{width:100%;height:100%;object-fit:cover}
-.cw-hname{font-family:var(--f1);font-size:.82rem;font-weight:700;color:#fff}
-.cw-hstatus{font-size:.62rem;color:rgba(255,255,255,.75);display:flex;align-items:center;gap:4px}
-.cw-hstatus::before{content:'';width:6px;height:6px;border-radius:50%;background:#fff;display:inline-block}
-.cw-close{margin-left:auto;background:none;border:none;color:rgba(255,255,255,.7);cursor:pointer;font-size:1.1rem;padding:2px;line-height:1;transition:color .2s}
+.cw-online{position:absolute;bottom:1px;right:1px;width:12px;height:12px;border-radius:50%;background:#10b981;border:2px solid #060a12;animation:cwPulse 2s ease-in-out infinite}
+@keyframes cwPulse{0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,.5)}50%{box-shadow:0 0 0 4px rgba(16,185,129,0)}}
+.cw-hinfo{flex:1;min-width:0}
+.cw-hname{font-family:var(--f1);font-size:.85rem;font-weight:800;color:#fff;letter-spacing:.01em}
+.cw-hbadge{display:inline-flex;align-items:center;gap:4px;background:rgba(139,92,246,.15);border:1px solid rgba(139,92,246,.3);border-radius:100px;padding:2px 8px;margin-top:3px}
+.cw-hbadge-dot{width:5px;height:5px;border-radius:50%;background:#8b5cf6;flex-shrink:0}
+.cw-hbadge-txt{font-size:.56rem;color:rgba(139,92,246,.9);font-family:var(--f1);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.cw-close{margin-left:auto;background:none;border:none;color:rgba(255,255,255,.4);cursor:pointer;font-size:1rem;padding:4px;line-height:1;transition:color .2s;flex-shrink:0}
 .cw-close:hover{color:#fff}
-.cw-body{padding:1rem 1.1rem 1.25rem}
+.cw-body{padding:1rem 1rem 1.1rem}
 .cw-bubble{
+  display:flex;gap:.6rem;align-items:flex-start;margin-bottom:.9rem;
+  animation:cwBubble .5s var(--sp) .15s both
+}
+.cw-bubble-av{width:28px;height:28px;border-radius:50%;overflow:hidden;flex-shrink:0;border:1px solid rgba(139,92,246,.3)}
+.cw-bubble-av img{width:100%;height:100%;object-fit:cover}
+.cw-bubble-txt{
   background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);
-  border-radius:0 12px 12px 12px;
-  padding:.75rem 1rem;font-size:.82rem;color:rgba(255,255,255,.85);
-  line-height:1.6;margin-bottom:1rem;font-weight:300;
-  animation:cwBubble .5s var(--sp) .2s both
+  border-radius:4px 14px 14px 14px;
+  padding:.65rem .85rem;font-size:.8rem;color:rgba(255,255,255,.82);
+  line-height:1.65;font-weight:300;
 }
 @keyframes cwBubble{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.cw-question{font-family:var(--f1);font-size:.72rem;font-weight:700;color:var(--m3);margin-bottom:.55rem;letter-spacing:.02em}
-.cw-btns{display:flex;flex-direction:column;gap:.45rem}
+.cw-question{font-family:var(--f1);font-size:.65rem;font-weight:700;color:rgba(255,255,255,.3);margin-bottom:.5rem;letter-spacing:.1em;text-transform:uppercase}
+.cw-btns{display:flex;flex-direction:column;gap:.35rem}
 .cw-btn{
-  display:flex;align-items:center;gap:8px;
-  background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.08);
-  border-radius:10px;padding:.6rem .9rem;
-  font-family:var(--f1);font-size:.75rem;font-weight:700;color:rgba(255,255,255,.75);
-  cursor:pointer;transition:all .25s var(--ez);text-decoration:none
+  display:flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
+  border-radius:12px;padding:.6rem .85rem;
+  cursor:pointer;transition:all .22s var(--ez);text-decoration:none
 }
-.cw-btn:hover{border-color:rgba(37,211,102,.45);background:rgba(37,211,102,.07);color:#fff}
-.cw-btn-ic{font-size:1rem;flex-shrink:0}
-.cw-footer{font-size:.57rem;color:var(--m3);text-align:center;padding:.5rem;border-top:1px solid rgba(255,255,255,.05)}
+.cw-btn:hover{border-color:rgba(139,92,246,.4);background:rgba(139,92,246,.07)}
+.cw-btn-boost{border-color:rgba(139,92,246,.2);background:rgba(139,92,246,.05)}
+.cw-btn-boost:hover{border-color:rgba(139,92,246,.5);background:rgba(139,92,246,.12)}
+.cw-btn-ic{font-size:.95rem;flex-shrink:0;width:22px;text-align:center}
+.cw-btn-content{display:flex;flex-direction:column;gap:1px;min-width:0}
+.cw-btn-label{font-family:var(--f1);font-size:.74rem;font-weight:700;color:rgba(255,255,255,.8);line-height:1.2}
+.cw-btn-boost .cw-btn-label{color:rgba(139,92,246,.95)}
+.cw-btn-sub{font-size:.6rem;color:rgba(255,255,255,.3);font-weight:400;line-height:1}
+.cw-btn-boost .cw-btn-sub{color:rgba(139,92,246,.55)}
+.cw-footer{font-size:.56rem;color:rgba(255,255,255,.2);text-align:center;padding:.55rem .5rem .6rem;border-top:1px solid rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;gap:.5rem}
+.cw-footer-dot{width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.15)}
 
 
 /* ─── LOGOS CLIENTES ─── */
@@ -3568,23 +3586,51 @@ document.querySelectorAll('[data-count]:not(.hstatn)').forEach(el=>cObs.observe(
 <!-- ════ CHAT WIDGET ════ -->
 <div id="chat-widget" role="dialog" aria-label="Chat con Pablo">
   <div class="cw-head">
-    <div class="cw-av"><img src="pablo.jpg" alt="Pablo" loading="lazy"></div>
-    <div>
+    <div class="cw-av-wrap">
+      <div class="cw-av"><img src="pablo.jpg" alt="Pablo" loading="lazy"></div>
+      <span class="cw-online" aria-hidden="true"></span>
+    </div>
+    <div class="cw-hinfo">
       <div class="cw-hname">Pablo · Creskio</div>
-      <div class="cw-hstatus">Disponible ahora</div>
+      <div class="cw-hbadge">
+        <span class="cw-hbadge-dot"></span>
+        <span class="cw-hbadge-txt">Disponible ahora</span>
+      </div>
     </div>
     <button class="cw-close" id="cwClose" aria-label="Cerrar">✕</button>
   </div>
   <div class="cw-body">
-    <div class="cw-bubble">Hola 👋 ¿Buscas más clientes para tu negocio? En 7 días puedo tenerte online y apareciendo en Google.</div>
-    <div class="cw-question">¿En qué situación estás?</div>
+    <div class="cw-bubble">
+      <div class="cw-bubble-av"><img src="pablo.jpg" alt="Pablo" loading="lazy"></div>
+      <div class="cw-bubble-txt">Hola 👋 Soy Pablo. ¿Tu negocio necesita captar más clientes? Tengo solución tanto si partes de cero como si ya tienes web.</div>
+    </div>
+    <div class="cw-question">¿Cuál es tu situación?</div>
     <div class="cw-btns">
-      <a class="cw-btn" href="https://wa.me/34654256764?text=Hola%20Pablo,%20no%20tengo%20web%20todavía" target="_blank" rel="noopener"><span class="cw-btn-ic">🆕</span> No tengo web todavía</a>
-      <a class="cw-btn" href="https://wa.me/34654256764?text=Hola%20Pablo,%20mi%20web%20no%20aparece%20en%20Google" target="_blank" rel="noopener"><span class="cw-btn-ic">📉</span> Tengo web pero no aparezco</a>
-      <a class="cw-btn" href="https://wa.me/34654256764?text=Hola%20Pablo,%20quiero%20renovar%20mi%20web" target="_blank" rel="noopener"><span class="cw-btn-ic">🔄</span> Quiero renovar mi web</a>
+      <a class="cw-btn" href="https://wa.me/34654256764?text=Hola%20Pablo,%20no%20tengo%20web%20todav%C3%ADa" target="_blank" rel="noopener">
+        <span class="cw-btn-ic">🆕</span>
+        <span class="cw-btn-content"><span class="cw-btn-label">No tengo web todavía</span><span class="cw-btn-sub">Web profesional en 7 días</span></span>
+      </a>
+      <a class="cw-btn cw-btn-boost" href="https://wa.me/34654256764?text=Hola%20Pablo%2C%20tengo%20web%20y%20quiero%20el%20Boost%20IA%20(chatbot)" target="_blank" rel="noopener">
+        <span class="cw-btn-ic">🤖</span>
+        <span class="cw-btn-content"><span class="cw-btn-label">Ya tengo web · Quiero IA</span><span class="cw-btn-sub">Boost IA desde 497€ + 49€/mes</span></span>
+      </a>
+      <a class="cw-btn" href="https://wa.me/34654256764?text=Hola%20Pablo,%20mi%20web%20no%20aparece%20en%20Google" target="_blank" rel="noopener">
+        <span class="cw-btn-ic">📍</span>
+        <span class="cw-btn-content"><span class="cw-btn-label">No aparezco en Google</span><span class="cw-btn-sub">SEO local + presencia digital</span></span>
+      </a>
+      <a class="cw-btn" href="https://wa.me/34654256764?text=Hola%20Pablo,%20quiero%20renovar%20mi%20web" target="_blank" rel="noopener">
+        <span class="cw-btn-ic">🔄</span>
+        <span class="cw-btn-content"><span class="cw-btn-label">Quiero renovar mi web</span><span class="cw-btn-sub">Rediseño premium</span></span>
+      </a>
     </div>
   </div>
-  <div class="cw-footer">Responde en menos de 1h · Sin compromiso</div>
+  <div class="cw-footer">
+    <span>Sin compromiso</span>
+    <span class="cw-footer-dot"></span>
+    <span>Sin permanencia</span>
+    <span class="cw-footer-dot"></span>
+    <span>Responde en &lt;1h</span>
+  </div>
 </div>
 
 <!-- ════ EXIT INTENT POPUP (desktop) ════ -->
