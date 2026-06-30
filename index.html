@@ -2496,9 +2496,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
         <div style="width:76px;height:5px;background:rgba(255,255,255,.07);border-radius:3px;margin:0 auto 10px"></div>
         <!-- Cabecera WhatsApp -->
         <div style="background:linear-gradient(135deg,#25d366,#128c7e);border-radius:18px 18px 0 0;padding:.7rem 1rem;display:flex;align-items:center;gap:.65rem">
-          <span style="font-size:1.35rem">🔧</span>
+          <span id="wa-emoji" style="font-size:1.35rem">🔧</span>
           <div>
-            <div style="font-family:var(--f1);font-size:.76rem;font-weight:700;color:#fff;line-height:1.2">Asistente IA · Taller</div>
+            <div id="wa-title" style="font-family:var(--f1);font-size:.76rem;font-weight:700;color:#fff;line-height:1.2">Asistente IA · Taller</div>
             <div id="wa-status" style="font-size:.6rem;color:rgba(255,255,255,.8);display:flex;align-items:center;gap:4px;margin-top:2px">
               <span style="width:5px;height:5px;border-radius:50%;background:#4ade80;display:inline-block;flex-shrink:0"></span>En línea
             </div>
@@ -2508,7 +2508,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
         <div id="wa-msgs" style="background:#0b141a;min-height:340px;max-height:340px;padding:.85rem;border-radius:0 0 18px 18px;overflow:hidden;display:flex;flex-direction:column;gap:6px;position:relative">
           <!-- mensajes inyectados por JS -->
         </div>
-        <div style="width:56px;height:4px;background:rgba(255,255,255,.07);border-radius:2px;margin:8px auto 4px"></div>
+        <!-- Indicadores de sector -->
+        <div style="display:flex;justify-content:center;gap:6px;margin:8px auto 4px">
+          <span class="wa-dot" id="wa-dot-0" style="width:6px;height:6px;border-radius:50%;background:#4ade80;display:inline-block;transition:background .3s"></span>
+          <span class="wa-dot" id="wa-dot-1" style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.2);display:inline-block;transition:background .3s"></span>
+          <span class="wa-dot" id="wa-dot-2" style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.2);display:inline-block;transition:background .3s"></span>
+        </div>
       </div>
     </div>
 
@@ -3874,20 +3879,46 @@ document.querySelectorAll('[data-count]:not(.hstatn)').forEach(el=>cObs.observe(
 </script>
 
 <script>
-/* ── WHATSAPP CHAT SIMULATOR (sección diferenciación) ── */
+/* ── WHATSAPP CHAT SIMULATOR · 3 sectores rotando ── */
 (function(){
   var container = document.getElementById('wa-msgs');
   var statusEl  = document.getElementById('wa-status');
-  if(!container || !statusEl) return;
+  var titleEl   = document.getElementById('wa-title');
+  var emojiEl   = document.getElementById('wa-emoji');
+  if(!container||!statusEl||!titleEl||!emojiEl) return;
 
-  var msgs = [
-    {type:'user', text:'¡Buenas! ¿Tenéis hueco para un cambio de pastillas este miércoles por la tarde?'},
-    {type:'bot',  text:'¡Hola! 🛠️ Sí, el miércoles tenemos libre a las 16:30 y a las 18:00. ¿Cuál te viene mejor?'},
-    {type:'user', text:'El de las 18:00 me viene perfecto.'},
-    {type:'bot',  text:'Perfecto 🛠️ Solo necesito tu nombre, teléfono y correo para confirmar la cita. Te llegará la confirmación al instante.'}
+  var SCENARIOS = [
+    {
+      emoji:'🔧', title:'Asistente IA · Taller', dot:0,
+      msgs:[
+        {type:'user', text:'Hola, ¿cuánto cuesta un cambio de aceite con filtro?'},
+        {type:'bot',  text:'¡Buenas! 🔧 El cambio con filtro está a 45€, mano de obra incluida. ¿Te apunto una cita?'},
+        {type:'user', text:'Sí, ¿tenéis hueco mañana a las 9?'},
+        {type:'bot',  text:'✅ ¡Listo! Reservado para mañana a las 9:00. Confirmación enviada 📅'}
+      ]
+    },
+    {
+      emoji:'💆', title:'Asistente IA · Estética', dot:1,
+      msgs:[
+        {type:'user', text:'Hola, ¿cuánto vale un tratamiento de microblading?'},
+        {type:'bot',  text:'¡Hola! 💆 El microblading son 180€, incluye retoque a las 4 semanas. ¿Te interesa?'},
+        {type:'user', text:'Sí! ¿Tenéis disponible el viernes?'},
+        {type:'bot',  text:'✅ ¡Apuntada el viernes a las 11:00! Recibirás recordatorio el día anterior 🗓️'}
+      ]
+    },
+    {
+      emoji:'🦷', title:'Asistente IA · Dental', dot:2,
+      msgs:[
+        {type:'user', text:'Buenas, llevo desde ayer con un dolor de muelas fuerte 😟'},
+        {type:'bot',  text:'Hola 🦷 Te doy hueco de urgencias hoy a las 16:30, sin espera. ¿Te va bien?'},
+        {type:'user', text:'Sí perfecto, muchas gracias'},
+        {type:'bot',  text:'✅ Reservado para hoy a las 16:30. Te mando la dirección ahora 📍'}
+      ]
+    }
   ];
-  var delays = [900, 2800, 4600, 6400];
-  var TOTAL  = 11000;
+
+  var DELAYS = [800, 2900, 4700, 6700];
+  var TOTAL  = 10500;
   var timers = [];
 
   function makeDot(delay){
@@ -3926,15 +3957,26 @@ document.querySelectorAll('[data-count]:not(.hstatn)').forEach(el=>cObs.observe(
     requestAnimationFrame(function(){ wrap.style.opacity='1'; wrap.style.transform='none'; });
   }
 
+  function setIndicator(idx){
+    [0,1,2].forEach(function(i){
+      var d = document.getElementById('wa-dot-'+i);
+      if(d) d.style.background = i===idx ? '#4ade80' : 'rgba(255,255,255,.2)';
+    });
+  }
+
   function clear(){
     timers.forEach(clearTimeout); timers=[];
     container.innerHTML='';
   }
 
-  function run(){
+  function runScenario(idx){
     clear();
-    msgs.forEach(function(msg, i){
-      var d = delays[i];
+    var sc = SCENARIOS[idx];
+    emojiEl.textContent = sc.emoji;
+    titleEl.textContent = sc.title;
+    setIndicator(sc.dot);
+    sc.msgs.forEach(function(msg, i){
+      var d = DELAYS[i];
       if(msg.type==='bot'){
         timers.push(setTimeout(function(){
           statusEl.innerHTML = '<span style="width:5px;height:5px;border-radius:50%;background:#4ade80;display:inline-block;flex-shrink:0"></span>Escribiendo...';
@@ -3943,12 +3985,14 @@ document.querySelectorAll('[data-count]:not(.hstatn)').forEach(el=>cObs.observe(
       }
       timers.push(setTimeout(function(){ addMsg(msg); }, d));
     });
-    timers.push(setTimeout(run, TOTAL));
+    timers.push(setTimeout(function(){
+      runScenario((idx + 1) % SCENARIOS.length);
+    }, TOTAL));
   }
 
   var started = false;
   var io = new IntersectionObserver(function(entries){
-    if(entries[0].isIntersecting && !started){ started=true; run(); }
+    if(entries[0].isIntersecting && !started){ started=true; runScenario(0); }
   }, {threshold:.2});
   io.observe(container);
 })();
