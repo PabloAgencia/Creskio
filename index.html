@@ -1875,6 +1875,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 @media(max-width:767px){
   #hero{padding-left:1.25rem !important;padding-right:1.25rem !important}
   .hcont{contain:none !important;box-sizing:border-box}
+  /* min-width:0 evita que el grid item desborde su columna (CSS Grid gotcha) */
+  .hleft{min-width:0;width:100%;overflow:hidden}
   .hdesc,.hpills,.hctas,.hstats,.eyebrow{width:100%}
   .hpills{justify-content:center}
   .eyebrow{justify-content:center}
