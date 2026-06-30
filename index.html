@@ -99,7 +99,8 @@
 <style>
 /* ─── RESET ─── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{overflow-x:hidden}
 :root{
   --bg:#03050a;--bg2:#060a12;--bg3:#0a1018;--bg4:#0e1622;
   --s1:#8b5cf6;--s2:#7c3aed;
@@ -430,7 +431,7 @@ body.chov #c-ring{width:56px;height:56px;border-color:rgba(34,211,238,.28)}
   display:grid;grid-template-columns:1fr 540px;gap:3rem;align-items:center;
   contain:layout style
 }
-.hleft{display:flex;flex-direction:column;align-items:flex-start}
+.hleft{display:flex;flex-direction:column;align-items:center;text-align:center}
 
 /* ── Eyebrow badge ── */
 .eyebrow{
@@ -451,9 +452,9 @@ body.chov #c-ring{width:56px;height:56px;border-color:rgba(34,211,238,.28)}
 .ew-sub{font-family:var(--f1);font-size:.63rem;font-weight:600;color:var(--m3);letter-spacing:.08em}
 
 /* ── H1 ── */
-.htitle{font-family:var(--f1);font-weight:800;line-height:.97;letter-spacing:-.045em;margin-bottom:.75rem}
-.hrow{display:block;overflow:hidden}
-.hrow span{display:inline-block;animation:rowIn .95s var(--sp) both}
+.htitle{font-family:var(--f1);font-weight:800;line-height:.97;letter-spacing:-.045em;margin-bottom:.75rem;width:100%}
+.hrow{display:block;overflow:hidden;width:100%;text-align:center}
+.hrow span{display:block;animation:rowIn .95s var(--sp) both;text-align:center}
 .hrow:nth-child(1) span{
   animation-delay:.06s;
   font-size:clamp(2.8rem,5vw,4.9rem);
@@ -1649,6 +1650,13 @@ table{max-width:100%}
   .port-hero-name{font-size:1.85rem}
 }
 
+/* ── Desktop/Tablet ≥768px: hero alineado a la izquierda ── */
+@media(min-width:768px){
+  .hleft{align-items:flex-start;text-align:left}
+  .hrow span{display:inline-block}
+  .hrot-wrap{width:auto;justify-content:flex-start}
+}
+
 /* ── Tablet vertical iPad (768px–1023px) ── */
 @media(min-width:768px) and (max-width:1023px){
   .nav-ul{display:flex}
@@ -1845,69 +1853,15 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 .inf-chip{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:100px;padding:5px 14px;font-size:.72rem;color:rgba(255,255,255,.5);font-weight:500}
 @media(max-width:900px){.inf-grid{grid-template-columns:1fr!important}}
 
-/* ══ HERO MOBILE — CENTERING DEFINITIVO ══ */
+/* ══ HERO MOBILE ══ */
 @media(max-width:767px){
-  #hero{
-    padding-left:1.25rem !important;
-    padding-right:1.25rem !important;
-    justify-content:center !important;
-  }
-  .hcont{
-    width:100% !important;
-    max-width:100% !important;
-    margin-left:auto !important;
-    margin-right:auto !important;
-    contain:none !important;
-    box-sizing:border-box;
-  }
-  .hleft{
-    align-items:center !important;
-    text-align:center !important;
-    width:100% !important;
-    padding-left:0 !important;
-    padding-right:0 !important;
-    margin-left:0 !important;
-    margin-right:0 !important;
-    box-sizing:border-box;
-  }
-  .hleft .hdesc,
-  .hleft p{
-    text-align:center !important;
-    overflow-wrap:break-word !important;
-    word-break:break-word !important;
-    max-width:100% !important;
-    width:100% !important;
-  }
-  .hpills{
-    justify-content:center !important;
-    width:100% !important;
-  }
-  .eyebrow{
-    justify-content:center !important;
-    width:100% !important;
-  }
-  /* Título: cada hrow span pasa a bloque → ocupa 100% y queda centrado sin depender de text-align heredado */
-  .htitle{
-    text-align:center !important;
-    width:100% !important;
-  }
-  .hrow{
-    text-align:center !important;
-    width:100% !important;
-  }
-  .hrow span{
-    display:block !important;
-    text-align:center !important;
-    width:100% !important;
-  }
-  /* Texto rotante: forzar full-width + justify-content:center */
-  .hrot-wrap{
-    width:100% !important;
-    justify-content:center !important;
-  }
-  .hrot-line{
-    text-align:center !important;
-  }
+  #hero{padding-left:1.25rem !important;padding-right:1.25rem !important}
+  .hcont{contain:none !important;box-sizing:border-box}
+  .hdesc,.hpills,.hctas,.hstats,.eyebrow{width:100%}
+  .hpills{justify-content:center}
+  .eyebrow{justify-content:center}
+  .hstats{justify-content:center}
+  .hrot-wrap{width:100%;justify-content:center}
 }
 
 </style>
