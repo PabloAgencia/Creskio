@@ -1887,27 +1887,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 </style>
 </head>
 <body>
-<div id="diag-bar" style="display:none;position:fixed;top:0;left:0;right:0;background:#e11;color:#fff;font:11px/1.4 monospace;padding:5px 8px;z-index:999999;white-space:pre-wrap"></div>
-<script>
-(function(){
-  if(window.innerWidth>767)return;
-  var d=document.getElementById('diag-bar');
-  d.style.display='block';
-  window.addEventListener('load',function(){
-    var vw=window.innerWidth;
-    var hero=document.getElementById('hero').getBoundingClientRect();
-    var hcont=document.querySelector('.hcont').getBoundingClientRect();
-    var hleft=document.querySelector('.hleft').getBoundingClientRect();
-    var htitle=document.querySelector('.htitle').getBoundingClientRect();
-    var hrow=document.querySelector('.hrow').getBoundingClientRect();
-    d.textContent='VW:'+vw+'\nhero  L:'+Math.round(hero.left)+' W:'+Math.round(hero.width)+' cx:'+Math.round(hero.left+hero.width/2)+
-    '\nhcont L:'+Math.round(hcont.left)+' W:'+Math.round(hcont.width)+' cx:'+Math.round(hcont.left+hcont.width/2)+
-    '\nhleft L:'+Math.round(hleft.left)+' W:'+Math.round(hleft.width)+' cx:'+Math.round(hleft.left+hleft.width/2)+
-    '\nhtitl L:'+Math.round(htitle.left)+' W:'+Math.round(htitle.width)+' cx:'+Math.round(htitle.left+htitle.width/2)+
-    '\nhrow  L:'+Math.round(hrow.left)+' W:'+Math.round(hrow.width)+' cx:'+Math.round(hrow.left+hrow.width/2);
-  });
-})();
-</script>
 <div id="loader" aria-hidden="true">
   <div class="ldr-inner">
     <img class="ldr-logo" src="logo-creskio.webp" alt="Creskio">
