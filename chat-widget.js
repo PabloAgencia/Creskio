@@ -46,7 +46,7 @@
   var primaryDark = shade(cfg.primaryColor, -14);
 
   var css = `
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; cursor: auto; }
   :host {
     --cb-primary: ${cfg.primaryColor};
     --cb-primary-dark: ${primaryDark};
@@ -59,7 +59,8 @@
     --cb-charcoal: #16121f;
     --cb-primary-soft: rgba(139,92,246,.15);
   }
-  button { font: inherit; }
+  button { font: inherit; cursor: pointer; }
+  input { cursor: text; }
   .cb-launcher {
     all: unset;
     box-sizing: border-box;
