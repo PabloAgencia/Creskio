@@ -1,0 +1,7 @@
+name = "creskio"
+pages_build_output_dir = "."
+compatibility_date = "2025-01-01"
+
+[[kv_namespaces]]
+binding = "RATE_LIMIT_KV"
+id = "5754438eacfb4acb94cdd4eac3fd756b"
