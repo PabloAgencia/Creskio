@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-31T00:00:00Z",
+  "title": "Design System: Creskio",
+  "extensions": {
+    "colorMeta": {
+      "bg": { "role": "neutral", "displayName": "Void Black", "canonical": "#03050a", "tonalRamp": ["#03050a", "#060a12", "#0a1018", "#0e1622", "#1a2332", "#2d3b4f", "#8a97a8", "#f0f2f5"] },
+      "violet": { "role": "primary", "displayName": "Aurora Violet", "canonical": "#8b5cf6", "tonalRamp": ["#4c1d95", "#5b21b6", "#6d28d9", "#7c3aed", "#8b5cf6", "#a78bfa", "#c4b5fd", "#ede9fe"] },
+      "cyan": { "role": "secondary", "displayName": "Electric Cyan", "canonical": "#22d3ee", "tonalRamp": ["#164e63", "#155e75", "#0e7490", "#0891b2", "#06b6d4", "#22d3ee", "#67e8f9", "#cffafe"] },
+      "indigo": { "role": "secondary", "displayName": "Deep Indigo", "canonical": "#6366f1", "tonalRamp": ["#312e81", "#3730a3", "#4338ca", "#4f46e5", "#6366f1", "#818cf8", "#a5b4fc", "#e0e7ff"] },
+      "emerald": { "role": "tertiary", "displayName": "Signal Emerald", "canonical": "#10b981", "tonalRamp": ["#064e3b", "#065f46", "#047857", "#059669", "#10b981", "#34d399", "#6ee7b7", "#d1fae5"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero H1 only — three staggered rows, second row gradient text-fill." },
+      "headline": { "displayName": "Headline", "purpose": "Section H2s, always preceded by a Label kicker." },
+      "title": { "displayName": "Title", "purpose": "Card and component titles: pricing plan names, benefit headings, chat widget name." },
+      "body": { "displayName": "Body", "purpose": "Paragraph copy, light weight, ~500-530px measure." },
+      "label": { "displayName": "Label", "purpose": "Uppercase section kickers and micro-badges, hue-tinted to the section accent." }
+    },
+    "shadows": [
+      { "name": "ambient-lift", "value": "0 8px 24px rgba(0,0,0,.5)", "purpose": "Floating badges, phone mockup, physically-lifted decorative elements." },
+      { "name": "brand-glow-rest", "value": "0 4px 22px rgba(139,92,246,.28)", "purpose": "Resting shadow on any violet-filled button." },
+      { "name": "brand-glow-hover", "value": "0 10px 32px rgba(139,92,246,.48)", "purpose": "Hover shadow on any violet-filled button, paired with translateY(-2px) scale(1.03)." },
+      { "name": "whatsapp-glow-rest", "value": "0 4px 26px rgba(37,211,102,.25)", "purpose": "Resting shadow on the WhatsApp CTA button." },
+      { "name": "whatsapp-glow-hover", "value": "0 14px 44px rgba(37,211,102,.45)", "purpose": "Hover shadow on the WhatsApp CTA button." },
+      { "name": "card-ambient", "value": "0 24px 80px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.07)", "purpose": "Large glass cards (hero card) — inset line reads as a glass top-edge catching light." },
+      { "name": "neon-pulse", "value": "0 0 0 1px rgba(139,92,246,.15), 0 0 80px rgba(139,92,246,.22), 0 32px 90px rgba(0,0,0,.65)", "purpose": "Breathing glow on the single most-emphasized element on a page (e.g. featured pricing plan). Animates to a brighter peak and back; use on at most one element per view." }
+    ],
+    "motion": [
+      { "name": "ease-standard", "value": "cubic-bezier(.25,.46,.45,.94)", "purpose": "Default easing for reveals, hovers, and state transitions (--ez)." },
+      { "name": "ease-spring", "value": "cubic-bezier(.34,1.56,.64,1)", "purpose": "Springy overshoot easing for icon rotations, badge floats, playful hover scales (--sp)." }
+    ],
+    "breakpoints": [
+      { "name": "container-collapse", "value": "1080px" },
+      { "name": "mobile", "value": "767px" },
+      { "name": "small-phone", "value": "359px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Brand-gradient pill CTA with a periodic diagonal shimmer sweep and a violet glow that intensifies on hover.",
+      "html": "<button class=\"ds-btn-primary\"><span class=\"ds-btn-primary-txt\">Solicitar propuesta gratis</span></button>",
+      "css": ".ds-btn-primary{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#8b5cf6,#7c3aed);color:#03050a;font-family:'Syne',sans-serif;font-weight:800;font-size:.85rem;letter-spacing:.02em;padding:14px 28px;border:none;border-radius:100px;cursor:pointer;box-shadow:0 4px 22px rgba(139,92,246,.28);transition:transform .3s cubic-bezier(.25,.46,.45,.94),box-shadow .3s cubic-bezier(.25,.46,.45,.94)}.ds-btn-primary::after{content:'';position:absolute;top:0;left:-100%;width:55%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.22),transparent);transition:left .55s cubic-bezier(.25,.46,.45,.94)}.ds-btn-primary:hover{transform:translateY(-2px) scale(1.04);box-shadow:0 10px 32px rgba(139,92,246,.48)}.ds-btn-primary:hover::after{left:160%}.ds-btn-primary:focus-visible{outline:2px solid #8b5cf6;outline-offset:3px}"
+    },
+    {
+      "name": "WhatsApp CTA Button",
+      "kind": "button",
+      "refersTo": "button-whatsapp",
+      "description": "The site's single most-repeated CTA. Green gradient reserved exclusively for WhatsApp contact actions.",
+      "html": "<a href=\"#\" class=\"ds-btn-whatsapp\">Escríbeme por WhatsApp</a>",
+      "css": ".ds-btn-whatsapp{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;font-family:'Syne',sans-serif;font-weight:800;font-size:.92rem;letter-spacing:.02em;padding:16px 34px;border-radius:100px;text-decoration:none;box-shadow:0 4px 26px rgba(37,211,102,.25);transition:transform .35s cubic-bezier(.25,.46,.45,.94),box-shadow .35s cubic-bezier(.25,.46,.45,.94)}.ds-btn-whatsapp::after{content:'';position:absolute;top:0;left:-100%;width:55%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.14),transparent);transition:left .6s cubic-bezier(.25,.46,.45,.94)}.ds-btn-whatsapp:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 14px 44px rgba(37,211,102,.45)}.ds-btn-whatsapp:hover::after{left:160%}"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Subordinate CTA — translucent fill, hairline border, no shimmer or glow.",
+      "html": "<button class=\"ds-btn-ghost\">Ver proyectos</button>",
+      "css": ".ds-btn-ghost{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.58);font-family:'Syne',sans-serif;font-weight:700;font-size:.87rem;padding:15px 27px;border-radius:100px;cursor:pointer;transition:all .3s ease}.ds-btn-ghost:hover{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.18)}"
+    },
+    {
+      "name": "Live Badge",
+      "kind": "chip",
+      "refersTo": "badge-live",
+      "description": "The system's only 'this is live/real-time' signal — a pulsing emerald dot inside a low-opacity pill.",
+      "html": "<div class=\"ds-badge-live\"><span class=\"ds-badge-live-dot\"></span><span class=\"ds-badge-live-txt\">Propuesta en 24h</span></div>",
+      "css": ".ds-badge-live{display:inline-flex;align-items:center;gap:8px;background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.18);border-radius:100px;padding:5px 14px 5px 8px}.ds-badge-live-dot{width:7px;height:7px;border-radius:50%;background:#10b981;box-shadow:0 0 10px #10b981;flex-shrink:0;animation:ds-dpulse 2s ease-in-out infinite}.ds-badge-live-txt{font-family:'Syne',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(16,185,129,.82)}@keyframes ds-dpulse{0%,100%{opacity:1}50%{opacity:.28}}"
+    },
+    {
+      "name": "Glass Card",
+      "kind": "card",
+      "refersTo": "card-glass",
+      "description": "Translucent near-black panel with a hairline border and a gradient top-edge seal, floating above the void.",
+      "html": "<div class=\"ds-card-glass\"><div class=\"ds-card-glass-seal\"></div><div class=\"ds-card-glass-title\">Sistema de Adquisición Completo</div><p class=\"ds-card-glass-body\">Web nueva, SEO local e IA en un único sistema que trabaja para ti.</p></div>",
+      "css": ".ds-card-glass{position:relative;overflow:hidden;background:rgba(6,10,18,.85);border:1px solid rgba(255,255,255,.09);border-radius:26px;padding:2.25rem;backdrop-filter:blur(20px) saturate(1.3);box-shadow:0 24px 80px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.07)}.ds-card-glass-seal{position:absolute;top:0;left:0;right:0;height:1.5px;background:linear-gradient(90deg,#8b5cf6,#7c3aed,#22d3ee,#10b981)}.ds-card-glass-title{font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:800;color:#fff;margin-bottom:.5rem}.ds-card-glass-body{font-family:'DM Sans',sans-serif;font-weight:300;font-size:.9rem;line-height:1.8;color:rgba(255,255,255,.72)}"
+    },
+    {
+      "name": "FAQ Accordion Item",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Pill-cornered accordion row; border and background intensify and the icon rotates 45° into an × on open.",
+      "html": "<div class=\"ds-faq-item ds-faq-item--open\"><button class=\"ds-faq-q\"><span>¿Y si no me gusta el diseño?</span><span class=\"ds-faq-ico\">+</span></button><div class=\"ds-faq-a\"><p>Dos rondas de revisión sin coste incluidas. La web no se publica hasta que tú das el OK.</p></div></div>",
+      "css": ".ds-faq-item{border:1px solid rgba(255,255,255,.07);border-radius:16px;overflow:hidden;background:rgba(6,10,18,.7);transition:border-color .35s}.ds-faq-item--open{border-color:rgba(139,92,246,.22);background:rgba(6,10,18,.92)}.ds-faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.1rem 1.5rem;background:none;border:none;color:rgba(255,255,255,.75);font-family:'DM Sans',sans-serif;font-size:.92rem;text-align:left;cursor:pointer}.ds-faq-item--open .ds-faq-q{color:#fff}.ds-faq-ico{display:flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:8px;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);font-size:1rem;line-height:1;flex-shrink:0;transition:transform .3s cubic-bezier(.25,.46,.45,.94),color .3s,border-color .3s}.ds-faq-item--open .ds-faq-ico{transform:rotate(45deg);border-color:rgba(139,92,246,.4);color:#8b5cf6;background:rgba(139,92,246,.08)}.ds-faq-a p{padding:.1rem 1.5rem 1.35rem;font-size:.84rem;color:rgba(255,255,255,.52);line-height:1.9;font-weight:300;margin:0}"
+    },
+    {
+      "name": "Article Feature List (art-box)",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Local-SEO article template: a labeled block boxing a full list of related claims (e.g. 'Lo que incluye'). The canonical way to present a feature or pricing list on the satellite pages — used correctly today only by the Granada, Málaga, and Sevilla city pages.",
+      "html": "<div class=\"ds-art-box\"><h4 class=\"ds-art-box-title\">Lo que incluye cada web</h4><ul class=\"ds-art-box-list\"><li><strong>Diseño a medida</strong> — no una plantilla. Tu web tiene cara propia.</li><li><strong>SEO local</strong> — Schema.org, palabras clave locales, sitemap.</li></ul></div>",
+      "css": ".ds-art-box{background:rgba(6,10,18,.8);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:1.5rem 1.75rem}.ds-art-box-title{font-family:'Syne',sans-serif;font-size:.88rem;font-weight:700;color:#fff;margin:0 0 .75rem}.ds-art-box-list{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin:0;padding:0}.ds-art-box-list li{font-size:.92rem;color:rgba(255,255,255,.38);padding-left:1.5rem;position:relative;line-height:1.75;font-weight:300}.ds-art-box-list li::before{content:'→';position:absolute;left:0;color:#8b5cf6;font-weight:700}.ds-art-box-list strong{color:rgba(255,255,255,.75);font-weight:600}"
+    },
+    {
+      "name": "Article FAQ Card (static)",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Local-SEO article template: one bordered card per FAQ question (non-interactive, no accordion collapse). The canonical way to present FAQ on the satellite pages — used correctly today by Madrid and most other city/sector pages, but missing on the Granada, Málaga, and Sevilla pages, which render FAQ as bare headings instead.",
+      "html": "<div class=\"ds-art-faq\"><p class=\"ds-art-faq-q\">¿Tienes que venir a la oficina?</p><p class=\"ds-art-faq-a\">No. Todo el proceso es online y por WhatsApp.</p></div>",
+      "css": ".ds-art-faq{border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:1.1rem 1.35rem;background:rgba(6,10,18,.6)}.ds-art-faq-q{font-family:'Syne',sans-serif;font-size:.88rem;font-weight:700;color:rgba(255,255,255,.8);margin:0 0 .5rem}.ds-art-faq-a{font-family:'DM Sans',sans-serif;font-size:.84rem;color:rgba(255,255,255,.25);font-weight:300;line-height:1.8;margin:0}"
+    },
+    {
+      "name": "Nav Tab",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Pill navigation link with a soft gradient wash that fades in on hover/active.",
+      "html": "<a href=\"#faq\" class=\"ds-ntab ds-ntab--active\"><span class=\"ds-ntab-txt\">FAQ</span></a>",
+      "css": ".ds-ntab{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:500;color:rgba(255,255,255,.58);background:transparent;border:1px solid transparent;text-decoration:none;transition:all .3s cubic-bezier(.25,.46,.45,.94)}.ds-ntab::before{content:'';position:absolute;inset:0;border-radius:100px;background:linear-gradient(135deg,rgba(139,92,246,.08),rgba(34,211,238,.05));opacity:0;transition:opacity .3s}.ds-ntab:hover{color:#fff;border-color:rgba(255,255,255,.1);background:rgba(255,255,255,.05)}.ds-ntab:hover::before{opacity:1}.ds-ntab--active{color:#fff;background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.12)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "La Marea Digital",
+    "overview": "Creskio sells a promise — \"tu negocio captando clientes día y noche\" — and the site is staged like a dark ocean at night where that promise is visibly happening. The near-black backdrop (#03050a layered through #060a12 → #0a1018 → #0e1622) reads as deep water; the violet-to-cyan-to-emerald gradient is bioluminescence moving through it — never a static flat brand color, always a diagonal or animated sweep. Nothing on the page is ever fully still: orbs drift, a progress bar flows, small dots pulse, buttons sweep with light. The tide never stops, which is the point: capture keeps happening while the visitor isn't looking, exactly like the product.\n\nInterface elements are glass panels floating on that water, not opaque cards sitting on a page. Depth comes from blur, border hairlines, and colored glow blooms behind and beneath elements — never from hard, neutral drop shadows. The aesthetic reads as aurora tecnológica: an atmospheric, premium dark-tech mood rather than a sterile SaaS-dashboard mood, because the buyer is a local business owner who needs to feel \"this is serious technology working for me,\" not \"this is a spreadsheet.\"\n\nTwo structural habits repeat everywhere and should be preserved in any new surface: (1) every interactive control is a pill; every container is a large-but-finite rounded rectangle; (2) a small pulsing dot is the site's one recurring signal for \"this is live/real/active right now\" — it is never used decoratively.",
+    "keyCharacteristics": [
+      "Near-black, never pure-black, layered backgrounds with glass cards floating above color-tinted glow blooms",
+      "Violet→cyan→emerald brand gradient used sparingly as a moving accent, never as a flat background fill",
+      "Syne (geometric, high-impact) for anything that asserts a claim; DM Sans (light, quiet) for anything that explains",
+      "Every primary CTA sweeps with a single diagonal light pass, at rest and again on hover",
+      "A pulsing dot is the only 'this is real-time' signal in the system"
+    ],
+    "rules": [
+      { "name": "The Glow-Matches-Fill Rule", "body": "A colored button, card, or badge's shadow and ambient glow always share the hue of its own fill. Never drop a neutral gray shadow under a colored element.", "section": "colors" },
+      { "name": "The Emerald-Means-Live Rule", "body": "Emerald (#10b981) is reserved for the pulsing-dot 'active/real' signal and its badges. Reach for it only when the state is genuinely live/real-time — otherwise use violet.", "section": "colors" },
+      { "name": "The Gradient-Number Rule", "body": "Any large standalone statistic renders as Syne 800 with the brand gradient clipped to the text, never a flat color.", "section": "typography" },
+      { "name": "The Breathing Room Rule", "body": "Section padding never drops below 6rem vertically even on mobile. Density is not how this system signals more content; more sections is.", "section": "layout" },
+      { "name": "The No-Hard-Shadow Rule", "body": "Every shadow is soft (large blur, low-to-moderate opacity) and either pure-black-ambient or color-matched. A crisp, small-blur, neutral-gray shadow is off-system.", "section": "elevation" },
+      { "name": "The Box-The-Cluster Rule", "body": "No cluster of related claims — a feature list, a pricing comparison, a FAQ — sits bare on the page background. On the local-SEO article template both the 'Lo que incluye'/'Precios' list (.art-box) and each FAQ question (its own 12px-radius card) get a hairline-bordered, translucent-fill container.", "section": "components" },
+      { "name": "The Hairline-Not-Side-Tab Rule", "body": "Callout and card borders are uniform hairlines on all four sides. A thick single-side accent border ('side-tab') is an off-system AI-generated-UI tell; use the panel's own tinted fill or glow to draw attention instead.", "section": "shapes" },
+      { "name": "The No-Decorative-Grid Rule", "body": "A tiled dot/line grid background is reserved for literal canvas, map, blueprint, or measurement surfaces. Marketing heroes and article pages get atmosphere from gradient washes and blurred orb glows, never a grid overlay.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep every interactive control pill-shaped (100px radius) and every container a large-but-finite rounded rectangle (16–26px) — never blur the two registers.",
+      "Do match a colored element's shadow/glow hue to its own fill color (Glow-Matches-Fill Rule).",
+      "Do reserve emerald (#10b981) and the pulsing-dot pattern exclusively for 'this is live/real right now' signals.",
+      "Do clip the brand gradient to text for any large standalone statistic, never render it as a flat color.",
+      "Do give every primary/WhatsApp button exactly one shimmer sweep, replaying at rest and on hover.",
+      "Do keep body copy in DM Sans at light weight (300) with generous line-height (~1.9) and a ~500–530px measure next to headlines.",
+      "Do box every distinct cluster of related claims — a feature list, a pricing comparison, a FAQ — in a hairline-bordered, translucent-fill container; on the local-SEO article template that means both the list (.art-box) and each FAQ question (its own card)."
+    ],
+    "donts": [
+      "Don't use pure black (#000) for any surface — the darkest tone in the system is #03050a, layered upward through #060a12 / #0a1018 / #0e1622.",
+      "Don't add a hard-edged, small-blur, neutral-gray drop shadow anywhere — every shadow is soft and either pure-black-ambient or color-matched.",
+      "Don't introduce a third typeface — Syne carries every claim/label/number, DM Sans carries every explanation.",
+      "Don't add a thick single-side accent border ('side-tab') to a card or callout — borders are uniform hairlines on all four sides.",
+      "Don't add a decorative dot/line grid background to a hero or marketing surface — reserve grid overlays for canvas/map/blueprint content.",
+      "Don't stack more than one 'live' signal language — the pulsing dot is the only one.",
+      "Don't re-inline .art-box/.art-cta declarations per element on a new satellite page — reuse the shared class already defined in the page's <head>.",
+      "Don't fabricate a testimonials/review card style — the product has none today and PRODUCT.md forbids inventing them."
+    ]
+  }
+}
