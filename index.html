@@ -2488,7 +2488,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
     <div class="rv" style="text-align:center;max-width:620px;margin:0 auto">
       <div class="slbl" style="justify-content:center"><div class="slbl-bar bc"></div><span class="slbl-t tc">Cómo trabajamos</span></div>
       <h2 class="sh">De WhatsApp a <span class="acc">web publicada</span><br>en una semana</h2>
-      <p class="sp" style="margin:0 auto">Sin reuniones. Sin formularios. Todo por WhatsApp.</p>
+      <p class="sp" style="margin:0 auto">Todo el proceso por WhatsApp, sin reuniones ni formularios que rellenar.</p>
     </div>
     <div class="tl-wrap">
       <div class="tl-line" id="tlLine"><div class="tl-line-fill"></div></div>
@@ -2931,6 +2931,24 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
   const ring = document.getElementById('c-ring');
   if(!dot || !ring) return;
 
+  // Red de seguridad: si el loop se cuelga (pestaña en 2º plano, error no capturado,
+  // pérdida de foco a medio frame), restaurar el cursor nativo en vez de dejar al
+  // usuario sin puntero visible — cursor:none es puramente decorativo, no debe
+  // poder romper la navegación básica de la página.
+  let lastFrame = performance.now();
+  function restoreNativeCursor(){
+    const s = document.createElement('style');
+    s.textContent = '*{cursor:auto!important}';
+    document.head.appendChild(s);
+  }
+  setInterval(()=>{
+    if(document.hidden) return;
+    if(performance.now() - lastFrame > 1500) restoreNativeCursor();
+  }, 1000);
+  document.addEventListener('visibilitychange', ()=>{
+    if(!document.hidden) lastFrame = performance.now();
+  });
+
   let mx=0, my=0, rx=0, ry=0;
 
   // Crear trail dots
@@ -2953,6 +2971,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 
   // Ring y trails con lag suave — SOLO transform, GPU
   function loop(){
+    lastFrame = performance.now();
     rx += (mx-rx)*0.1;
     ry += (my-ry)*0.1;
     ring.style.transform = `translate(calc(${rx}px - 50%), calc(${ry}px - 50%))`;
