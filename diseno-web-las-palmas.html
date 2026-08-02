@@ -156,6 +156,16 @@ nav.breadcrumb span{margin:0 .5rem;opacity:.4}
 }
 @media(max-width:479px){.nav-logo img{height:44px!important}}
 </style>
+<style>
+/* ═══ CINEMÁTICO: reveal + tilt + parallax (2-ago-2026) ═══ */
+.rv{opacity:0;transform:translateY(48px);transition:opacity .95s cubic-bezier(.16,1,.3,1),transform .95s cubic-bezier(.16,1,.3,1)}
+.rv.in{opacity:1;transform:none}
+.tilt{position:relative;transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .5s}
+.tilt:hover{box-shadow:0 26px 60px rgba(0,0,0,.5),0 0 50px rgba(139,92,246,.16)}
+.tilt::after{content:'';position:absolute;inset:0;border-radius:inherit;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(139,92,246,.22),transparent 62%);opacity:0;transition:opacity .4s;pointer-events:none}
+.tilt:hover::after{opacity:1}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.tilt{transition:none}.tilt::after{display:none}}
+</style>
 </head>
 <body>
 
@@ -194,7 +204,7 @@ nav.breadcrumb span{margin:0 .5rem;opacity:.4}
 
   <h2>¿Qué hace especial el SEO local en <span>Las Palmas</span>?</h2>
   <p>Las Palmas tiene ventajas claras para el SEO local: la competencia digital entre negocios locales es baja, el volumen de búsquedas locales es alto (más de 400.000 habitantes), y Google Maps es muy usado por los residentes para encontrar servicios cercanos. Las webs que hago están optimizadas para exactamente eso:</p>
-  <div class="art-box">
+  <div class="art-box rv tilt">
   <ul>
     <li><strong>Keywords de Las Palmas</strong> — "fontanero Las Palmas", "peluquería Las Palmas de Gran Canaria", "clínica estética Las Palmas". Búsquedas reales de residentes.</li>
     <li><strong>Schema LocalBusiness</strong> con coordenadas precisas para el pack de Google Maps.</li>
@@ -205,7 +215,7 @@ nav.breadcrumb span{margin:0 .5rem;opacity:.4}
 
   <h2>Precios de diseño web en <span>Las Palmas de Gran Canaria</span></h2>
   <p>Los precios son los mismos que para cualquier ciudad de España. Sin recargo por estar en Canarias:</p>
-  <div class="art-box">
+  <div class="art-box rv tilt">
   <ul>
     <li><strong>Agente IA de Conversión — 497-650€ + 89€/mes:</strong> Si ya tienes web y solo necesitas un asistente IA que la atienda 24h y agende citas.</li>
     <li><strong>Sistema de Adquisición Completo — 1.500-1.950€ + 99€/mes:</strong> Web nueva a medida + SEO local + asistente IA, para negocios que quieren liderar su sector en Las Palmas.</li>
@@ -303,6 +313,37 @@ nav.breadcrumb span{margin:0 .5rem;opacity:.4}
     localStorage.setItem(KEY,'essential');
     banner.style.display='none';
   };
+})();
+</script>
+<script>
+/* ═══ CINEMÁTICO: reveal en cascada + tilt + parallax de órbitas (2-ago-2026) ═══ */
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.querySelectorAll('.art-body h2').forEach(el=>el.classList.add('rv'));
+  const ro = new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); }
+  }), {threshold:0.08, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+
+  document.querySelectorAll('.tilt').forEach(card=>{
+    card.addEventListener('mousemove', e=>{
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX-r.left)/r.width, py = (e.clientY-r.top)/r.height;
+      const rx = (py-.5) * -10, ry = (px-.5) * 10;
+      card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px)`;
+      card.style.setProperty('--mx', (px*100)+'%');
+      card.style.setProperty('--my', (py*100)+'%');
+    });
+    card.addEventListener('mouseleave', ()=>{ card.style.transform = ''; });
+  });
+
+  const orbs = document.querySelectorAll('div[style*="border-radius:50%"][style*="blur("]');
+  if(orbs.length){
+    window.addEventListener('scroll', ()=>{
+      const sy = window.scrollY;
+      orbs.forEach((el,i)=>{ el.style.translate = `0 ${sy*(0.14+i*0.08)}px`; });
+    }, {passive:true});
+  }
 })();
 </script>
 </body>
