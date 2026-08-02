@@ -673,6 +673,13 @@ body.chov #c-ring{width:56px;height:56px;border-color:rgba(34,211,238,.28)}
 .rv.in .sh,.rv.in .ctah{clip-path:inset(0 0% 0 0)}
 @media(prefers-reduced-motion:reduce){.rv .sh,.rv .ctah{clip-path:none;transition:none}}
 
+/* ─── TILT: profundidad 3D + spotlight en tarjetas al hover ─── */
+.tilt{position:relative;transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.tilt::after{content:'';position:absolute;inset:0;border-radius:inherit;background:radial-gradient(380px circle at var(--mx,50%) var(--my,50%),rgba(139,92,246,.16),transparent 62%);opacity:0;transition:opacity .45s;pointer-events:none}
+.tilt:hover::after{opacity:1}
+@media(prefers-reduced-motion:reduce){.tilt{transition:none}.tilt::after{display:none}}
+.faq-item:hover{border-color:rgba(139,92,246,.32)}
+
 /* ─── ESCENA: wash de color de fondo segun seccion visible ─── */
 #scene-wash{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 90% 70% at 50% 0%,rgba(139,92,246,.10),transparent 60%);transition:background 1.8s var(--ez)}
 body[data-scene="servicios"] #scene-wash{background:radial-gradient(ellipse 90% 70% at 80% 20%,rgba(34,211,238,.09),transparent 60%)}
@@ -2160,10 +2167,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
       <h2 class="sh">Elige el sistema que<br>necesita <span class="acs">tu negocio.</span></h2>
     </div>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.75rem;max-width:1000px;margin:0 auto" class="rv d1">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.75rem;max-width:1000px;margin:0 auto">
 
       <!-- Opción 1: Agente IA de Conversión -->
-      <div style="padding:2.5rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:24px;display:flex;flex-direction:column;gap:1.25rem">
+      <div class="tilt rv" style="padding:2.5rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:24px;display:flex;flex-direction:column;gap:1.25rem">
         <div style="font-size:2rem">🤖</div>
         <div>
           <div style="font-family:var(--f1);font-size:1.15rem;font-weight:800;color:#fff;margin-bottom:.4rem">Agente IA de Conversión</div>
@@ -2192,7 +2199,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
       </div>
 
       <!-- Opción 2: Sistema de Adquisición Completo -->
-      <div style="padding:2.5rem;background:rgba(139,92,246,.05);border:1.5px solid rgba(139,92,246,.3);border-radius:24px;display:flex;flex-direction:column;gap:1.25rem;position:relative">
+      <div class="tilt rv d1" style="padding:2.5rem;background:rgba(139,92,246,.05);border:1.5px solid rgba(139,92,246,.3);border-radius:24px;display:flex;flex-direction:column;gap:1.25rem;position:relative">
         <div style="position:absolute;top:-13px;left:2.5rem;background:linear-gradient(135deg,#8b5cf6,#7c3aed);color:#fff;font-family:var(--f1);font-weight:800;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:100px">Más completo</div>
         <div style="font-size:2rem">🚀</div>
         <div>
@@ -2235,18 +2242,18 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
       <div class="slbl" style="justify-content:center"><div class="slbl-bar bs"></div><span class="slbl-t ts">Por qué Creskio</span></div>
       <h2 class="sh">Directo, rápido<br>y <span class="acs">orientado a resultados.</span></h2>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem" class="rv d1">
-      <div style="padding:2.5rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:20px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem">
+      <div class="tilt rv" style="padding:2.5rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:20px">
         <div style="font-size:2rem;margin-bottom:1.25rem">⚡</div>
         <div style="font-family:var(--f1);font-size:1rem;font-weight:700;color:#fff;margin-bottom:.75rem">Respuesta en menos de 24h</div>
         <p style="font-size:.87rem;color:rgba(255,255,255,.6);line-height:1.7;margin:0">Propuesta personalizada rápida. Proceso directo y sin burocracia.</p>
       </div>
-      <div style="padding:2.5rem;background:rgba(139,92,246,.04);border:1px solid rgba(139,92,246,.18);border-radius:20px">
+      <div class="tilt rv d1" style="padding:2.5rem;background:rgba(139,92,246,.04);border:1px solid rgba(139,92,246,.18);border-radius:20px">
         <div style="font-size:2rem;margin-bottom:1.25rem">🎯</div>
         <div style="font-family:var(--f1);font-size:1rem;font-weight:700;color:#fff;margin-bottom:.75rem">Proyectos orientados a conversión</div>
         <p style="font-size:.87rem;color:rgba(255,255,255,.6);line-height:1.7;margin:0">Cada decisión de diseño y contenido está pensada para convertir visitas en clientes.</p>
       </div>
-      <div style="padding:2.5rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:20px">
+      <div class="tilt rv d2" style="padding:2.5rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:20px">
         <div style="font-size:2rem;margin-bottom:1.25rem">🤝</div>
         <div style="font-family:var(--f1);font-size:1rem;font-weight:700;color:#fff;margin-bottom:.75rem">Atención directa</div>
         <p style="font-size:.87rem;color:rgba(255,255,255,.6);line-height:1.7;margin:0">Hablas con quien hace el trabajo. Sin intermediarios, sin agencias con 10 capas. Solo acepto 3-4 proyectos nuevos al mes para dar atención real a cada cliente — no es una cadena de producción.</p>
@@ -2273,7 +2280,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
     <div class="tmpl-grid">
 
       <!-- 1. Taller Profesional -->
-      <div class="tmpl-card rv">
+      <div class="tmpl-card tilt rv">
         <div class="tmpl-preview">
           <video autoplay muted loop playsinline poster="taller profesional portada.webp">
             <source src="demo-talleres.webm" type="video/webm">
@@ -2305,7 +2312,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
       </div>
 
       <!-- 2. Lumière Estética -->
-      <div class="tmpl-card rv d1">
+      <div class="tmpl-card tilt rv d1">
         <div class="tmpl-preview">
           <video autoplay muted loop playsinline poster="lumiere portada.webp">
             <source src="demo-estetica.webm" type="video/webm">
@@ -2566,10 +2573,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
       <h2 class="sh">De WhatsApp a <span class="acc">web publicada</span><br>en una semana</h2>
       <p class="sp" style="margin:0 auto">Sin reuniones. Sin formularios. Todo por WhatsApp.</p>
     </div>
-    <div class="tl-wrap rv d1">
+    <div class="tl-wrap">
       <div class="tl-line" id="tlLine"><div class="tl-line-fill"></div></div>
 
-      <div class="tl-step">
+      <div class="tl-step rv">
         <div class="tl-node">
           <div class="tl-num">01</div>
           <div class="tl-node-ring"></div>
@@ -2582,7 +2589,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
         </div>
       </div>
 
-      <div class="tl-step">
+      <div class="tl-step rv d1">
         <div class="tl-node">
           <div class="tl-num">02</div>
           <div class="tl-node-ring"></div>
@@ -2595,7 +2602,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
         </div>
       </div>
 
-      <div class="tl-step">
+      <div class="tl-step rv d2">
         <div class="tl-node">
           <div class="tl-num">03</div>
           <div class="tl-node-ring"></div>
@@ -2608,7 +2615,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
         </div>
       </div>
 
-      <div class="tl-step">
+      <div class="tl-step rv d3">
         <div class="tl-node">
           <div class="tl-num">04</div>
           <div class="tl-node-ring"></div>
@@ -3189,6 +3196,32 @@ document.querySelectorAll('.bwa,.nav-cta').forEach(btn=>{
     btn.style.transition='transform .5s cubic-bezier(.34,1.56,.64,1)';
   });
 });
+
+/* ══════════════════════════════════════════
+   TILT CARDS — profundidad 3D + spotlight
+══════════════════════════════════════════ */
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  document.querySelectorAll('.tilt').forEach(card=>{
+    card.addEventListener('mousemove', e=>{
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX-r.left)/r.width, py = (e.clientY-r.top)/r.height;
+      const rx = (py-.5) * -7, ry = (px-.5) * 7;
+      card.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px)`;
+      card.style.setProperty('--mx', (px*100)+'%');
+      card.style.setProperty('--my', (py*100)+'%');
+    });
+    card.addEventListener('mouseleave', ()=>{ card.style.transform = ''; });
+  });
+
+  /* Parallax de scroll en las órbitas del hero, capa aparte de su propio flotado CSS */
+  const orbs = document.querySelectorAll('.hero-orb-1,.hero-orb-2,.hero-orb-3');
+  if(orbs.length){
+    window.addEventListener('scroll', ()=>{
+      const sy = window.scrollY;
+      orbs.forEach((el,i)=>{ el.style.translate = `0 ${sy*(0.05+i*0.03)}px`; });
+    }, {passive:true});
+  }
+}
 
 /* ══════════════════════════════════════════
    RIPPLE
