@@ -612,7 +612,7 @@ body.chov #c-ring{width:56px;height:56px;border-color:rgba(34,211,238,.28)}
   .htitle{letter-spacing:-.025em}
 
   /* ROTATING TEXT MOBILE */
-  .hrot-line{font-size:clamp(2.2rem,9.5vw,3.2rem) !important}
+  .hrot-line{font-size:clamp(1.05rem,3.8vw,1.35rem) !important}
 }
 /* Hero card */
 .hcard{
@@ -823,9 +823,6 @@ body[data-scene="cta"] #scene-wash{background:radial-gradient(ellipse 100% 80% a
 
   /* ── FOOTER ── */
   .foot-bot-in{flex-direction:column;align-items:flex-start;gap:.75rem}
-
-  /* ── CHAT WIDGET ── */
-  #chat-widget{max-width:calc(100vw - 40px)}
 
   /* ── MOB CTA BAR bottom ── */
   #mob-cta{display:flex}
@@ -1352,17 +1349,16 @@ body[data-scene="cta"] #scene-wash{background:radial-gradient(ellipse 100% 80% a
 /* ─── HERO H2 ROTATING — differentiated from H1 ─── */
 .hrot-wrap{
   overflow:hidden;
-  min-height:clamp(2.5rem,6vw,6rem);
+  min-height:clamp(1.6rem,3vw,2.3rem);
   display:flex;align-items:flex-start;
   margin-bottom:.15rem;
 }
 .hrot-line{
   display:block;
-  font-family:var(--f1);font-weight:800;
-  line-height:.97;letter-spacing:-.045em;
-  font-size:clamp(2rem,3.8vw,3.6rem);
-  background:linear-gradient(135deg,#8b5cf6 0%,#7c3aed 50%,#e8572a 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  font-weight:400;
+  line-height:1.3;letter-spacing:0;
+  font-size:clamp(1.05rem,1.8vw,1.4rem);
+  color:rgba(255,255,255,.5);
   animation:rotIn .65s var(--sp) both;
   will-change:transform,opacity;
 }
@@ -1423,90 +1419,6 @@ body[data-scene="cta"] #scene-wash{background:radial-gradient(ellipse 100% 80% a
 .hbmock .hcard-header{padding:1rem 1.25rem .85rem;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:0}
 .hbmock .hcmicro{padding:.75rem 1.25rem;margin-top:0;border-top:1px solid rgba(255,255,255,.055)}
 
-
-/* ─── CHAT TRIGGER BUTTON ─── */
-#chat-trigger{
-  position:fixed;bottom:28px;right:28px;z-index:9500;
-  width:54px;height:54px;border-radius:50%;
-  background:linear-gradient(135deg,var(--s1),#7c3aed);
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 6px 24px rgba(139,92,246,.5);
-  cursor:pointer;border:none;
-  transition:transform .3s var(--sp),box-shadow .3s;
-}
-#chat-trigger:hover{transform:scale(1.1);box-shadow:0 10px 36px rgba(139,92,246,.65)}
-#chat-trigger svg{width:24px;height:24px;fill:#fff;transition:transform .3s}
-#chat-trigger.cw-open svg.ic-chat{display:none}
-#chat-trigger.cw-open svg.ic-close{display:block}
-#chat-trigger svg.ic-close{display:none}
-@keyframes triggerPulse{0%{box-shadow:0 6px 24px rgba(139,92,246,.5)}50%{box-shadow:0 6px 32px rgba(139,92,246,.8),0 0 0 8px rgba(139,92,246,.12)}100%{box-shadow:0 6px 24px rgba(139,92,246,.5)}}
-#chat-trigger:not(.cw-open){animation:triggerPulse 2.5s ease-in-out infinite}
-@media(max-width:767px){#chat-trigger{bottom:82px;right:14px;width:48px;height:48px}}
-
-/* ─── CHAT WIDGET ─── */
-#chat-widget{
-  position:fixed;bottom:94px;right:28px;z-index:9400;
-  width:320px;
-  max-width:calc(100vw - 28px);
-  background:#060a12;border:1px solid rgba(255,255,255,.1);
-  border-radius:22px;overflow:hidden;
-  box-shadow:0 24px 70px rgba(0,0,0,.7),0 0 0 1px rgba(139,92,246,.12);
-  transform:translateY(18px) scale(.95);opacity:0;pointer-events:none;
-  transition:transform .4s var(--sp),opacity .4s;
-  backdrop-filter:blur(24px)
-}
-#chat-widget.cw-show{transform:none;opacity:1;pointer-events:auto}
-@media(max-width:767px){#chat-widget{bottom:142px;right:12px;width:calc(100vw - 24px)}}
-.cw-head{
-  background:linear-gradient(135deg,#1a0533 0%,#2d1155 50%,#0f1f3d 100%);
-  border-bottom:1px solid rgba(139,92,246,.2);
-  padding:1rem 1.1rem;display:flex;align-items:center;gap:.85rem
-}
-.cw-av-wrap{position:relative;flex-shrink:0}
-.cw-av{width:48px;height:48px;border-radius:50%;overflow:hidden;border:2px solid rgba(139,92,246,.5)}
-.cw-av img{width:100%;height:100%;object-fit:cover}
-.cw-online{position:absolute;bottom:1px;right:1px;width:12px;height:12px;border-radius:50%;background:#10b981;border:2px solid #060a12;animation:cwPulse 2s ease-in-out infinite}
-@keyframes cwPulse{0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,.5)}50%{box-shadow:0 0 0 4px rgba(16,185,129,0)}}
-.cw-hinfo{flex:1;min-width:0}
-.cw-hname{font-family:var(--f1);font-size:.85rem;font-weight:800;color:#fff;letter-spacing:.01em}
-.cw-hbadge{display:inline-flex;align-items:center;gap:4px;background:rgba(139,92,246,.15);border:1px solid rgba(139,92,246,.3);border-radius:100px;padding:2px 8px;margin-top:3px}
-.cw-hbadge-dot{width:5px;height:5px;border-radius:50%;background:#8b5cf6;flex-shrink:0}
-.cw-hbadge-txt{font-size:.56rem;color:rgba(139,92,246,.9);font-family:var(--f1);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
-.cw-close{margin-left:auto;background:none;border:none;color:rgba(255,255,255,.4);cursor:pointer;font-size:1rem;padding:4px;line-height:1;transition:color .2s;flex-shrink:0}
-.cw-close:hover{color:#fff}
-.cw-body{padding:1rem 1rem 1.1rem}
-.cw-bubble{
-  display:flex;gap:.6rem;align-items:flex-start;margin-bottom:.9rem;
-  animation:cwBubble .5s var(--sp) .15s both
-}
-.cw-bubble-av{width:28px;height:28px;border-radius:50%;overflow:hidden;flex-shrink:0;border:1px solid rgba(139,92,246,.3)}
-.cw-bubble-av img{width:100%;height:100%;object-fit:cover}
-.cw-bubble-txt{
-  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);
-  border-radius:4px 14px 14px 14px;
-  padding:.65rem .85rem;font-size:.8rem;color:rgba(255,255,255,.82);
-  line-height:1.65;font-weight:300;
-}
-@keyframes cwBubble{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.cw-question{font-family:var(--f1);font-size:.65rem;font-weight:700;color:rgba(255,255,255,.3);margin-bottom:.5rem;letter-spacing:.1em;text-transform:uppercase}
-.cw-btns{display:flex;flex-direction:column;gap:.35rem}
-.cw-btn{
-  display:flex;align-items:center;gap:10px;
-  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
-  border-radius:12px;padding:.6rem .85rem;
-  cursor:pointer;transition:all .22s var(--ez);text-decoration:none
-}
-.cw-btn:hover{border-color:rgba(139,92,246,.4);background:rgba(139,92,246,.07)}
-.cw-btn-boost{border-color:rgba(139,92,246,.2);background:rgba(139,92,246,.05)}
-.cw-btn-boost:hover{border-color:rgba(139,92,246,.5);background:rgba(139,92,246,.12)}
-.cw-btn-ic{font-size:.95rem;flex-shrink:0;width:22px;text-align:center}
-.cw-btn-content{display:flex;flex-direction:column;gap:1px;min-width:0}
-.cw-btn-label{font-family:var(--f1);font-size:.74rem;font-weight:700;color:rgba(255,255,255,.8);line-height:1.2}
-.cw-btn-boost .cw-btn-label{color:rgba(139,92,246,.95)}
-.cw-btn-sub{font-size:.6rem;color:rgba(255,255,255,.3);font-weight:400;line-height:1}
-.cw-btn-boost .cw-btn-sub{color:rgba(139,92,246,.55)}
-.cw-footer{font-size:.56rem;color:rgba(255,255,255,.2);text-align:center;padding:.55rem .5rem .6rem;border-top:1px solid rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;gap:.5rem}
-.cw-footer-dot{width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.15)}
 
 
 /* ─── LOGOS CLIENTES ─── */
@@ -1587,9 +1499,6 @@ body[data-scene="cta"] #scene-wash{background:radial-gradient(ellipse 100% 80% a
   .tl-step{gap:1rem}
   .tl-body{padding:1.25rem}
 
-  /* ── CHAT WIDGET ── */
-  #chat-widget{right:16px;width:calc(100vw - 32px);max-width:320px;bottom:160px}
-
   /* ── NÚMEROS ── */
   .nums-g{grid-template-columns:repeat(2,1fr)}
   .nc{padding:2.5rem 1.25rem}
@@ -1662,7 +1571,8 @@ table{max-width:100%}
 /* ── Móvil pequeño iPhone SE (≤380px) ── */
 @media(max-width:380px){
   #main-nav{padding:10px clamp(.75rem,3vw,1rem)}
-  #hero .hrot-line,.hrow span{font-size:clamp(1.95rem,8.8vw,2.6rem) !important}
+  .hrow span{font-size:clamp(1.95rem,8.8vw,2.6rem) !important}
+  #hero .hrot-line{font-size:clamp(.95rem,4vw,1.2rem) !important}
   .hmock-wrap{max-width:320px}
   .bmock-screen{height:170px}
   .wrap{padding-left:1rem;padding-right:1rem}
@@ -1694,7 +1604,8 @@ table{max-width:100%}
   .nav-ul{display:flex}
   .ham{display:none}
   .hcont{grid-template-columns:1fr 360px}
-  #hero .hrot-line,.hrow span{font-size:clamp(2.6rem,6vw,3.6rem) !important}
+  .hrow span{font-size:clamp(2.6rem,6vw,3.6rem) !important}
+  #hero .hrot-line{font-size:clamp(1.1rem,2vw,1.4rem) !important}
   .port-grid{grid-template-columns:repeat(2,1fr)}
   #mob-cta{display:none}
 }
@@ -1859,7 +1770,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 @media(max-width:767px){
   #bv-g{grid-template-columns:1fr!important}
   .hrow span{font-size:clamp(2.4rem,9vw,3.5rem)!important}
-  .hrot-line{font-size:clamp(1.8rem,7vw,2.8rem)!important;min-height:auto!important}
+  .hrot-line{font-size:clamp(1rem,4vw,1.25rem)!important;min-height:auto!important}
   .hdesc{font-size:clamp(.9rem,3.5vw,1.1rem)!important;max-width:100%!important}
   .eyebrow{flex-wrap:wrap;gap:.35rem}
 }
@@ -2491,14 +2402,14 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
       <div class="cl-track">
         <div class="cl-logo"><span class="cl-logo-ic">🔧</span><span class="cl-logo-name">Taller<br>Profesional</span><span class="cl-logo-loc">Talleres · Automoción</span></div>
         <div class="cl-logo"><span class="cl-logo-ic">💆</span><span class="cl-logo-name">Lumière<br>Estética</span><span class="cl-logo-loc">Clínicas Estéticas</span></div>
-        <div class="cl-logo"><span class="cl-logo-ic">🦷</span><span class="cl-logo-name">Blanc<br>Dental</span><span class="cl-logo-loc">Clínicas Dentales</span></div>
+        <div class="cl-logo"><span class="cl-logo-ic">🦷</span><span class="cl-logo-name">Blanc<br>Dental</span><span class="cl-logo-loc">En camino</span></div>
         <div class="cl-logo"><span class="cl-logo-ic">🍽️</span><span class="cl-logo-name">Hostelería &amp;<br>Restauración</span><span class="cl-logo-loc">En camino</span></div>
         <div class="cl-logo"><span class="cl-logo-ic">⚡</span><span class="cl-logo-name">Instalaciones<br>&amp; Oficios</span><span class="cl-logo-loc">En camino</span></div>
         <div class="cl-logo"><span class="cl-logo-ic">🏠</span><span class="cl-logo-name">Inmobiliario<br>&amp; Alquiler</span><span class="cl-logo-loc">En camino</span></div>
         <!-- duplicate for infinite scroll -->
         <div class="cl-logo"><span class="cl-logo-ic">🔧</span><span class="cl-logo-name">Taller<br>Profesional</span><span class="cl-logo-loc">Talleres · Automoción</span></div>
         <div class="cl-logo"><span class="cl-logo-ic">💆</span><span class="cl-logo-name">Lumière<br>Estética</span><span class="cl-logo-loc">Clínicas Estéticas</span></div>
-        <div class="cl-logo"><span class="cl-logo-ic">🦷</span><span class="cl-logo-name">Blanc<br>Dental</span><span class="cl-logo-loc">Clínicas Dentales</span></div>
+        <div class="cl-logo"><span class="cl-logo-ic">🦷</span><span class="cl-logo-name">Blanc<br>Dental</span><span class="cl-logo-loc">En camino</span></div>
         <div class="cl-logo"><span class="cl-logo-ic">🍽️</span><span class="cl-logo-name">Hostelería &amp;<br>Restauración</span><span class="cl-logo-loc">En camino</span></div>
         <div class="cl-logo"><span class="cl-logo-ic">⚡</span><span class="cl-logo-name">Instalaciones<br>&amp; Oficios</span><span class="cl-logo-loc">En camino</span></div>
         <div class="cl-logo"><span class="cl-logo-ic">🏠</span><span class="cl-logo-name">Inmobiliario<br>&amp; Alquiler</span><span class="cl-logo-loc">En camino</span></div>
@@ -2510,7 +2421,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <!-- ════ NÚMEROS ════ -->
 <div id="nums">
   <div class="nums-g">
-    <div class="nc rv"><span class="ncg" aria-hidden="true">3+</span><span class="ncn" data-count="3" data-suffix="+">3+</span><div class="ncl">Plantillas premium en producción</div></div>
+    <div class="nc rv"><span class="ncg" aria-hidden="true">2</span><span class="ncn" data-count="2">2</span><div class="ncl">Plantillas premium en producción</div></div>
     <div class="nc rv d1"><span class="ncg" aria-hidden="true">&lt;2s</span><span class="ncn" data-text="&lt;2s">&lt;2s</span><div class="ncl">Velocidad de carga media</div></div>
     <div class="nc rv d2"><span class="ncg" aria-hidden="true">5-7</span><span class="ncn" data-count="7" data-pre="5–">5–7</span><div class="ncl">Días de entrega media por proyecto</div></div>
     <div class="nc rv d3"><span class="ncg" aria-hidden="true">24h</span><span class="ncn" data-text="24h">24h</span><div class="ncl">Para recibir tu presupuesto listo</div></div>
