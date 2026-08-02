@@ -571,6 +571,17 @@ body.chov #c-ring{width:56px;height:56px;border-color:rgba(34,211,238,.28)}
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('consent','default',{analytics_storage:'denied',wait_for_update:500});</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-C7B0MZ81ZF"></script>
 <script>gtag('js',new Date());gtag('config','G-C7B0MZ81ZF');</script>
+<style>
+/* ═══ CINEMÁTICO: reveal más fuerte + tilt 3D + glow (2-ago-2026) ═══ */
+.rv{opacity:0;transform:translateY(56px) scale(.96);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.14s}.d2{transition-delay:.28s}.d3{transition-delay:.42s}.d4{transition-delay:.56s}
+.tilt{position:relative;transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .5s}
+.tilt:hover{box-shadow:0 26px 60px rgba(0,0,0,.5),0 0 50px rgba(139,92,246,.16)}
+.tilt::after{content:'';position:absolute;inset:0;border-radius:inherit;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(139,92,246,.22),transparent 62%);opacity:0;transition:opacity .4s;pointer-events:none}
+.tilt:hover::after{opacity:1}
+@media(prefers-reduced-motion:reduce){.tilt{transition:none}.tilt::after{display:none}}
+</style>
 </head>
 <body>
 <header id="main-nav" class="pt-elem" style="--pt-d:0s">
@@ -694,7 +705,7 @@ body.chov #c-ring{width:56px;height:56px;border-color:rgba(34,211,238,.28)}
       <p class="sp" style="margin:0 auto">Plantilla premium para talleres y negocios de automoción, desplegada y funcional al 100%.</p>
     </div>
     <div class="lp-port-g" style="max-width:560px;margin:2rem auto 0">
-      <a href="https://taller-profesional.pages.dev/" target="_blank" rel="noopener" class="lp-proj rv" style="display:block">
+      <a href="https://taller-profesional.pages.dev/" target="_blank" rel="noopener" class="lp-proj rv tilt" style="display:block">
         <div class="lp-proj-img" style="height:280px">
           <img src="taller profesional portada.webp" alt="Taller Profesional — plantilla Creskio para talleres" loading="lazy" style="object-position:top center">
           <div class="lp-proj-ov"></div>
@@ -1026,6 +1037,29 @@ document.querySelectorAll('.lp-faq-q').forEach(btn=>{
     banner.style.display='none';
   };
 })();
+</script>
+<script>
+/* ═══ CINEMÁTICO: tilt 3D + parallax de órbitas (2-ago-2026) ═══ */
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  document.querySelectorAll('.tilt').forEach(card=>{
+    card.addEventListener('mousemove', e=>{
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX-r.left)/r.width, py = (e.clientY-r.top)/r.height;
+      const rx = (py-.5) * -14, ry = (px-.5) * 14;
+      card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-10px) scale(1.02)`;
+      card.style.setProperty('--mx', (px*100)+'%');
+      card.style.setProperty('--my', (py*100)+'%');
+    });
+    card.addEventListener('mouseleave', ()=>{ card.style.transform = ''; });
+  });
+  const orbs = document.querySelectorAll('.lp-horb1,.lp-horb2,.horb1,.horb2');
+  if(orbs.length){
+    window.addEventListener('scroll', ()=>{
+      const sy = window.scrollY;
+      orbs.forEach((el,i)=>{ el.style.translate = `0 ${sy*(0.14+i*0.08)}px`; });
+    }, {passive:true});
+  }
+}
 </script>
 </body>
 </html>
