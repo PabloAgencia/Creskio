@@ -113,7 +113,7 @@ html{scroll-behavior:smooth}
   --bg:#03050a;--bg2:#060a12;--bg3:#0a1018;
   --s1:#8b5cf6;--s2:#7c3aed;
   --c1:#22d3ee;--c2:#6366f1;--g1:#10b981;
-  --m1:rgba(255,255,255,.6);--m2:rgba(255,255,255,.38);
+  --m1:rgba(255,255,255,.6);--m2:rgba(255,255,255,.6);
   --m3:rgba(255,255,255,.55);--m4:rgba(255,255,255,.09);
   --b1:rgba(255,255,255,.07);--b2:rgba(255,255,255,.12);
   --gs:linear-gradient(135deg,#8b5cf6,#7c3aed);
@@ -292,6 +292,8 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-st
 .lp-zona h4{font-family:var(--f1);font-size:.9rem;font-weight:700;color:var(--s1);margin-bottom:.75rem}
 .lp-zona p{font-size:.85rem;color:var(--m2);margin-bottom:.5rem;font-weight:300;line-height:1.75}
 .lp-zona p:last-child{margin-bottom:0}
+
+section[id]{scroll-margin-top:92px}
 </style>
 <style>
 @keyframes logoBreath{0%,100%{filter:invert(1) drop-shadow(0 0 0px rgba(139,92,246,0))}50%{filter:invert(1) drop-shadow(0 0 14px rgba(139,92,246,.52)) drop-shadow(0 0 28px rgba(34,211,238,.18))}}
@@ -318,8 +320,8 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-st
   <div class="nav-w">
     <a class="nav-logo" href="/" aria-label="Creskio inicio"><img src="logo-creskio.webp" alt="Creskio"></a>
     <ul class="nav-ul" role="list">
-      <li><a href="/#servicios" class="ntab"><span class="ntab-ic">🎨</span><span class="ntab-txt">Servicios</span></a></li>
-      <li><a href="/#demos" class="ntab"><span class="ntab-ic">🖥️</span><span class="ntab-txt">Plantillas</span></a></li>
+      <li><a href="#servicios" class="ntab"><span class="ntab-ic">🎨</span><span class="ntab-txt">Servicios</span></a></li>
+      <li><a href="#demos" class="ntab"><span class="ntab-ic">🖥️</span><span class="ntab-txt">Plantillas</span></a></li>
       <li><a href="/#proceso" class="ntab"><span class="ntab-ic">🚀</span><span class="ntab-txt">Proceso</span></a></li>
       <li><a href="#faq" class="ntab"><span class="ntab-ic">❓</span><span class="ntab-txt">FAQ</span></a></li>
     </ul>
@@ -339,8 +341,8 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-st
     <button class="mob-x" id="MOBX" aria-label="Cerrar menú"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 2L14 14M14 2L2 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
   </div>
   <nav class="mob-nav">
-    <a href="/#servicios" class="mob-item" onclick="cM()"><span class="mob-num">01</span><span class="mob-lbl">Servicios</span><span class="mob-arrow">→</span></a>
-    <a href="/#demos" class="mob-item" onclick="cM()"><span class="mob-num">02</span><span class="mob-lbl">Plantillas</span><span class="mob-arrow">→</span></a>
+    <a href="#servicios" class="mob-item" onclick="cM()"><span class="mob-num">01</span><span class="mob-lbl">Servicios</span><span class="mob-arrow">→</span></a>
+    <a href="#demos" class="mob-item" onclick="cM()"><span class="mob-num">02</span><span class="mob-lbl">Plantillas</span><span class="mob-arrow">→</span></a>
     <a href="/#proceso" class="mob-item" onclick="cM()"><span class="mob-num">03</span><span class="mob-lbl">Proceso</span><span class="mob-arrow">→</span></a>
     <a href="#faq" class="mob-item" onclick="cM()"><span class="mob-num">04</span><span class="mob-lbl">FAQ</span><span class="mob-arrow">→</span></a>
   </nav>
@@ -385,7 +387,7 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-st
 </section>
 
 <!-- PORTFOLIO SECTOR -->
-<section class="sec" style="background:var(--bg2)">
+<section class="sec" style="background:var(--bg2)" id="demos">
   <div class="wrap">
     <div class="rv" style="text-align:center;max-width:580px;margin:0 auto">
       <div class="slbl" style="justify-content:center"><div class="slbl-bar bc"></div><span class="slbl-t tc">Demo del sector</span></div>
@@ -411,7 +413,7 @@ img{max-width:100%;display:block}a{text-decoration:none;color:inherit}ul{list-st
 </section>
 
 <!-- POR QUÉ -->
-<section class="sec" style="background:var(--bg)">
+<section class="sec" style="background:var(--bg)" id="servicios">
   <div class="wrap">
     <div class="rv" style="text-align:center;max-width:560px;margin:0 auto 0">
       <div class="slbl" style="justify-content:center"><div class="slbl-bar bs"></div><span class="slbl-t ts">Por qué Creskio</span></div>
