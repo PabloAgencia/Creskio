@@ -291,7 +291,12 @@ footer a{color:var(--s1)}
 /* ═══ CINEMÁTICO: reveal en cascada + tilt + parallax de órbitas (2-ago-2026) ═══ */
 (function(){
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  document.querySelectorAll('h2').forEach(el=>el.classList.add('rv'));
+  document.querySelectorAll('h2').forEach(h=>{
+    h.classList.add('rv');
+    /* el h2 sube desde abajo: sus parrafos entran con el, si no se solapan */
+    let n=h.nextElementSibling, i=1;
+    while(n && n.tagName==='P' && i<=3){ n.classList.add('rv'); n.style.transitionDelay=(i*70)+'ms'; n=n.nextElementSibling; i++; }
+  });
   const ro = new IntersectionObserver(es=>es.forEach(e=>{
     if(e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); }
   }), {threshold:0.08, rootMargin:'0px 0px -40px 0px'});
