@@ -172,12 +172,16 @@
   a { color: var(--cb-primary); }
   @media (max-width: 768px) {
     .cb-launcher { bottom: calc(90px + env(safe-area-inset-bottom, 0px)); left: calc(16px + env(safe-area-inset-left, 0px)); width: 58px; height: 58px; }
-    .cb-window { bottom: calc(90px + env(safe-area-inset-bottom, 0px)); left: calc(16px + env(safe-area-inset-left, 0px)); width: calc(100vw - 32px); height: 480px; max-height: calc(100vh - 110px); }
+    .cb-window { bottom: calc(90px + env(safe-area-inset-bottom, 0px)); left: calc(16px + env(safe-area-inset-left, 0px)); width: calc(100vw - 32px); height: 480px; max-height: calc(100dvh - 110px); }
     .cb-hint-badge { bottom: calc(90px + 38px + env(safe-area-inset-bottom, 0px)); left: calc(16px + 38px + env(safe-area-inset-left, 0px)); }
     .cb-hint-tip { display: none; }
   }
   @media (max-width: 420px) {
-    .cb-window { width: calc(100vw - 24px); left: calc(12px + env(safe-area-inset-left, 0px)); height: calc(100vh - 110px); max-height: calc(100vh - 110px); }
+    /* Ancla arriba Y abajo en vez de una altura calculada con 100vh:
+       en móvil 100vh incluye la zona tapada por la barra del navegador,
+       así que la ventana quedaba más alta que la pantalla visible real
+       y se cortaba por arriba. */
+    .cb-window { width: calc(100vw - 24px); left: calc(12px + env(safe-area-inset-left, 0px)); top: max(16px, env(safe-area-inset-top, 0px)); bottom: calc(90px + env(safe-area-inset-bottom, 0px)); height: auto; max-height: none; }
     .cb-launcher { left: calc(12px + env(safe-area-inset-left, 0px)); }
   }
   `;
