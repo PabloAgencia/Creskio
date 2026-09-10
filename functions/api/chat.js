@@ -61,7 +61,7 @@ const tools = [
     input_schema: {
       type: "object",
       properties: {
-        start_datetime: { type: "string", description: "Fecha y hora ISO 8601 UTC. España verano = UTC+2 (9:00 Madrid = 07:00Z)" },
+        start_datetime: { type: "string", description: "Fecha y hora ISO 8601 UTC. España en horario de verano, de finales de marzo a finales de octubre, es UTC+2 (9:00 Madrid = 07:00Z). El resto del año, horario de invierno, es UTC+1 (9:00 Madrid = 08:00Z). Usa la FECHA ACTUAL del sistema para saber cuál toca." },
         attendee_name: { type: "string", description: "Nombre del visitante" },
         attendee_email: { type: "string", description: "Email del visitante" }
       },
@@ -167,7 +167,10 @@ export async function onRequestPost(context) {
         })
       })
       const data = await response.json()
-      if (!response.ok) return Response.json({ error: data }, { status: 500, headers: { 'Access-Control-Allow-Origin': '*' } })
+      if (!response.ok) return Response.json(
+        { reply: `Estoy teniendo un problema técnico ahora mismo. Escríbenos por WhatsApp y te atendemos: https://wa.me/${WHATSAPP} 💬` },
+        { headers: { 'Access-Control-Allow-Origin': '*' } }
+      )
       if (data.stop_reason !== 'tool_use') {
         const textBlock = data.content.find(b => b.type === 'text')
         return Response.json(
@@ -197,7 +200,10 @@ export async function onRequestPost(context) {
       })
     }
   } catch (error) {
-    return Response.json({ error: error.message }, { status: 500, headers: { 'Access-Control-Allow-Origin': '*' } })
+    return Response.json(
+      { reply: `Estoy teniendo un problema técnico ahora mismo. Escríbenos por WhatsApp y te atendemos: https://wa.me/${WHATSAPP} 💬` },
+      { headers: { 'Access-Control-Allow-Origin': '*' } }
+    )
   }
 }
 

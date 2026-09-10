@@ -85,6 +85,33 @@
   .cb-launcher:active { transform: scale(.96); }
   .cb-launcher svg { width: 28px; height: 28px; flex-shrink: 0; }
   .cb-launcher.is-open { transform: scale(0); pointer-events: none; }
+  .cb-hint-badge {
+    position: fixed;
+    bottom: calc(${cfg.launcherBottom} + 44px + env(safe-area-inset-bottom, 0px));
+    left: calc(${cfg.launcherLeft} + 44px + env(safe-area-inset-left, 0px));
+    width: 20px; height: 20px;
+    background: #ef4444; border-radius: 50%;
+    color: #fff; font-size: 11px; font-weight: 700;
+    font-family: system-ui, sans-serif;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transform: scale(0);
+    transition: opacity .3s, transform .3s;
+    pointer-events: none; z-index: 999998;
+  }
+  .cb-hint-badge.show { opacity: 1; transform: scale(1); animation: cb-badge-pop .4s cubic-bezier(.34,1.56,.64,1); }
+  @keyframes cb-badge-pop { from{transform:scale(0)} 60%{transform:scale(1.3)} to{transform:scale(1)} }
+  .cb-hint-tip {
+    position: fixed;
+    bottom: calc(${cfg.launcherBottom} + 22px + env(safe-area-inset-bottom, 0px));
+    left: calc(${cfg.launcherLeft} + 76px + env(safe-area-inset-left, 0px));
+    background: var(--cb-charcoal); color: #fff;
+    font-family: system-ui, sans-serif; font-size: 12.5px; font-weight: 600;
+    padding: 8px 14px; white-space: nowrap;
+    border: 1px solid rgba(139,92,246,.35); border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0,0,0,.4);
+    opacity: 0; transition: opacity .35s; pointer-events: none; z-index: 999998;
+  }
+  .cb-hint-tip.show { opacity: 1; }
   .cb-window {
     all: unset;
     box-sizing: border-box;
@@ -146,6 +173,8 @@
   @media (max-width: 768px) {
     .cb-launcher { bottom: calc(90px + env(safe-area-inset-bottom, 0px)); left: calc(16px + env(safe-area-inset-left, 0px)); width: 58px; height: 58px; }
     .cb-window { bottom: calc(90px + env(safe-area-inset-bottom, 0px)); left: calc(16px + env(safe-area-inset-left, 0px)); width: calc(100vw - 32px); height: 480px; max-height: calc(100vh - 110px); }
+    .cb-hint-badge { bottom: calc(90px + 38px + env(safe-area-inset-bottom, 0px)); left: calc(16px + 38px + env(safe-area-inset-left, 0px)); }
+    .cb-hint-tip { display: none; }
   }
   @media (max-width: 420px) {
     .cb-window { width: calc(100vw - 24px); left: calc(12px + env(safe-area-inset-left, 0px)); height: calc(100vh - 110px); max-height: calc(100vh - 110px); }
@@ -169,7 +198,7 @@
     window.open(buildWhatsAppUrl(prefillText), '_blank', 'noopener');
   }
 
-  var launcher, win, msgsEl, inputEl, sendBtn, isOpen = false;
+  var launcher, win, msgsEl, inputEl, sendBtn, hintBadge, hintTip, isOpen = false;
 
   function buildDOM() {
     launcher = document.createElement('button');
@@ -201,8 +230,18 @@
       '</div>' +
       '<div class="cb-disclaimer">Agente IA de Creskio · Demo en vivo</div>';
 
+    hintBadge = document.createElement('div');
+    hintBadge.className = 'cb-hint-badge';
+    hintBadge.textContent = '1';
+
+    hintTip = document.createElement('div');
+    hintTip.className = 'cb-hint-tip';
+    hintTip.textContent = '¿Alguna duda? ¡Pregúntame! 💬';
+
     root.appendChild(launcher);
     root.appendChild(win);
+    root.appendChild(hintBadge);
+    root.appendChild(hintTip);
 
     msgsEl = win.querySelector('.cb-messages');
     inputEl = win.querySelector('.cb-input');
@@ -224,6 +263,8 @@
     win.classList.toggle('is-open', isOpen);
     launcher.classList.toggle('is-open', isOpen);
     if (isOpen) {
+      hintBadge.classList.remove('show');
+      hintTip.classList.remove('show');
       if (!msgsEl.children.length) showGreeting();
       setTimeout(function () { inputEl.focus(); }, 250);
     }
@@ -326,6 +367,18 @@
   }
 
   buildDOM();
+
+  (function () {
+    var seenKey = 'creskio_hint_seen';
+    if (sessionStorage.getItem(seenKey)) return;
+    setTimeout(function () {
+      if (sessionStorage.getItem(seenKey) || isOpen) return;
+      sessionStorage.setItem(seenKey, '1');
+      hintBadge.classList.add('show');
+      hintTip.classList.add('show');
+    }, 3000);
+  })();
+
   window.CreskioChatbot = {
     open: function () { if (!isOpen) toggleOpen(); },
     close: function () { if (isOpen) toggleOpen(); }
