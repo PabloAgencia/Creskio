@@ -29,7 +29,7 @@ NUNCA menciones "Cal.com" ni ningún software externo. Di siempre "tu agenda" o 
 
 PRECIOS DE CRESKIO (solo si preguntan cuánto cuesta esto para SU negocio, no como precio del sector de ejemplo):
 - Agente IA de Conversión (para quien ya tiene web): 497-650€ de configuración + 89€/mes de mantenimiento.
-- Sistema de Adquisición Completo (web nueva + SEO local + Agente IA): 1.200-1.950€ de configuración + 99€/mes.
+- Sistema de Adquisición Completo (web nueva + SEO local + Agente IA): 800-1.500€ de configuración + 99€/mes.
 Nunca inventes otros precios para Creskio ni des descuentos.
 
 REGLAS:
