@@ -612,7 +612,7 @@ body.chov #c-ring{width:56px;height:56px;border-color:rgba(34,211,238,.28)}
   .htitle{letter-spacing:-.025em}
 
   /* ROTATING TEXT MOBILE */
-  .hrot-line{font-size:clamp(1.05rem,3.8vw,1.35rem) !important}
+  .hrot-line{font-size:clamp(1.15rem,4vw,1.45rem) !important}
 }
 /* Hero card */
 .hcard{
@@ -699,13 +699,13 @@ body[data-scene="cta"] #scene-wash{background:radial-gradient(ellipse 100% 80% a
 /* ─── SECTIONS ─── */
 .sec{padding:clamp(6rem,10vw,9rem) clamp(1.5rem,5vw,3.5rem);position:relative}
 .wrap{max-width:1280px;margin:0 auto}
-.slbl{display:inline-flex;align-items:center;gap:10px;margin-bottom:1.25rem}
-.slbl-bar{width:24px;height:1.5px;border-radius:1px}
+.slbl{display:inline-flex;align-items:center;gap:12px;margin-bottom:1.4rem}
+.slbl-bar{width:30px;height:2px;border-radius:1px}
 .bs{background:var(--gs)}.bc{background:linear-gradient(90deg,var(--c1),var(--c2))}
-.slbl-t{font-family:var(--f1);font-size:.63rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase}
-.ts{color:rgba(139,92,246,.7)}.tc{color:rgba(34,211,238,.7)}
+.slbl-t{font-family:var(--f1);font-size:clamp(.82rem,1.15vw,.95rem);font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.ts{color:#a78bfa;text-shadow:0 0 22px rgba(139,92,246,.4)}.tc{color:#5eead4;text-shadow:0 0 22px rgba(34,211,238,.4)}
 .sh{font-family:var(--f1);font-size:clamp(2rem,4.5vw,3.4rem);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin-bottom:1rem}
-.sp{font-size:clamp(.95rem,1.4vw,1.04rem);color:rgba(255,255,255,.72);line-height:1.9;max-width:530px;font-weight:300}
+.sp{font-family:var(--f1);font-size:clamp(1.05rem,1.7vw,1.3rem);color:rgba(255,255,255,.82);line-height:1.7;max-width:560px;font-weight:500;letter-spacing:-.01em}
 .acs{color:var(--s1)}.acc{color:var(--c1)}
 
 /* ═══════════════════════════════════════
@@ -1349,21 +1349,24 @@ body[data-scene="cta"] #scene-wash{background:radial-gradient(ellipse 100% 80% a
 /* ─── HERO H2 ROTATING — differentiated from H1 ─── */
 .hrot-wrap{
   overflow:hidden;
-  min-height:clamp(1.6rem,3vw,2.3rem);
+  min-height:clamp(1.9rem,3.4vw,2.6rem);
   display:flex;align-items:flex-start;
   margin-bottom:.15rem;
 }
 .hrot-line{
   display:block;
-  font-weight:400;
-  line-height:1.3;letter-spacing:0;
-  font-size:clamp(1.05rem,1.8vw,1.4rem);
-  color:rgba(255,255,255,.5);
-  animation:rotIn .65s var(--sp) both;
-  will-change:transform,opacity;
+  font-family:var(--f1);
+  font-weight:700;
+  line-height:1.3;letter-spacing:-.01em;
+  font-size:clamp(1.25rem,2.2vw,1.65rem);
+  background:linear-gradient(90deg,#c4b5fd,#67e8f9);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+  filter:drop-shadow(0 0 16px rgba(139,92,246,.3));
+  animation:rotIn .7s var(--sp) both;
+  will-change:transform,opacity,filter;
 }
-.hrot-line.leaving{transform:translateY(-115%);opacity:0;transition:transform .35s cubic-bezier(.76,0,.24,1),opacity .3s ease}
-@keyframes rotIn{from{transform:translateY(115%);opacity:0}to{transform:translateY(0);opacity:1}}
+.hrot-line.leaving{transform:translateY(-115%) scale(.96);opacity:0;filter:blur(5px);transition:transform .4s cubic-bezier(.76,0,.24,1),opacity .3s ease,filter .3s ease}
+@keyframes rotIn{from{transform:translateY(115%) scale(.96);opacity:0;filter:blur(5px)}to{transform:translateY(0) scale(1);opacity:1;filter:drop-shadow(0 0 16px rgba(139,92,246,.3))}}
 
 /* ─── H1 PREMIUM GLOW ─── */
 .htitle-glow{
@@ -1572,7 +1575,7 @@ table{max-width:100%}
 @media(max-width:380px){
   #main-nav{padding:10px clamp(.75rem,3vw,1rem)}
   .hrow span{font-size:clamp(1.95rem,8.8vw,2.6rem) !important}
-  #hero .hrot-line{font-size:clamp(.95rem,4vw,1.2rem) !important}
+  #hero .hrot-line{font-size:clamp(1.05rem,4.2vw,1.3rem) !important}
   .hmock-wrap{max-width:320px}
   .bmock-screen{height:170px}
   .wrap{padding-left:1rem;padding-right:1rem}
@@ -1605,7 +1608,7 @@ table{max-width:100%}
   .ham{display:none}
   .hcont{grid-template-columns:1fr 360px}
   .hrow span{font-size:clamp(2.6rem,6vw,3.6rem) !important}
-  #hero .hrot-line{font-size:clamp(1.1rem,2vw,1.4rem) !important}
+  #hero .hrot-line{font-size:clamp(1.2rem,2.2vw,1.55rem) !important}
   .port-grid{grid-template-columns:repeat(2,1fr)}
   #mob-cta{display:none}
 }
@@ -1770,7 +1773,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 @media(max-width:767px){
   #bv-g{grid-template-columns:1fr!important}
   .hrow span{font-size:clamp(2.4rem,9vw,3.5rem)!important}
-  .hrot-line{font-size:clamp(1rem,4vw,1.25rem)!important;min-height:auto!important}
+  .hrot-line{font-size:clamp(1.1rem,4.2vw,1.35rem)!important;min-height:auto!important}
   .hdesc{font-size:clamp(.9rem,3.5vw,1.1rem)!important;max-width:100%!important}
   .eyebrow{flex-wrap:wrap;gap:.35rem}
 }
@@ -1778,7 +1781,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 /* ── 480px — minimums ── */
 @media(max-width:480px){
   .sh{font-size:clamp(1.5rem,7vw,2rem)!important}
-  .sp{font-size:.82rem}
+  .sp{font-size:.95rem}
   img,video,iframe{max-width:100%;height:auto}
 }
 
@@ -2190,7 +2193,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
     <div class="rv" style="text-align:center;max-width:680px;margin:0 auto 3rem">
       <div class="slbl" style="justify-content:center"><div class="slbl-bar bc"></div><span class="slbl-t tc">Plantillas en vivo</span></div>
       <h2 class="sh" style="margin-bottom:.9rem">Así de buena queda <span class="acc">tu web.</span></h2>
-      <p class="sp">Plantillas premium por sector, desarrolladas y desplegadas. Funcionales al 100%, listas para tu negocio.</p>
+      <p class="sp" style="margin:0 auto">Plantillas premium por sector, desarrolladas y desplegadas. Funcionales al 100%, listas para tu negocio.</p>
     </div>
 
     <!-- ── GRID PLANTILLAS ── -->
@@ -2479,6 +2482,85 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 </section>
 
 <div class="s-sep" style="--bd:7s;--bdy:3.2s" aria-hidden="true"><div class="s-sep-dot"></div></div>
+
+<!-- ════ EMBUDO — CÓMO FUNCIONA EL SISTEMA ════ -->
+<section id="embudo" class="sec">
+  <div class="sec-glow sg-cool" style="top:10%;left:-10%" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="rv" style="text-align:center;max-width:620px;margin:0 auto">
+      <div class="slbl" style="justify-content:center"><div class="slbl-bar bc"></div><span class="slbl-t tc">Cómo funciona</span></div>
+      <h2 class="sh">De visita a <span class="acc">cliente</span><br>en automático</h2>
+      <p class="sp" style="margin:0 auto">Esto es lo que pasa detrás, sin que tú tengas que estar pendiente.</p>
+    </div>
+    <div class="tl-wrap">
+      <div class="tl-line" id="tlLineEmbudo"><div class="tl-line-fill"></div></div>
+
+      <div class="tl-step rv">
+        <div class="tl-node">
+          <div class="tl-num">01</div>
+          <div class="tl-node-ring"></div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-ic">🔍</div>
+          <h3 class="tl-t">Te encuentran</h3>
+          <p class="tl-d">Buscan en Google, en Maps o llegan por redes y recomendaciones. Tu web aparece justo donde están mirando.</p>
+        </div>
+      </div>
+
+      <div class="tl-step rv d1">
+        <div class="tl-node">
+          <div class="tl-num">02</div>
+          <div class="tl-node-ring"></div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-ic">🌐</div>
+          <h3 class="tl-t">Entran en tu web</h3>
+          <p class="tl-d">Ven servicios, precios y horarios claros, sin tener que llamar para preguntar lo básico.</p>
+        </div>
+      </div>
+
+      <div class="tl-step rv d2">
+        <div class="tl-node">
+          <div class="tl-num">03</div>
+          <div class="tl-node-ring"></div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-ic">🤖</div>
+          <h3 class="tl-t">El asistente responde</h3>
+          <p class="tl-d">Resuelve dudas y da precios orientativos al instante, a cualquier hora, incluso con el negocio cerrado.</p>
+        </div>
+      </div>
+
+      <div class="tl-step rv d3">
+        <div class="tl-node">
+          <div class="tl-num">04</div>
+          <div class="tl-node-ring"></div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-ic">📅</div>
+          <h3 class="tl-t">Agenda la cita solo</h3>
+          <p class="tl-d">Consulta tu agenda real y reserva directo en tu Google Calendar, o capta el contacto por WhatsApp.</p>
+        </div>
+      </div>
+
+      <div class="tl-step rv d4">
+        <div class="tl-node">
+          <div class="tl-num">05</div>
+          <div class="tl-node-ring"></div>
+        </div>
+        <div class="tl-body">
+          <div class="tl-ic">💰</div>
+          <h3 class="tl-t">Tú recibes la oportunidad</h3>
+          <p class="tl-d">Ves la cita confirmada en tu calendario. Cero llamadas perdidas, cero clientes que se van a la competencia.</p>
+          <div class="tl-tag tl-tag-g">✓ Sin mover un dedo</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="s-sep" style="--bd:8.5s;--bdy:2.1s" aria-hidden="true"><div class="s-sep-dot"></div></div>
 
 <!-- ════ PROCESO ════ -->
 <section id="proceso" class="sec">
@@ -3805,8 +3887,8 @@ document.querySelectorAll('[data-count]:not(.hstatn)').forEach(el=>cObs.observe(
 })();
 
 /* ── TIMELINE DRAW ANIMATION ── */
-(function(){
-  const sec = document.getElementById('proceso');
+['proceso','embudo'].forEach(function(secId){
+  const sec = document.getElementById(secId);
   if(!sec) return;
   const fill = sec.querySelector('.tl-line-fill');
   const steps = sec.querySelectorAll('.tl-step');
@@ -3819,7 +3901,7 @@ document.querySelectorAll('[data-count]:not(.hstatn)').forEach(el=>cObs.observe(
     });
   }, {threshold:.12});
   io.observe(sec);
-})();
+});
 
 /* ── 3D TILT EN PORTFOLIO CARDS (solo desktop) ── */
 (function(){
