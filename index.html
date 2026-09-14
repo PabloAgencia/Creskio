@@ -450,7 +450,7 @@ body.chov #c-ring{width:56px;height:56px;border-color:rgba(34,211,238,.28)}
 @keyframes dpulse{0%,100%{opacity:1}50%{opacity:.28}}
 .ew-txt{font-family:var(--f1);font-size:.63rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(16,185,129,.82)}
 .ew-sep{width:1px;height:14px;background:rgba(255,255,255,.1)}
-.ew-sub{font-family:var(--f1);font-size:.63rem;font-weight:600;color:var(--m3);letter-spacing:.08em}
+.ew-sub{font-family:var(--f1);font-size:.8rem;font-weight:700;color:rgba(255,255,255,.68);letter-spacing:.04em}
 
 /* ── H1 ── */
 .htitle{font-family:var(--f1);font-weight:800;line-height:.97;letter-spacing:-.045em;margin-bottom:.75rem;width:100%}
@@ -527,6 +527,7 @@ body.chov #c-ring{width:56px;height:56px;border-color:rgba(34,211,238,.28)}
 }
 .hstat:last-child{border-right:none}
 .hstatn{
+  display:block;text-align:center;white-space:nowrap;
   font-family:var(--f1);font-size:1.5rem;font-weight:800;
   background:var(--gs);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
   line-height:1
@@ -1969,7 +1970,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
         </a>
         <a href="#demos" class="bghost">Ver proyectos →</a>
       </div>
-      <p style="font-size:.67rem;color:rgba(255,255,255,.28);margin-top:.4rem;text-align:center;overflow-wrap:break-word;word-break:break-word">Prueba el agente aquí mismo, sin registro · Al contactar aceptas nuestra <a href="/privacidad" style="color:rgba(255,255,255,.4);text-decoration:underline">Política de Privacidad</a>.</p>
+      <p style="font-family:var(--f1);font-size:.92rem;font-weight:500;color:rgba(255,255,255,.55);margin-top:.6rem;text-align:center;overflow-wrap:break-word;word-break:break-word">Prueba el agente aquí mismo, sin registro · Al contactar aceptas nuestra <a href="/privacidad" style="color:rgba(255,255,255,.72);text-decoration:underline">Política de Privacidad</a>.</p>
 
       <div class="hstats">
         <div class="hstat"><span class="hstatn" data-count="2" data-prefix="&lt;" data-suffix="s">&lt;2s</span><span class="hstatl">Velocidad de carga</span></div>
@@ -2267,7 +2268,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 
     <!-- CTA centrado -->
     <div class="rv" style="text-align:center;margin-top:3.5rem">
-      <p style="font-size:.88rem;color:var(--m3);margin-bottom:1.6rem">¿Tu sector no está aquí? Más plantillas en camino — y siempre adaptamos a medida.</p>
+      <p style="font-family:var(--f1);font-size:1.15rem;font-weight:500;color:rgba(255,255,255,.75);margin-bottom:1.6rem">¿Tu sector no está aquí? Más plantillas en camino — y siempre adaptamos a medida.</p>
       <a href="#cta" class="bwa rh" style="font-size:.82rem;padding:13px 30px">Quiero la mía a medida →</a>
     </div>
 
@@ -2836,7 +2837,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
         <ul style="list-style:none;display:flex;flex-direction:column;gap:.4rem">
           <li><a href="/web-para-talleres" style="font-size:.78rem;color:var(--m2);transition:color .2s" onmouseover="this.style.color='#22d3ee'" onmouseout="this.style.color='rgba(255,255,255,.58)'">Web para talleres</a></li>
           <li><a href="/web-para-clinicas" style="font-size:.78rem;color:var(--m2);transition:color .2s" onmouseover="this.style.color='#22d3ee'" onmouseout="this.style.color='rgba(255,255,255,.58)'">Web para clínicas</a></li>
-          <li><a href="/web-para-estetica" style="font-size:.78rem;color:var(--m2);transition:color .2s" onmouseover="this.style.color='#22d3ee'" onmouseout="this.style.color='rgba(255,255,255,.58)'">Web para estética</a></li>
+          <li><a href="/chatbot-ia-para-dentistas" style="font-size:.78rem;color:var(--m2);transition:color .2s" onmouseover="this.style.color='#22d3ee'" onmouseout="this.style.color='rgba(255,255,255,.58)'">Webs para clínicas dentales</a></li>
+          <li><a href="/web-para-estetica" style="font-size:.78rem;color:var(--m2);transition:color .2s" onmouseover="this.style.color='#22d3ee'" onmouseout="this.style.color='rgba(255,255,255,.58)'">Web para clínicas estéticas</a></li>
           <li><a href="/web-para-restaurantes" style="font-size:.78rem;color:var(--m2);transition:color .2s" onmouseover="this.style.color='#22d3ee'" onmouseout="this.style.color='rgba(255,255,255,.58)'">Web para restaurantes</a></li>
           <li><a href="/web-para-abogados" style="font-size:.78rem;color:var(--m2);transition:color .2s" onmouseover="this.style.color='#22d3ee'" onmouseout="this.style.color='rgba(255,255,255,.58)'">Web para abogados</a></li>
           <li><a href="/web-para-peluquerias" style="font-size:.78rem;color:var(--m2);transition:color .2s" onmouseover="this.style.color='#22d3ee'" onmouseout="this.style.color='rgba(255,255,255,.58)'">Web para peluquerías</a></li>
@@ -2917,11 +2919,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
         <a href="/web-para-talleres">Talleres mecánicos</a>
         <a href="/web-para-restaurantes">Restaurantes</a>
         <a href="/web-para-clinicas">Clínicas</a>
+        <a href="/chatbot-ia-para-dentistas">Clínicas dentales</a>
         <a href="/web-para-electricistas">Electricistas</a>
         <a href="/web-para-fontaneros">Fontaneros</a>
         <a href="/web-para-peluquerias">Peluquerías</a>
         <a href="/web-para-abogados">Abogados</a>
-        <a href="/web-para-estetica">Estética y belleza</a>
+        <a href="/web-para-estetica">Clínicas estéticas</a>
         <a href="/web-para-gimnasios">Gimnasios</a>
         <a href="/web-para-hoteles">Hoteles</a>
         <a href="/web-para-gestoras">Gestorías</a>
