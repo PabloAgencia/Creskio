@@ -1684,6 +1684,12 @@ table{max-width:100%}
   background:rgba(139,92,246,.15);border:1px solid rgba(139,92,246,.35);color:rgba(139,92,246,.95);
 }
 .tmpl-badge-pink{background:rgba(236,72,153,.12);border-color:rgba(236,72,153,.32);color:rgba(236,72,153,.95)}
+.tmpl-badge-cyan{background:rgba(34,211,238,.12);border-color:rgba(34,211,238,.32);color:rgba(34,211,238,.95)}
+/* Las plantillas con imagen usan la misma proporcion que los videos de demo (~2:1), para que las tarjetas midan igual */
+.tmpl-preview:has(img){height:auto;aspect-ratio:2/1}
+/* Con un numero impar de plantillas, la ultima se centra en vez de quedarse sola a un lado.
+   Solo en escritorio: en movil el grid ya es de una sola columna. */
+@media(min-width:768px){.tmpl-card:last-child:nth-child(odd){grid-column:1/-1;width:calc(50% - 1rem);justify-self:center}}
 .tmpl-body{padding:1.75rem 1.75rem 2rem}
 .tmpl-name{font-family:var(--f1);font-size:1.3rem;font-weight:800;color:#fff;margin-bottom:.7rem}
 .tmpl-desc{font-size:.84rem;color:var(--m3);line-height:1.88;font-weight:300;margin-bottom:1.2rem}
@@ -2016,6 +2022,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
         <div class="bmock-screen">
           <div class="bmock-slide bms-active"><video autoplay muted loop playsinline poster="taller profesional portada.webp"><source src="demo-talleres.webm" type="video/webm"><source src="demo-talleres-opt.mp4" type="video/mp4"></video></div>
           <div class="bmock-slide"><video autoplay muted loop playsinline poster="lumiere portada.webp"><source src="demo-estetica.webm" type="video/webm"><source src="demo-estetica-opt.mp4" type="video/mp4"></video></div>
+          <div class="bmock-slide"><img src="blanc-dental-portada.jpg" alt="Blanc Clínica Dental — plantilla Creskio para clínicas dentales" loading="lazy"></div>
           <div class="bmock-grad"></div>
           <div class="bmock-info">
             <div class="bmock-info-left">
@@ -2261,6 +2268,35 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
             <span>Mobile first</span>
           </div>
           <a href="https://lumiere-estetica.pages.dev/" class="port-demo-btn rh" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Ver web en vivo →
+          </a>
+        </div>
+      </div>
+
+      <!-- 3. Blanc Clínica Dental (imagen hasta que se grabe el video de la demo) -->
+      <div class="tmpl-card tilt rv d2">
+        <div class="tmpl-preview">
+          <img src="blanc-dental-portada.jpg" alt="Blanc Clínica Dental — plantilla Creskio para clínicas dentales" loading="lazy">
+          <div class="tmpl-badge tmpl-badge-cyan">🦷 Clínicas Dentales</div>
+          <div class="tmpl-preview-ov">
+            <a href="https://blanc-dental.pages.dev/" class="bwa" target="_blank" rel="noopener" style="font-size:.78rem;padding:11px 24px">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="flex-shrink:0"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Ver web en vivo →
+            </a>
+          </div>
+        </div>
+        <div class="tmpl-body">
+          <div class="tmpl-name">Blanc Clínica Dental</div>
+          <div class="tmpl-desc">Diseño limpio y luminoso para clínicas dentales. Catálogo de tratamientos con implantes, ortodoncia invisible y estética dental, presentación del equipo médico y asistente IA que resuelve dudas y lleva a la primera visita.</div>
+          <div class="tmpl-chips">
+            <span>Chatbot IA 24/7</span>
+            <span>Diseño limpio</span>
+            <span>Catálogo tratamientos</span>
+            <span>Equipo médico</span>
+            <span>Mobile first</span>
+          </div>
+          <a href="https://blanc-dental.pages.dev/" class="port-demo-btn rh" target="_blank" rel="noopener">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
             Ver web en vivo →
           </a>
@@ -3543,6 +3579,7 @@ document.querySelectorAll('[data-count]:not(.hstatn)').forEach(el=>cObs.observe(
   const projects = [
     {url:'taller-profesional.pages.dev', tag:'🔧 Talleres · Automoción',  name:'Taller Profesional'},
     {url:'lumiere-estetica.pages.dev',   tag:'💆 Clínicas Estéticas',      name:'Lumière Estética'},
+    {url:'blanc-dental.pages.dev',       tag:'🦷 Clínicas Dentales',       name:'Blanc Clínica Dental'},
   ];
 
   let cur = Math.floor(Math.random() * projects.length), timer;
