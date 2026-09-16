@@ -3813,7 +3813,11 @@ document.querySelectorAll('[data-count]:not(.hstatn)').forEach(el=>cObs.observe(
       { label: "No aparezco en Google", send: "Mi web no aparece en Google" },
       { label: "Hablar con Pablo", action: "whatsapp", prefill: "Hola Pablo, vengo del Agente IA de la web y quiero hablar contigo." }
     ],
-    apiUrl: "/api/chat"
+    /* Backend del chat en workers.dev, no en la propia web.
+       Los bloqueos de LaLiga tumban el rango de IPs de pages.dev, pero no
+       el de workers.dev, asi que el chat sigue funcionando este la web
+       servida desde Cloudflare o desde el espejo de GitHub Pages. */
+    apiUrl: "https://creskio-chat.ia-pablo-agencia.workers.dev/"
   };
 </script>
 <script src="chat-widget.js"></script>
