@@ -11,3 +11,4 @@ skills-lock.json
 .impeccable/hook.cache.json
 .impeccable/*.png
 .impeccable/live/
+_backup-*/
