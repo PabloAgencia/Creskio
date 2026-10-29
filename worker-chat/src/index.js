@@ -7,11 +7,11 @@ import { onRequestPost, onRequestOptions } from "../../functions/api/chat.js"
 
 export default {
   async fetch(request, env, ctx) {
-    if (request.method === "OPTIONS") return onRequestOptions()
+    if (request.method === "OPTIONS") return onRequestOptions({ request, env, ctx })
     if (request.method === "POST") return onRequestPost({ request, env, ctx })
     return new Response(
       "Backend del Agente IA de Creskio. Solo acepta POST.",
-      { status: 405, headers: { "Access-Control-Allow-Origin": "*" } }
+      { status: 405 }
     )
-  },
+  }
 }

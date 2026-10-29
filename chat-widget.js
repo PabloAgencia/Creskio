@@ -168,6 +168,7 @@
   .cb-send:hover { transform: scale(1.06); }
   .cb-send:active { transform: scale(.94); }
   .cb-send svg { width: 18px; height: 18px; flex-shrink: 0; }
+  .cb-priv { color: inherit; text-decoration: underline; }
   .cb-disclaimer { box-sizing: border-box; width: 100%; font-size: 10.5px; color: var(--cb-text-muted); text-align: center; padding: 6px 14px 9px; background: var(--cb-charcoal); letter-spacing: .02em; flex-shrink: 0; }
   a { color: var(--cb-primary); }
   @media (max-width: 768px) {
@@ -232,7 +233,7 @@
       '  <input type="text" class="cb-input" placeholder="Escribe tu consulta..." aria-label="Mensaje" maxlength="500" autocomplete="off">' +
       '  <button class="cb-send" aria-label="Enviar"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg></button>' +
       '</div>' +
-      '<div class="cb-disclaimer">Agente IA de Creskio · Demo en vivo</div>';
+      '<div class="cb-disclaimer">Agente IA de Creskio · Demo en vivo · <a class="cb-priv" href="https://creskio.com/privacidad.html" target="_blank" rel="noopener">Privacidad</a></div>';
 
     hintBadge = document.createElement('div');
     hintBadge.className = 'cb-hint-badge';
