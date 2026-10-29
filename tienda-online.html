@@ -879,7 +879,7 @@ section[id]{scroll-margin-top:92px}
       <div style="padding:1.1rem 1.2rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);border-radius:16px"><div style="font-family:var(--f1);font-size:.9rem;font-weight:700;color:#fff;margin-bottom:.25rem">Formas de pago</div><div style="font-size:.8rem;color:rgba(255,255,255,.58);line-height:1.55">Tarjeta, Bizum, PayPal, transferencia o contrareembolso.</div></div>
     </div>
     <div class="rv" style="text-align:center;margin-top:1.8rem">
-      <a href="https://brisa-atelier-mganicgy.myshopify.com" class="bghost" style="display:inline-block;font-size:.84rem" target="_blank" rel="noopener">Abrir la tienda de demostración →</a>
+      <button type="button" id="demoOpen" class="bghost" style="display:inline-block;font-size:.84rem;cursor:pointer">Abrir la tienda de demostración →</button>
       <div style="font-size:.74rem;color:var(--m3);margin-top:.7rem">Si pide contraseña, escribe <strong style="color:rgba(255,255,255,.9);letter-spacing:.08em">demo</strong> en minúscula para entrar.</div>
     </div>
   </div>
@@ -1097,6 +1097,27 @@ if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
     }, {passive:true});
   }
 }
+</script>
+<div id="demoModal" role="dialog" aria-modal="true" aria-labelledby="demoTitle" style="display:none;position:fixed;inset:0;z-index:99999;background:rgba(3,5,10,.82);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:1rem">
+  <div style="max-width:420px;width:100%;background:#0b0d17;border:1px solid rgba(139,92,246,.5);border-radius:22px;padding:1.8rem 1.5rem;text-align:center;box-shadow:0 30px 90px rgba(139,92,246,.25)">
+    <div id="demoTitle" style="font-family:var(--f1);font-size:1.15rem;font-weight:800;color:#fff;margin-bottom:.6rem">Antes de entrar</div>
+    <p style="font-size:.9rem;color:rgba(255,255,255,.72);line-height:1.6;margin:0 0 1rem">Si la tienda pide contraseña, escribe <strong style="color:#fff">demo</strong> en minúscula para entrar.</p>
+    <div style="display:flex;gap:.6rem;justify-content:center;align-items:center;margin-bottom:1.2rem">
+      <code style="font-size:1.4rem;font-weight:800;letter-spacing:.12em;color:#c4b5fd;background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.35);padding:.5rem 1.2rem;border-radius:12px">demo</code>
+      <button type="button" id="demoCopy" class="bghost" style="font-size:.8rem;padding:.7rem 1rem;cursor:pointer">Copiar</button>
+    </div>
+    <a id="demoGo" href="https://brisa-atelier-mganicgy.myshopify.com" target="_blank" rel="noopener" class="bwa rh" style="display:block;padding:14px 20px;font-size:.9rem;text-align:center">Abrir la tienda →</a>
+    <button type="button" id="demoClose" style="margin-top:.9rem;background:none;border:0;color:rgba(255,255,255,.5);font-size:.8rem;cursor:pointer">Cerrar</button>
+  </div>
+</div>
+<script>
+(function(){var m=document.getElementById('demoModal'),o=document.getElementById('demoOpen');if(!m||!o)return;
+function open(){m.style.display='flex'}function close(){m.style.display='none'}
+o.addEventListener('click',open);document.getElementById('demoClose').addEventListener('click',close);
+m.addEventListener('click',function(e){if(e.target===m)close()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+document.getElementById('demoCopy').addEventListener('click',function(){var b=this;try{navigator.clipboard.writeText('demo').then(function(){b.textContent='Copiado ✓'})}catch(e){b.textContent='demo'}});
+document.getElementById('demoGo').addEventListener('click',function(){setTimeout(close,300)});})();
 </script>
 <script>
 (function(){var v=document.querySelector('.lp-hvid');if(!v)return;
