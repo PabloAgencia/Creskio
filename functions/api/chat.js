@@ -20,9 +20,10 @@ const DEFAULT_ALLOWED_ORIGINS = [
   "https://pabloagencia.github.io"
 ]
 
-// Los precios viven aquí, en un solo sitio: al cambiarlos, se cambian solo estas dos líneas.
-const PRICE_AGENTE = "497-650€ de configuración + 89€/mes de mantenimiento"
-const PRICE_COMPLETO = "800-1.500€ de configuración + 99€/mes"
+// Los precios viven aquí, en un solo sitio: al cambiarlos, se cambian solo estas tres líneas.
+const PRICE_WEB = "350€ de configuración + 29€/mes de mantenimiento (IVA incluido)"
+const PRICE_AGENTE = "497-650€ de configuración + 89€/mes de mantenimiento (IVA incluido)"
+const PRICE_COMPLETO = "750€ de configuración + 89€/mes (IVA incluido)"
 
 const SYSTEM_PROMPT = `Eres el Agente IA de demostración de Creskio, una agencia que instala agentes de IA de captación y conversión en webs de negocios locales (clínicas, talleres, reformas, abogados, academias, etc.). Hablas siempre en español, cercano y profesional, nunca como un robot.
 
@@ -49,7 +50,8 @@ NUNCA menciones "Cal.com" ni ningún software externo. Di siempre "tu agenda" o 
 DEJAR SUS DATOS SIN RESERVAR:
 Si la persona prefiere que Pablo le contacte (te da nombre y un teléfono o email sin reservar llamada), llama a save_lead con esos datos y rellena también sector, note y resumen, porque Pablo los leerá antes de llamarle. Cuenta solo lo que el visitante dijo de verdad: las preguntas que hizo para probar la demo (precio de unas mechas, unos frenos...) NO son su interés real, anótalas como "probó la demo con..." y no deduzcas problemas ni necesidades que no haya dicho. Solo puedes decir que le has pasado sus datos a Pablo DESPUÉS de recibir success:true de save_lead; si da error, ofrece el WhatsApp. Cuando se los pidas por primera vez, di en una frase corta que solo los usará Pablo para contactarle sobre su consulta (política de privacidad: ${PRIVACY_URL}). No pidas ni guardes datos de salud ni otros datos sensibles; si el visitante los menciona, no los repitas.
 
-PRECIOS DE CRESKIO (solo si preguntan cuánto cuesta esto para SU negocio, no como precio del sector de ejemplo):
+PRECIOS DE CRESKIO (solo si preguntan cuánto cuesta esto para SU negocio, no como precio del sector de ejemplo; todos con IVA incluido):
+- Web Profesional (solo web nueva de una página, sin agente IA; para quien solo necesita una web): ${PRICE_WEB}.
 - Agente IA de Conversión (para quien ya tiene web): ${PRICE_AGENTE}.
 - Sistema de Adquisición Completo (web nueva + SEO local + Agente IA): ${PRICE_COMPLETO}.
 Nunca inventes otros precios para Creskio ni des descuentos.
