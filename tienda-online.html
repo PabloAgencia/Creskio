@@ -428,10 +428,13 @@ body.chov #c-ring{width:56px;height:56px;border-color:rgba(34,211,238,.28)}
 .lp-hbg{position:absolute;inset:0;z-index:0;overflow:hidden;isolation:isolate}
 .lp-hbg::after{
   content:'';position:absolute;inset:0;
-  background:linear-gradient(108deg,rgba(3,5,10,.98) 0%,rgba(3,5,10,.85) 50%,rgba(3,5,10,.5) 100%),
-             linear-gradient(to top,rgba(3,5,10,.95) 0%,transparent 40%);
+  background:linear-gradient(108deg,rgba(3,5,10,.93) 0%,rgba(3,5,10,.72) 48%,rgba(3,5,10,.3) 100%),
+             linear-gradient(to top,rgba(3,5,10,.95) 0%,transparent 38%);
 }
 .lp-hbg img{width:100%;height:100%;object-fit:cover;filter:brightness(.22) saturate(.4)}
+.lp-hvid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.62) saturate(.95);opacity:0;animation:lpVidIn 1.6s .3s ease forwards}
+@keyframes lpVidIn{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.lp-hvid{display:none}}
 .lp-hdots{position:absolute;inset:0;z-index:1;pointer-events:none;background-image:radial-gradient(circle,rgba(255,255,255,.035) 1px,transparent 1px);background-size:40px 40px;mask-image:radial-gradient(ellipse 80% 80% at 35% 50%,black 5%,transparent 70%)}
 .lp-horb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(100px);z-index:1}
 .lp-horb1{width:55vw;height:55vw;top:-15%;left:-10%;background:radial-gradient(ellipse,rgba(139,92,246,.07) 0%,transparent 65%);animation:orbF 22s ease-in-out infinite alternate}
@@ -697,7 +700,7 @@ section[id]{scroll-margin-top:92px}
 <!-- HERO -->
 
 <section class="lp-hero">
-  <div class="lp-hbg"></div>
+  <div class="lp-hbg"><video class="lp-hvid" src="/video/tienda-demo-brisa-atelier.mp4" poster="/video/tienda-demo-brisa-atelier.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true" tabindex="-1"></video></div>
   <div class="lp-hdots" aria-hidden="true"></div>
   <div class="lp-horb lp-horb1" aria-hidden="true"></div>
   <div class="lp-horb lp-horb2" aria-hidden="true"></div>
