@@ -728,6 +728,7 @@ section[id]{scroll-margin-top:92px}
           Quiero mi tienda online
         </a>
         <a href="#precio" class="bghost">Ver precios →</a>
+        <button type="button" class="bghost demoOpenBtn" style="cursor:pointer;border-color:rgba(196,181,253,.55)">Ver la tienda de demo ↗</button>
       </div>
     </div>
   </div>
@@ -1102,6 +1103,7 @@ if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
   <div style="max-width:420px;width:100%;background:#0b0d17;border:1px solid rgba(139,92,246,.5);border-radius:22px;padding:1.8rem 1.5rem;text-align:center;box-shadow:0 30px 90px rgba(139,92,246,.25)">
     <div id="demoTitle" style="font-family:var(--f1);font-size:1.15rem;font-weight:800;color:#fff;margin-bottom:.6rem">Antes de entrar</div>
     <p style="font-size:.9rem;color:rgba(255,255,255,.72);line-height:1.6;margin:0 0 1rem">Si la tienda pide contraseña, escribe <strong style="color:#fff">demo</strong> en minúscula para entrar.</p>
+    <p style="font-size:.76rem;color:rgba(255,255,255,.45);margin:-.5rem 0 1rem">Si no carga, ábrela en Chrome o Safari, no desde el navegador de Instagram o WhatsApp.</p>
     <div style="display:flex;gap:.6rem;justify-content:center;align-items:center;margin-bottom:1.2rem">
       <code style="font-size:1.4rem;font-weight:800;letter-spacing:.12em;color:#c4b5fd;background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.35);padding:.5rem 1.2rem;border-radius:12px">demo</code>
       <button type="button" id="demoCopy" class="bghost" style="font-size:.8rem;padding:.7rem 1rem;cursor:pointer">Copiar</button>
@@ -1111,9 +1113,9 @@ if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
   </div>
 </div>
 <script>
-(function(){var m=document.getElementById('demoModal'),o=document.getElementById('demoOpen');if(!m||!o)return;
+(function(){var m=document.getElementById('demoModal');var os=document.querySelectorAll('#demoOpen,.demoOpenBtn');if(!m||!os.length)return;
 function open(){m.style.display='flex'}function close(){m.style.display='none'}
-o.addEventListener('click',open);document.getElementById('demoClose').addEventListener('click',close);
+os.forEach(function(b){b.addEventListener('click',open)});document.getElementById('demoClose').addEventListener('click',close);
 m.addEventListener('click',function(e){if(e.target===m)close()});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
 document.getElementById('demoCopy').addEventListener('click',function(){var b=this;try{navigator.clipboard.writeText('demo').then(function(){b.textContent='Copiado ✓'})}catch(e){b.textContent='demo'}});
