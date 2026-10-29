@@ -21,7 +21,7 @@ const DEFAULT_ALLOWED_ORIGINS = [
 ]
 
 // Los precios viven aquí, en un solo sitio: al cambiarlos, se cambian solo estas tres líneas.
-const PRICE_WEB = "350€ de configuración + 29€/mes de mantenimiento (IVA incluido)"
+const PRICE_WEB = "350€ de configuración en un solo pago + 29€/mes de mantenimiento, que incluye 2 horas al mes de cambios y el arreglo de cualquier fallo si algo se rompe (IVA incluido)"
 const PRICE_TIENDA = "desde 1.200€ + IVA de montaje (hasta 30 productos; de 30 a 100: 1.500€ + IVA; más de 100 o con variantes: presupuesto a medida) y 99€/mes + IVA; la suscripción de Shopify, el dominio, las comisiones de pago y las fotos de producto NO están incluidos"
 const PRICE_AGENTE = "497-650€ de configuración + 89€/mes de mantenimiento (IVA incluido)"
 const PRICE_COMPLETO = "750€ de configuración + 89€/mes (IVA incluido)"
