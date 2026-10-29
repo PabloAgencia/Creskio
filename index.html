@@ -1858,6 +1858,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
         <span class="ntab-ic">🤖</span>
         <span class="ntab-txt">Agente IA</span>
       </a></li>
+      <li><a href="/tienda-online" class="ntab">
+        <span class="ntab-ic">🛒</span>
+        <span class="ntab-txt">Tienda</span>
+      </a></li>
       <li><a href="#proceso" class="ntab">
         <span class="ntab-ic">🚀</span>
         <span class="ntab-txt">Proceso</span>
@@ -1906,13 +1910,18 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
       <span class="mob-lbl">Agente IA</span>
       <span class="mob-arrow">→</span>
     </a>
-    <a href="#proceso" class="mob-item" onclick="cM()">
+    <a href="/tienda-online" class="mob-item" onclick="cM()">
       <span class="mob-num">04</span>
+      <span class="mob-lbl">Tienda online</span>
+      <span class="mob-arrow">→</span>
+    </a>
+    <a href="#proceso" class="mob-item" onclick="cM()">
+      <span class="mob-num">05</span>
       <span class="mob-lbl">Proceso</span>
       <span class="mob-arrow">→</span>
     </a>
     <a href="#cta" class="mob-item" onclick="cM()">
-      <span class="mob-num">05</span>
+      <span class="mob-num">06</span>
       <span class="mob-lbl">Contacto</span>
       <span class="mob-arrow">→</span>
     </a>
@@ -3879,12 +3888,14 @@ document.querySelectorAll('[data-count]:not(.hstatn)').forEach(el=>cObs.observe(
     whatsappNumber: "34654256764",
     primaryColor: "#8b5cf6",
     avatarEmoji: "🤖",
-    greeting: "¡Hola! Bienvenido a Creskio. Ayudamos a negocios a captar clientes y agendar citas automáticamente con IA. Para mostrarte de lo que soy capaz, ¿cuál es tu sector? (Ej: Clínica estética, Taller, Reformas, Abogado...)",
+    greeting: "¡Hola! 👋 Soy el asistente de Creskio. Te ayudo a ver qué necesita tu negocio para conseguir más clientes: web, agente IA, tienda online o salir en Google. ¿Por dónde empezamos?",
     initialQuickReplies: [
-      { label: "No tengo web todavía", send: "No tengo web todavía" },
-      { label: "Ya tengo web, quiero IA", send: "Ya tengo web y quiero un Agente IA" },
-      { label: "No aparezco en Google", send: "Mi web no aparece en Google" },
-      { label: "Hablar con Pablo", action: "whatsapp", prefill: "Hola Pablo, vengo del Agente IA de la web y quiero hablar contigo." }
+      { label: "Quiero una web nueva", send: "Quiero una web nueva para mi negocio" },
+      { label: "Un agente IA para mi web", send: "Ya tengo web y quiero un Agente IA" },
+      { label: "Quiero vender online", send: "Quiero vender mis productos por internet" },
+      { label: "No aparezco en Google", send: "Mi negocio no aparece en Google" },
+      { label: "Ver precios", send: "¿Cuánto cuestan vuestros servicios?" },
+      { label: "Hablar con Pablo", action: "whatsapp", prefill: "Hola Pablo, vengo del asistente de la web y quiero hablar contigo." }
     ],
     /* Backend del chat en workers.dev, no en la propia web.
        Los bloqueos de LaLiga tumban el rango de IPs de pages.dev, pero no
